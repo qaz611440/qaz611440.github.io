@@ -9,10 +9,8 @@
 </head>
 <body>
 
-  <!-- 背景粒子（CDN） -->
   <div id="particles-js"></div>
 
-  <!-- 深色模式 -->
   <div class="theme-toggle">
     <input type="checkbox" id="theme" />
     <label for="theme">Dark Mode</label>
@@ -20,7 +18,7 @@
 
   <div class="container">
 
-    <!-- 頭像區 -->
+    <!-- Hero -->
     <header class="hero">
       <div class="avatar-container">
         <img src="images/photo.jpg" alt="陳彥邦" class="avatar">
@@ -32,62 +30,29 @@
       <a href="resume.pdf" class="btn-primary" download>Download Resume PDF</a>
     </header>
 
-    <!-- 自我介紹 -->
+    <!-- 自我介紹（已補充 resume 內容） -->
     <section class="section glass">
       <h2>自我介紹</h2>
       <p>熱愛將電路原理轉化為實體產品，擁有 3 年 Power IC 測試與類比IC驗證經驗。擅長 Verilog / C# / Python 開發自動化流程，近期用 AI 打造「從 0 到 YouTube 上架小說」的全自動系統。2024 年於交大夜間學分班修讀「類比積體電路」獲 <strong>A+</strong>，目標成為專業類比IC設計工程師。</p>
+      <p style="margin-top:1rem;">個性主動、細心、有耐心、上進心強，享受解決困難問題帶來的成就感，喜歡與團隊溝通討論。未來目標：長期穩定發展專業領域、提升英文至 TOEIC 730+、具備主管級專業能力。</p>
     </section>
 
-    <!-- 技能 -->
+    <!-- 技能（已補充更詳細說明） -->
     <section class="section glass">
       <h2>專業技能 <span class="skill-note">(熟練度：90% = 獨立完成商業專案)</span></h2>
       <div class="skills-grid">
-        <div class="skill-item">
-          <div class="skill-header">
-            <span class="icon">Python</span>
-            <span class="level">90%</span>
-          </div>
-          <div class="skill-bar"><div style="width:90%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header">
-            <span class="icon">C# / Visual Studio</span>
-            <span class="level">85%</span>
-          </div>
-          <div class="skill-bar"><div style="width:85%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header">
-            <span class="icon">Verilog / FPGA</span>
-            <span class="level">80%</span>
-          </div>
-          <div class="skill-bar"><div style="width:80%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header">
-            <span class="icon">類比IC設計</span>
-            <span class="level">75%</span>
-          </div>
-          <div class="skill-bar"><div style="width:75%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header">
-            <span class="icon">OrCAD / Allegro</span>
-            <span class="level">80%</span>
-          </div>
-          <div class="skill-bar"><div style="width:80%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-header">
-            <span class="icon">LabVIEW / Arduino</span>
-            <span class="level">85%</span>
-          </div>
-          <div class="skill-bar"><div style="width:85%"></div></div>
-        </div>
+        <div class="skill-item"><div class="skill-header"><span>Python</span><span>90%</span></div><div class="skill-bar"><div style="width:90%"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span>C# / Visual Studio</span><span>85%</span></div><div class="skill-bar"><div style="width:85%"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span>Verilog / FPGA</span><span>80%</span></div><div class="skill-bar"><div style="width:80%"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span>類比IC設計</span><span>75%</span></div><div class="skill-bar"><div style="width:75%"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span>OrCAD / Allegro PCB</span><span>82%</span></div><div class="skill-bar"><div style="width:82%"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span>LabVIEW / Arduino</span><span>85%</span></div><div class="skill-bar"><div style="width:85%"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span>焊接技術 (SMD/DIP)</span><span>88%</span></div><div class="skill-bar"><div style="width:88%"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span>測試儀器操作</span><span>90%</span></div><div class="skill-bar"><div style="width:90%"></div></div></div>
       </div>
     </section>
 
-    <!-- 作品集 -->
+    <!-- 作品集（全新統一格式） -->
     <section id="projects" class="section glass">
       <h2>作品集</h2>
       <div class="filters">
@@ -95,107 +60,88 @@
         <button data-filter="ic">IC設計</button>
         <button data-filter="power">Power測試</button>
         <button data-filter="ai">AI自動化</button>
+        <button data-filter="other">其他</button>
       </div>
-      <input type="text" id="search" placeholder="Search Projects..." class="search-bar">
+      <input type="text" id="search" placeholder="搜尋作品關鍵字..." class="search-bar">
 
       <div class="grid" id="project-grid">
-        <!-- AI 小說自動化 + YouTube 嵌入 -->
-        <div class="card" data-category="ai">
-          <div class="card-img">
-            <iframe src="https://www.youtube.com/embed?listType=playlist&list=UU_你的頻道ID" 
-                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
+
+        <!-- AI 小說自動化 + YouTube -->
+        <div class="card unified-card" data-category="ai">
+          <div class="card-img"><img src="images/ai_novel.jpg" alt="AI小說自動化"></div>
           <div class="card-content">
-            <h3>AI 全自動小說生成 + YouTube 上架</h3>
-            <p>Python + OpenAI API：生成小說 → TTS → 影片 → 自動上傳，每天執行。</p>
-            <a href="https://www.youtube.com/@YB%E5%8E%9F%E5%89%B5%E6%9C%89%E8%81%B2%E5%B0%8F%E8%AA%AA" target="_blank" class="card-link">Watch Channel</a>
+            <h3>AI 全自動小說生成 + YouTube 自動上架</h3>
+            <p>Python + OpenAI API + TTS + 自動剪輯 + YouTube API，每天全自動產出一支有聲書影片，已持續運作超過 6 個月。</p>
+            <div class="project-links">
+              <a href="projects/ai_novel_report.xlsx" download>📊 Excel 報告</a>
+              <a href="projects/ai_novel_source.zip" download>📦 完整程式碼壓縮檔</a>
+              <a href="https://www.youtube.com/@YB原創有聲小說" target="_blank">🔗 YouTube 頻道</a>
+            </div>
           </div>
         </div>
 
-        <!-- LED Driver IC -->
-        <div class="card" data-category="ic">
-          <div class="card-img">
-            <img src="https://via.placeholder.com/300x180?text=LED+Driver+IC" alt="LED Driver">
-          </div>
+        <!-- LED Driver IC 應用驗證 -->
+        <div class="card unified-card" data-category="ic">
+          <div class="card-img"><img src="images/led_driver.jpg" alt="LED Driver"></div>
           <div class="card-content">
-            <h3>LED Driver IC 應用驗證</h3>
-            <p>銳發科技 | Verilog / C# 控制 MCU 點亮面板，解決客訴，繪製 PCB。</p>
-            <a href="#" class="card-link">View Report</a>
+            <h3>LED Driver IC 應用驗證 & 客訴解決</h3>
+            <p>銳發科技 | Verilog 撰寫時序、C# 控制 MCU 點亮直顯面板、Allegro 繪製四層 PCB，成功解決多起客戶客訴。</p>
+            <div class="project-links">
+              <a href="projects/led_driver_report.xlsx" download>📊 Excel 報告</a>
+              <a href="projects/led_driver_project.zip" download>📦 專案檔案壓縮檔</a>
+            </div>
           </div>
         </div>
 
-        <!-- Power IC 測試 -->
-        <div class="card" data-category="power">
-          <div class="card-img">
-            <img src="https://via.placeholder.com/300x180?text=Power+IC+Test" alt="Power IC">
-          </div>
+        <!-- Power IC 測試自動化 -->
+        <div class="card unified-card" data-category="power">
+          <div class="card-img"><img src="images/power_test.jpg" alt="Power IC測試"></div>
           <div class="card-content">
-            <h3>Power IC 測試自動化</h3>
-            <p>鴻海 HWQA | Python 控制設備測試 DC/DC、電池充放電。</p>
-            <a href="#" class="card-link">View Report</a>
+            <h3>Power IC 測試自動化平台</h3>
+            <p>鴻海 HWQA | Python 控制 Chroma、Tektronix 等儀器，完成 DC/DC、電池充放電、太陽能充電等 10+ 項測試，支援電動車面板、Server 主板等產品。</p>
+            <div class="project-links">
+              <a href="projects/power_test_report.xlsx" download>📊 Excel 報告</a>
+              <a href="projects/power_test_scripts.zip" download>📦 測試程式壓縮檔</a>
+            </div>
           </div>
         </div>
 
         <!-- 智慧導覽車 -->
-        <div class="card" data-category="ic">
-          <div class="card-img">
-            <img src="https://via.placeholder.com/300x180?text=Smart+Car" alt="導覽車">
-          </div>
+        <div class="card unified-card" data-category="other">
+          <div class="card-img"><img src="images/smart_car.jpg" alt="智慧導覽車"></div>
           <div class="card-content">
-            <h3>智慧導覽車專題</h3>
-            <p>銘傳大學 | LabVIEW + 指紋解鎖、環境感測、語音導覽。</p>
-            <a href="#" class="card-link">View Project</a>
+            <h3>指紋解鎖智慧導覽車（大學專題）</h3>
+            <p>LabVIEW + Arduino | 指紋門禁、語音導覽、環境感測、倒車雷達、溫濕度監控，可應用於觀光景點自駕遊園車。</p>
+            <div class="project-links">
+              <a href="projects/smart_car_report.xlsx" download>📊 Excel 報告</a>
+              <a href="projects/smart_car_source.zip" download>📦 完整專案壓縮檔</a>
+            </div>
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- 學歷 -->
+    <!-- 學歷（已補充高中、國中） -->
     <section class="section glass">
       <h2>學歷與進修</h2>
       <div class="timeline">
-        <div class="timeline-item">
-          <div class="year">2024</div>
-          <div class="content">
-            <h3>國立交通大學 夜間學分班</h3>
-            <p>類比積體電路設計 <span class="highlight">A+</span></p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="year">2021</div>
-          <div class="content">
-            <h3>銘傳大學 電機電子工程學系</h3>
-            <p>大學畢業 | 系排第2/78</p>
-          </div>
-        </div>
+        <div class="timeline-item"><div class="year">2024</div><div class="content"><h3>國立交通大學 夜間學分班</h3><p>類比積體電路設計 <span class="highlight">A+</span></p></div></div>
+        <div class="timeline-item"><div class="year">2021</div><div class="content"><h3>銘傳大學 電機電子工程學系</h3><p>大學畢業 | 累計系排第2/78</p></div></div>
+        <div class="timeline-item"><div class="year">2017</div><div class="content"><h3>國立竹南高中 普通科</h3><p>高中畢業</p></div></div>
+        <div class="timeline-item"><div class="year">2014</div><div class="content"><h3>照南國中</h3><p>國中畢業</p></div></div>
       </div>
     </section>
 
-    <!-- 工作經歷 -->
+    <!-- 工作經歷（完全按照 resume.pdf 最新順序） -->
     <section class="section glass">
       <h2>工作經歷</h2>
       <div class="timeline">
-        <div class="timeline-item">
-          <div class="year">2025/9~</div>
-          <div class="content">
-            <h3>久元電子股份有限公司</h3>
-            <p>硬體開發工程師（ATE部門）</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="year">2024/4~</div>
-          <div class="content">
-            <h3>久元電子股份有限公司</h3>
-            <p>應用工程師（ATE部門）</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="year">2023/7~2024/1</div>
-          <div class="content">
-            <h3>銳發科技股份有限公司</h3>
-            <p>高級應用工程師</p>
-          </div>
-        </div>
+        <div class="timeline-item"><div class="year">2025/9～</div><div class="content"><h3>久元電子股份有限公司</h3><p>硬體開發工程師（ATE部門）</p></div></div>
+        <div class="timeline-item"><div class="year">2024/4～</div><div class="content"><h3>久元電子股份有限公司</h3><p>應用工程師（ATE部門）</p></div></div>
+        <div class="timeline-item"><div class="year">2023/7～2024/1</div><div class="content"><h3>銳發科技股份有限公司</h3><p>高級應用工程師</p></div></div>
+        <div class="timeline-item"><div class="year">2022/4～2023/6</div><div class="content"><h3>鴻海精密工業股份有限公司</h3><p>硬體測試工程師（HWQA Power team）</p></div></div>
+        <div class="timeline-item"><div class="year">2021/2～2021/7</div><div class="content"><h3>僑威科技股份有限公司</h3><p>助理工程師實習生（電源研發部）</p></div></div>
       </div>
     </section>
 
@@ -209,7 +155,6 @@
 
   </div>
 
-  <!-- CDN 載入 particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="js/script.js"></script>
 </body>

@@ -17,22 +17,24 @@ document.getElementById('theme').addEventListener('change', e => {
   document.body.classList.toggle('dark', e.target.checked);
 });
 
-// 作品篩選
+// 作品篩選（支援新 class）
 document.querySelectorAll('.filters button').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const filter = btn.getAttribute('data-filter');
     document.querySelectorAll('.card').forEach(card => {
-      card.style.display = (filter === 'all' || card.getAttribute('data-category') === filter) ? 'block' : 'none';
+      const category = card.getAttribute('data-category');
+      card.style.display = (filter === 'all' || category === filter) ? 'block' : 'none';
     });
   });
 });
 
-// 搜尋
+// 搜尋功能（支援新結構）
 document.getElementById('search').addEventListener('input', function() {
   const query = this.value.toLowerCase();
   document.querySelectorAll('.card').forEach(card => {
-    card.style.display = card.textContent.toLowerCase().includes(query) ? 'block' : 'none';
+    const text = card.textContent.toLowerCase();
+    card.style.display = text.includes(query) ? 'block' : 'none';
   });
 });
