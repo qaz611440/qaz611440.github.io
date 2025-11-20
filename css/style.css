@@ -308,6 +308,5 @@ h1, .tagline {
 }
 
 /* 新增：用於隱藏卡片的 class（避免 JS 直接改 display 導致布局問題） */
-.card.hidden {
-  display: none;
-}
+/* 在 style.css 最下面加入這一行 */
+.card.hidden { display: none !important; }

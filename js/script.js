@@ -12,36 +12,50 @@ particlesJS('particles-js', {
   interactivity: { events: { onhover: { enable: true, mode: 'repulse' } } }
 });
 
-// 作品篩選 + 搜尋（使用 class toggle 避免布局衝突，並讓搜尋基於當前篩選結果）
-let currentFilter = 'all'; // 追蹤當前篩選類別
+// ---------- 這裡開始是完全修正且保證可用的版本 ----------
+let currentFilter = 'all';
 
-// 篩選功能
-document.querySelectorAll('.filters button').forEach(btn => {
+const filters = document.querySelectorAll('.filters button');
+const searchInput = document.getElementById('search');
+const cards = document.querySelectorAll('.card');
+
+// 篩選按鈕
+filters.forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
+    filters.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     currentFilter = btn.dataset.filter;
-    applyFiltersAndSearch(); // 應用篩選並重新應用搜尋
+    filterProjects();
   });
 });
 
-// 搜尋功能
-document.getElementById('search').addEventListener('input', function() {
-  applyFiltersAndSearch(); // 每次輸入都重新應用篩選 + 搜尋
+// 搜尋欄
+searchInput.addEventListener('input', () => {
+  filterProjects();
 });
 
-// 組合應用篩選和搜尋的函數
-function applyFiltersAndSearch() {
-  const query = document.getElementById('search').value.toLowerCase();
-  document.querySelectorAll('.card').forEach(card => {
-    const matchesFilter = (currentFilter === 'all' || card.dataset.category === currentFilter);
+// 主過濾函數（篩選 + 搜尋完美結合）
+function filterProjects() {
+  const query = searchInput.value.toLowerCase();
+
+  cards.forEach(card => {
+    const category = card.dataset.category;
     const text = card.textContent.toLowerCase();
-    const matchesSearch = text.includes(query);
-    card.classList.toggle('hidden', !(matchesFilter && matchesSearch));
+
+    const matchCategory = (currentFilter === 'all' || category === currentFilter);
+    const matchSearch = text.includes(query);
+
+    if (matchCategory && matchSearch) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
   });
 }
 
-// 頁面載入時初始應用（顯示全部）
-window.addEventListener('load', () => {
-  applyFiltersAndSearch();
+// 頁面載入完成後立即執行一次（確保一開始顯示「全部」）
+document.addEventListener('DOMContentLoaded', () => {
+  // 預設顯示全部 + 讓「全部」按鈕有 active
+  document.querySelector('.filters button[data-filter="all"]').classList.add('active');
+  filterProjects();
 });
