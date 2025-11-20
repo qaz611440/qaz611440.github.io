@@ -306,3 +306,8 @@ h1, .tagline {
   transform: translateY(-4px);
   box-shadow: 0 10px 30px rgba(0,212,255,0.5);
 }
+
+/* 新增：用於隱藏卡片的 class（避免 JS 直接改 display 導致布局問題） */
+.card.hidden {
+  display: none;
+}

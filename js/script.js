@@ -12,29 +12,36 @@ particlesJS('particles-js', {
   interactivity: { events: { onhover: { enable: true, mode: 'repulse' } } }
 });
 
-// 深色模式
-document.getElementById('theme').addEventListener('change', e => {
-  document.body.classList.toggle('dark', e.target.checked);
-});
+// 作品篩選 + 搜尋（使用 class toggle 避免布局衝突，並讓搜尋基於當前篩選結果）
+let currentFilter = 'all'; // 追蹤當前篩選類別
 
-// 作品篩選（支援新 class）
+// 篩選功能
 document.querySelectorAll('.filters button').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    const filter = btn.getAttribute('data-filter');
-    document.querySelectorAll('.card').forEach(card => {
-      const category = card.getAttribute('data-category');
-      card.style.display = (filter === 'all' || category === filter) ? 'block' : 'none';
-    });
+    currentFilter = btn.dataset.filter;
+    applyFiltersAndSearch(); // 應用篩選並重新應用搜尋
   });
 });
 
-// 搜尋功能（支援新結構）
+// 搜尋功能
 document.getElementById('search').addEventListener('input', function() {
-  const query = this.value.toLowerCase();
+  applyFiltersAndSearch(); // 每次輸入都重新應用篩選 + 搜尋
+});
+
+// 組合應用篩選和搜尋的函數
+function applyFiltersAndSearch() {
+  const query = document.getElementById('search').value.toLowerCase();
   document.querySelectorAll('.card').forEach(card => {
+    const matchesFilter = (currentFilter === 'all' || card.dataset.category === currentFilter);
     const text = card.textContent.toLowerCase();
-    card.style.display = text.includes(query) ? 'block' : 'none';
+    const matchesSearch = text.includes(query);
+    card.classList.toggle('hidden', !(matchesFilter && matchesSearch));
   });
+}
+
+// 頁面載入時初始應用（顯示全部）
+window.addEventListener('load', () => {
+  applyFiltersAndSearch();
 });
