@@ -12,12 +12,6 @@ particlesJS('particles-js', {
   interactivity: { events: { onhover: { enable: true, mode: 'repulse' } } }
 });
 
-// 深色模式
-document.getElementById('theme').addEventListener('change', e => {
-  document.body.classList.toggle('dark', e.target.checked);
-});
-
-
 // 作品篩選 + 搜尋（完全相容你現在的 HTML）
 document.querySelectorAll('.filters button').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -33,7 +27,9 @@ document.querySelectorAll('.filters button').forEach(btn => {
 document.getElementById('search').addEventListener('input', function() {
   const query = this.value.toLowerCase();
   document.querySelectorAll('.card').forEach(card => {
-    const text = card.textContent.toLowerCase();
-    card.style.display = text.includes(query) ? 'block' : 'none';
+    if (card.style.display !== 'none') {  // 只檢查當前顯示的卡片
+      const text = card.textContent.toLowerCase();
+      card.style.display = text.includes(query) ? 'block' : 'none';
+    }
   });
 });
