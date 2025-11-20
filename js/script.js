@@ -1,49 +1,41 @@
-// 真正正確的 tsParticles 3.x 寫法（粒子超美、手機也超順！）
+// 完全用回你舊版一定會出現的 particles.js 2.0 寫法（加手機優化）
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-tsParticles.load("particles-js", {
-  background: {
-    color: { value: "#0a1a2e" }
-  },
-  fpsLimit: 120,
+particlesJS('particles-js', {
   particles: {
     number: { value: isMobile ? 40 : 80, density: { enable: true, value_area: 800 } },
-    color: { value: "#00d4ff" },
-    shape: { type: "circle" },
-    opacity: { value: 0.5, random: true, anim: { enable: true, speed:  1, sync: false } },
-    size: { value: isMobile ? 2.5 : 3.5, random: true },
-    links: {
+    color:  { value: '#00d4ff' },
+    shape: { type: 'circle' },
+    opacity: { value: 0.5, random: true },
+    size: { value: isMobile ? 2 : 3, random: true },
+    line_linked: {
       enable: true,
       distance: 150,
-      color: "#00d4ff",
+      color: '#00d4ff',
       opacity: 0.3,
       width: 1
     },
     move: {
       enable: true,
-      speed: isMobile ? 2 : 3,
-      direction: "none",
-      random: false,
-      straight: false,
-      outModes: { default: "out" }
+      speed: isMobile ? 2 : 3
     }
   },
   interactivity: {
-    detect_on: "canvas",
+    detect_on: 'canvas',
     events: {
-      onHover: { enable: !isMobile, mode: "repulse" },
-      onClick: { enable: true, mode: "push" },
+      onhover: { enable: !isMobile, mode: 'repulse' },
+      onclick: { enable: true, mode: 'push' },
       resize: true
     },
     modes: {
       repulse: { distance: 100, duration: 0.4 },
-      push: { quantity: 4 }
+      push: { particles_nb: 4 }
     }
   },
-  detectRetina: true
+  retina_detect: true
 });
 
-// 作品篩選 + 搜尋（完美運作）
+// 作品篩選 + 搜尋（完全相容你現在的 HTML）
 document.querySelectorAll('.filters button').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
