@@ -165,3 +165,35 @@ h1, .tagline {
   .card-img { aspect-ratio: 16/9; }
   .card-img img { height: 100%; object-fit: cover; }
 }
+
+
+/* 技術標籤樣式 */
+.tags {
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tags span {
+  background: rgba(0,212,255,0.2);
+  color: #00d4ff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(0,212,255,0.4);
+}
+
+/* 卡片光效保留 */
+.card::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(0,212,255,0.25), transparent 50%);
+  opacity: 0; transition: opacity 0.4s; pointer-events: none; border-radius: 16px;
+}
+.card:hover::before { opacity: 1; }
+
+/* 霓虹標題（你好像也喜歡） */
+h1, .tagline {
+  background: linear-gradient(90deg, #00d4ff, #00ff88);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+}

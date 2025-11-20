@@ -11,18 +11,12 @@
 
   <div id="particles-js"></div>
 
-  <!-- 深色模式（中文） -->
-  <div class="theme-toggle">
-    <input type="checkbox" id="theme" />
-    <label for="theme">深色模式</label>
-  </div>
-
   <div class="container">
 
     <!-- Hero -->
     <header class="hero">
       <div class="avatar-container">
-        <img src="images/photo.webp" loading="lazy" width="160" height="160" alt="陳彥邦" class="avatar">
+        <img src="images/photo.jpg" loading="lazy" width="160" height="160" alt="陳彥邦" class="avatar">
         <div class="glow"></div>
       </div>
       <h1>陳彥邦</h1>
@@ -30,16 +24,6 @@
       <p class="subtitle">銘傳大學電機系 系排第2・交大類比IC A+・現職久元電子硬體開發</p>
       <a href="resume.pdf" class="btn-primary" download>下載中文履歷 PDF</a>
     </header>
-
-    <!-- 量化成就牆 -->
-    <section class="achievements glass">
-      <div class="achieve-grid">
-        <div><strong>200+</strong><span>支 AI 有聲書自動產出</span></div>
-        <div><strong>10+</strong><span>種 Power IC 測試自動化專案</span></div>
-        <div><strong>6</strong><span>個月 AI 系統無人值守運行</span></div>
-        <div><strong>A+</strong><span>交大類比IC課程</span></div>
-      </div>
-    </section>
 
     <!-- 自我介紹 -->
     <section class="section glass">
@@ -58,12 +42,12 @@
         <div class="skill-item"><div class="skill-header"><span>類比IC設計</span><span>75%</span></div><div class="skill-bar"><div style="width:75%"></div></div></div>
         <div class="skill-item"><div class="skill-header"><span>OrCAD / Allegro PCB</span><span>82%</span></div><div class="skill-bar"><div style="width:82%"></div></div></div>
         <div class="skill-item"><div class="skill-header"><span>LabVIEW / Arduino</span><span>85%</span></div><div class="skill-bar"><div style="width:85%"></div></div></div>
-        <div class="skill-item"><div class="skill-header"><span> welding (SMD/DIP)</span><span>88%</span></div><div class="skill-bar"><div style="width:88%"></div></div></div>
+        <div class="skill-item"><div class="skill-header"><span>焊接技術 (SMD/DIP)</span><span>88%</span></div><div class="skill-bar"><div style="width:88%"></div></div></div>
         <div class="skill-item"><div class="skill-header"><span>測試儀器操作</span><span>90%</span></div><div class="skill-bar"><div style="width:90%"></div></div></div>
       </div>
     </section>
 
-    <!-- 作品集（最強進化版） -->
+    <!-- 作品集（真正專業版：技術標籤 + 線上瀏覽 + 下載） -->
     <section id="projects" class="section glass">
       <h2>作品集</h2>
       <div class="filters">
@@ -76,19 +60,22 @@
       <input type="text" id="search" placeholder="搜尋作品關鍵字..." class="search-bar">
 
       <div class="grid">
-        <!-- AI 全自動有聲書（有YouTube頻道連結） -->
+
+        <!-- AI 全自動有聲書 -->
         <div class="card unified-card" data-category="ai">
           <div class="card-img">
-            <img src="images/ai_novel.webp" loading="lazy" alt="AI有聲書系統">
+            <img src="images/ai_novel.jpg" loading="lazy" alt="AI有聲書系統">
           </div>
           <div class="card-content">
             <h3>AI 全自動有聲書生成 + YouTube 上架系統</h3>
-            <p class="project-meta">個人專案・2024-2025 | 200+支自動產出 | 6個月無人值守</p>
-            <p>Python + OpenAI + TTS + FFmpeg + YouTube API 完整流水線，每天自動生成並上傳長篇有聲書</p>
+            <p>每天自動產出長篇有聲書並上傳，已持續運作超過 6 個月</p>
+            <div class="tags">
+              <span>Python</span><span>OpenAI API</span><span>TTS</span><span>FFmpeg</span><span>YouTube API</span>
+            </div>
             <div class="project-links">
-              <a href="https://www.youtube.com/@YB原創有聲小說" target="_blank">YouTube 頻道（點我看成果）</a>
-              <a href="projects/ai_novel_report.xlsx" download>Excel 報告</a>
-              <a href="projects/ai_novel_source.zip" download>完整程式碼下載</a>
+              <a href="https://www.youtube.com/@YB原創有聲小說" target="_blank">YouTube 頻道</a>
+              <a href="https://github.com/qaz611440/ai-novel-system" target="_blank">線上瀏覽原始碼</a>
+              <a href="projects/ai_novel_source.zip" download>下載完整專案</a>
             </div>
           </div>
         </div>
@@ -96,15 +83,17 @@
         <!-- LED Driver IC -->
         <div class="card unified-card" data-category="ic">
           <div class="card-img">
-            <img src="images/led_driver.webp" loading="lazy" alt="LED Driver">
+            <img src="images/led_driver.jpg" loading="lazy" alt="LED Driver">
           </div>
           <div class="card-content">
             <h3>LED Driver IC 應用驗證平台</h3>
-            <p class="project-meta">銳發科技・2023 | 解決5項客戶客訴 | 測試效率提升70%</p>
-            <p>Verilog 時序設計 + C# 上位機 + Allegro 四層PCB + 自動化光學檢測</p>
+            <p>銳發科技・成功解決多項客戶客訴，開發自動化測試流程</p>
+            <div class="tags">
+              <span>Verilog</span><span>C#</span><span>Allegro PCB</span><span>FPGA</span><span>自動光學檢測</span>
+            </div>
             <div class="project-links">
-              <a href="projects/led_driver_report.xlsx" download>Excel 報告</a>
-              <a href="projects/led_driver_project.zip" download>完整專案下載</a>
+              <a href="https://github.com/qaz611440/led-driver-project" target="_blank">線上瀏覽原始碼</a>
+              <a href="projects/led_driver_project.zip" download>下載完整專案</a>
             </div>
           </div>
         </div>
@@ -112,15 +101,17 @@
         <!-- Power IC 測試自動化 -->
         <div class="card unified-card" data-category="power">
           <div class="card-img">
-            <img src="images/power_test.webp" loading="lazy" alt="Power IC測試">
+            <img src="images/power_test.jpg" loading="lazy" alt="Power IC測試">
           </div>
           <div class="card-content">
             <h3>Power IC 測試自動化平台</h3>
-            <p class="project-meta">鴻海HWQA・2022-2023 | 10+種測試專案</p>
-            <p>Python 控制 Chroma/Tektronix 儀器，支援電動車面板、Server主板驗證</p>
+            <p>鴻海HWQA・支援電動車面板與Server主板驗證</p>
+            <div class="tags">
+              <span>Python</span><span>Chroma 儀控</span><span>Tektronix</span><span>DC/DC測試</span>
+            </div>
             <div class="project-links">
-              <a href="projects/power_test_report.xlsx" download>Excel 報告</a>
-              <a href="projects/power_test_scripts.zip" download>測試程式下載</a>
+              <a href="https://github.com/qaz611440/power-test-automation" target="_blank">線上瀏覽原始碼</a>
+              <a href="projects/power_test_scripts.zip" download>下載測試程式</a>
             </div>
           </div>
         </div>
@@ -128,22 +119,25 @@
         <!-- 智慧導覽車 -->
         <div class="card unified-card" data-category="other">
           <div class="card-img">
-            <img src="images/smart_car.webp" loading="lazy" alt="智慧導覽車">
+            <img src="images/smart_car.jpg" loading="lazy" alt="智慧導覽車">
           </div>
           <div class="card-content">
             <h3>指紋解鎖智慧導覽車（大學專題）</h3>
-            <p class="project-meta">銘傳大學・2021</p>
-            <p>LabVIEW + Arduino 實作指紋門禁、語音導覽、環境感測、倒車雷達</p>
+            <p>銘傳大學・結合多感測器與自動控制</p>
+            <div class="tags">
+              <span>LabVIEW</span><span>Arduino</span><span>指紋辨識</span><span>語音導覽</span>
+            </div>
             <div class="project-links">
-              <a href="projects/smart_car_report.xlsx" download>Excel 報告</a>
-              <a href="projects/smart_car_source.zip" download>完整專案下載</a>
+              <a href="https://github.com/qaz611440/smart-car-project" target="_blank">線上瀏覽原始碼</a>
+              <a href="projects/smart_car_source.zip" download>下載完整專案</a>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- 學歷與工作經歷（保持你原本的） -->
+    <!-- 學歷、工作經歷、聯絡（不變） -->
     <section class="section glass">
       <h2>學歷與進修</h2>
       <div class="timeline">
@@ -157,7 +151,9 @@
     <section class="section glass">
       <h2>工作經歷</h2>
       <div class="timeline">
-        <div class="timeline-item"><div class="year">2025/9～</div><div class="content"><h3>久元電子股份有限公司</h3><p>硬體開發工程師（ATE部門）</p></div></div>
+        <div class="timeline-item"><div class="year">2025/9～</div><div class="content"><h3>久元電子股份有限公司</h3><p>硬體開發工程師（ATE部門）
+
+</p></div></div>
         <div class="timeline-item"><div class="year">2024/4～</div><div class="content"><h3>久元電子股份有限公司</h3><p>應用工程師（ATE部門）</p></div></div>
         <div class="timeline-item"><div class="year">2023/7～2024/1</div><div class="content"><h3>銳發科技股份有限公司</h3><p>高級應用工程師</p></div></div>
         <div class="timeline-item"><div class="year">2022/4～2023/6</div><div class="content"><h3>鴻海精密工業股份有限公司</h3><p>硬體測試工程師（HWQA Power team）</p></div></div>
@@ -177,5 +173,7 @@
     </footer>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3.0.2/tsparticles.min.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>

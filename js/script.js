@@ -1,4 +1,4 @@
-// 全裝置粒子特效（手機自動優化，超順超美！）
+// 全裝置粒子特效（手機自動優化）
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
 tsParticles.load("particles-js", {
@@ -12,15 +12,12 @@ tsParticles.load("particles-js", {
     move: { enable: true, speed: isMobile ? 1.5 : 2 }
   },
   interactivity: {
-    events: { onhover: { enable: !isMobile, mode: "repulse" } },  // 手機關 hover 互動
-    ontouch: { enable: true, mode: "repulse" }  // 手機可以用手指推開粒子！
+    events: { 
+      onhover: { enable: !isMobile, mode: "repulse" },
+      ontouch: { enable: true, mode: "repulse" }  // 手指也能推開粒子！
+    }
   },
   retina_detect: true
-});
-
-// 深色模式
-document.getElementById('theme').addEventListener('change', e => {
-  document.body.classList.toggle('dark', e.target.checked);
 });
 
 // 作品篩選 + 搜尋
