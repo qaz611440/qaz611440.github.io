@@ -175,3 +175,14 @@ h1, .tagline {
   .card-img { aspect-ratio: 16/9; }
   .card-img img { height: 100%; object-fit: cover; }
 }
+
+/* 把這行改成中文（找到這段改掉） */
+.theme-toggle label { 
+  cursor: pointer; 
+  background: #334; 
+  color: white; 
+  padding: 8px 16px; 
+  border-radius: 20px; 
+  font-size: 0.9rem; 
+  content: "深色模式";  /* 這行不用加，這是偽元素不能這樣寫，直接在 HTML 改了 */
+}
