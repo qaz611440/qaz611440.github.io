@@ -135,32 +135,21 @@ h1 { font-size: 2.8rem; font-weight: 700; text-align: center; margin-bottom: 0.5
   border-radius: 12px 12px 0 0;
 }
 
-/* ===== 新增升級樣式 ===== */
-.header-controls {
-  position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex; gap: 15px; align-items: center;
-}
-.lang-btn {
-  background: rgba(0,212,255,0.2); border: 1px solid #00d4ff; color: white; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 0.9rem;
-}
-.lang-btn:hover { background: #00d4ff; }
 
+/* ===== 最終升級樣式（貼在你原本 style.css 最後面）===== */
 .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
 
-/* 量化成就牆 */
 .achievements { text-align: center; margin: 2rem 0; }
 .achieve-grid { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; font-size: 1.2rem; }
 .achieve-grid div { background: rgba(0,212,255,0.1); padding: 1.5rem; border-radius: 16px; min-width: 140px; }
 .achieve-grid strong { display: block; font-size: 3rem; color: #00ff88; }
 
-/* 霓虹標題 */
 h1, .tagline {
   background: linear-gradient(90deg, #00d4ff, #00ff88);
   -webkit-background-clip: text; background-clip: text;
   color: transparent;
 }
 
-/* 卡片懸浮光效 */
-.card { position: relative; overflow: hidden; }
 .card::before {
   content: ''; position: absolute; inset: 0;
   background: linear-gradient(135deg, rgba(0,212,255,0.25), transparent 50%);
@@ -168,21 +157,11 @@ h1, .tagline {
 }
 .card:hover::before { opacity: 1; }
 
-/* 手機優化 */
+.project-meta { color: #00ff88; font-weight: 600; font-size: 0.95rem; margin: 0.5rem 0; }
+
 @media (max-width: 768px) {
   .achieve-grid { gap: 1.5rem; }
   .achieve-grid div { padding: 1rem; }
   .card-img { aspect-ratio: 16/9; }
   .card-img img { height: 100%; object-fit: cover; }
-}
-
-/* 把這行改成中文（找到這段改掉） */
-.theme-toggle label { 
-  cursor: pointer; 
-  background: #334; 
-  color: white; 
-  padding: 8px 16px; 
-  border-radius: 20px; 
-  font-size: 0.9rem; 
-  content: "深色模式";  /* 這行不用加，這是偽元素不能這樣寫，直接在 HTML 改了 */
 }
