@@ -1,39 +1,22 @@
-// 完全用回你舊版一定會出現的 particles.js 2.0 寫法（加手機優化）
-const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
+// 粒子背景
 particlesJS('particles-js', {
   particles: {
-    number: { value: isMobile ? 40 : 80, density: { enable: true, value_area: 800 } },
-    color:  { value: '#00d4ff' },
+    number: { value: 80, density: { enable: true, value_area: 800 } },
+    color: { value: '#00d4ff' },
     shape: { type: 'circle' },
     opacity: { value: 0.5, random: true },
-    size: { value: isMobile ? 2 : 3, random: true },
-    line_linked: {
-      enable: true,
-      distance: 150,
-      color: '#00d4ff',
-      opacity: 0.3,
-      width: 1
-    },
-    move: {
-      enable: true,
-      speed: isMobile ? 2 : 3
-    }
+    size: { value: 3, random: true },
+    line_linked: { enable: true, distance: 150, color: '#00d4ff', opacity: 0.2, width: 1 },
+    move: { enable: true, speed: 2 }
   },
-  interactivity: {
-    detect_on: 'canvas',
-    events: {
-      onhover: { enable: !isMobile, mode: 'repulse' },
-      onclick: { enable: true, mode: 'push' },
-      resize: true
-    },
-    modes: {
-      repulse: { distance: 100, duration: 0.4 },
-      push: { particles_nb: 4 }
-    }
-  },
-  retina_detect: true
+  interactivity: { events: { onhover: { enable: true, mode: 'repulse' } } }
 });
+
+// 深色模式
+document.getElementById('theme').addEventListener('change', e => {
+  document.body.classList.toggle('dark', e.target.checked);
+});
+
 
 // 作品篩選 + 搜尋（完全相容你現在的 HTML）
 document.querySelectorAll('.filters button').forEach(btn => {
