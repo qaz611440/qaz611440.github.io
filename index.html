@@ -47,9 +47,11 @@
       </div>
     </section>
 
-    <!-- 作品集（真正專業版：技術標籤 + 線上瀏覽 + 下載） -->
+    <!-- 作品集（重點補上篩選 + 搜尋） -->
     <section id="projects" class="section glass">
       <h2>作品集</h2>
+
+      <!-- 篩選按鈕（一定要有！） -->
       <div class="filters">
         <button data-filter="all" class="active">全部</button>
         <button data-filter="ic">IC設計</button>
@@ -57,15 +59,15 @@
         <button data-filter="ai">AI自動化</button>
         <button data-filter="other">其他</button>
       </div>
-      <input type="text" id="search" placeholder="搜尋作品關鍵字..." class="search-bar">
+
+      <!-- 搜尋欄（一定要有！） -->
+      <input type="text" id="search" class="search-bar" placeholder="搜尋作品關鍵字...">
 
       <div class="grid">
 
         <!-- AI 全自動有聲書 -->
         <div class="card unified-card" data-category="ai">
-          <div class="card-img">
-            <img src="images/ai_novel.jpg" loading="lazy" alt="AI有聲書系統">
-          </div>
+          <div class="card-img"><img src="images/ai_novel.jpg" loading="lazy" alt="AI有聲書系統"></div>
           <div class="card-content">
             <h3>AI 全自動有聲書生成 + YouTube 上架系統</h3>
             <p>每天自動產出長篇有聲書並上傳，已持續運作超過 6 個月</p>
@@ -82,9 +84,7 @@
 
         <!-- LED Driver IC -->
         <div class="card unified-card" data-category="ic">
-          <div class="card-img">
-            <img src="images/led_driver.jpg" loading="lazy" alt="LED Driver">
-          </div>
+          <div class="card-img"><img src="images/led_driver.jpg" loading="lazy" alt="LED Driver"></div>
           <div class="card-content">
             <h3>LED Driver IC 應用驗證平台</h3>
             <p>銳發科技・成功解決多項客戶客訴，開發自動化測試流程</p>
@@ -100,9 +100,7 @@
 
         <!-- Power IC 測試自動化 -->
         <div class="card unified-card" data-category="power">
-          <div class="card-img">
-            <img src="images/power_test.jpg" loading="lazy" alt="Power IC測試">
-          </div>
+          <div class="card-img"><img src="images/power_test.jpg" loading="lazy" alt="Power IC測試"></div>
           <div class="card-content">
             <h3>Power IC 測試自動化平台</h3>
             <p>鴻海HWQA・支援電動車面板與Server主板驗證</p>
@@ -118,9 +116,7 @@
 
         <!-- 智慧導覽車 -->
         <div class="card unified-card" data-category="other">
-          <div class="card-img">
-            <img src="images/smart_car.jpg" loading="lazy" alt="智慧導覽車">
-          </div>
+          <div class="card-img"><img src="images/smart_car.jpg" loading="lazy" alt="智慧導覽車"></div>
           <div class="card-content">
             <h3>指紋解鎖智慧導覽車（大學專題）</h3>
             <p>銘傳大學・結合多感測器與自動控制</p>
@@ -137,7 +133,7 @@
       </div>
     </section>
 
-    <!-- 學歷、工作經歷、聯絡（不變） -->
+    <!-- 學歷 -->
     <section class="section glass">
       <h2>學歷與進修</h2>
       <div class="timeline">
@@ -148,6 +144,7 @@
       </div>
     </section>
 
+    <!-- 工作經歷 -->
     <section class="section glass">
       <h2>工作經歷</h2>
       <div class="timeline">
@@ -159,6 +156,7 @@
       </div>
     </section>
 
+    <!-- 聯絡 -->
     <section class="section glass contact">
       <h2>聯絡我</h2>
       <p>qaz611440@gmail.com</p>
