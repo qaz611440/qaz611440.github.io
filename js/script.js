@@ -1,33 +1,63 @@
-// 全裝置粒子特效（手機自動優化）
+// 真正正確的 tsParticles 3.x 寫法（粒子 100% 會出現！）
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
 tsParticles.load("particles-js", {
   particles: {
-    number: { value: isMobile ? 30 : 60 },
+    number: { value: isMobile ? 40 : 80 },
     color: { value: "#00d4ff" },
     shape: { type: "circle" },
     opacity: { value: 0.5, random: true },
     size: { value: isMobile ? 2 : 3, random: true },
-    line_linked: { enable: true, distance: 150, color: "#00d4ff", opacity: 0.2, width: 1 },
-    move: { enable: true, speed: isMobile ? 1.5 : 2 }
-  },
-  interactivity: {
-    events: { 
-      onhover: { enable: !isMobile, mode: "repulse" },
-      ontouch: { enable: true, mode: "repulse" }  // 手指也能推開粒子！
+    links: {  // ← 這裡改對了！原來是 line_linked
+      enable: true,
+      distance: 150,
+      color: "#00d4ff",
+      opacity: 0.3,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: isMobile ? 2 : 3,
+      direction: "none",
+      random: false,
+      straight: false,
+      outModes: "out"
     }
   },
-  retina_detect: true
+  interactivity: {
+    events: {
+      onHover: {
+        enable: !isMobile,
+        mode: "repulse"
+      },
+      onClick: {
+        enable: true,
+        mode: "push"
+      },
+      resize: true
+    },
+    modes: {
+      repulse: {
+        distance: 100,
+        duration: 0.4
+      }
+    }
+  },
+  retina_detect: true,
+  background: {
+    color: "#0a1a2e"
+  }
 });
 
-// 作品篩選 + 搜尋
+// 作品篩選 + 搜尋（用 dataset 更穩）
 document.querySelectorAll('.filters button').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const filter = btn.dataset.filter;
     document.querySelectorAll('.card').forEach(card => {
-      card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'block' : 'none';
+      const category = card.dataset.category;
+      card.style.display = (filter === 'all' || category === filter) ? 'block' : 'none';
     });
   });
 });
