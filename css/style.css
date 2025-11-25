@@ -310,3 +310,18 @@ h1, .tagline {
 /* 新增：用於隱藏卡片的 class（避免 JS 直接改 display 導致布局問題） */
 /* 在 style.css 最下面加入這一行 */
 .card.hidden { display: none !important; }
+
+/* 預覽按鈕（紅色風格，跟你的藍綠配色超搭） */
+.preview-btn {
+  background: rgba(255, 71, 87, 0.18) !important;
+  color: #ff4757 !important;
+  border: 1px solid rgba(255, 71, 87, 0.5) !important;
+}
+.preview-btn:hover {
+  background: #ff4757 !important;
+  color: white !important;
+  box-shadow: 0 10px 30px rgba(255, 71, 87, 0.4);
+}
+.preview-btn::before {
+  content: "預覽 ";
+}
