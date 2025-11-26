@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Tasks SYSTEM "Tasks-6.0.dtd">
+<!-- eric6 tasks file for project DEREK_ATE_20220615 -->
+<!-- Saved: 2022-10-21, 16:04:51 -->
+<Tasks version="6.0">
+  <ProjectScanFilter></ProjectScanFilter>
+  <Task priority="1" completed="False" type="2" uid="{b53cea28-cfd0-42ca-a945-18139eb057bb}">
+    <Summary>WARNING: Any manual changes made to this file will be lost when pyuic5 is</Summary>
+    <Description></Description>
+    <Created>2022-10-21, 10:01:05</Created>
+    <Resource>
+      <Filename>Ui_MainUI.py</Filename>
+      <Linenumber>7</Linenumber>
+    </Resource>
+  </Task>
+</Tasks>

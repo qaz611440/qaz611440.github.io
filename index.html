@@ -10,6 +10,10 @@
 <body>
 
   <div id="particles-js"></div>
+  <div id="imageLightbox" class="lightbox">
+    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="lightboxImg">
+  </div>
 
   <div class="container">
 
@@ -65,44 +69,215 @@
 
       <div class="grid">
 
-        <!-- 範例1：交大類比IC作業報告（PDF） -->
         <div class="card unified-card" data-category="ic">
-          <div class="card-img"><img src="images/ic-schematic.png" loading="lazy" alt="類比IC設計"></div>
+          <div class="card-img"><img src="作品集/Cadence Virtuoso(交大積體電路設計)/Current Source Design/電路圖.png" loading="lazy" alt="Current Source"></div>
           <div class="card-content">
-            <h3>交大類比IC設計作業（A+）</h3>
-            <p>2024 國立交通大學夜間班｜三個作業全部 A+</p>
-            <div class="tags">
-              <span>Cadence Virtuoso</span><span>Analog IC</span><span>Current Mirror</span><span>Folded Cascode</span>
-            </div>
+            <h3>Current Source Design (HW2)</h3>
+            <p>設計高效能電流源電路，達成高輸出阻抗與精確電流複製。</p>
+            <div class="tags"><span>Cadence Virtuoso</span><span>Current Mirror</span><span>Analog IC</span></div>
             <div class="project-links">
-              <a href="https://www.youtube.com/watch?v=..." target="_blank">觀看成果影片</a>
               <a href="作品集/Cadence Virtuoso(交大積體電路設計)/Current Source Design/AIC HW2_2024_成果報告_陳彥邦.pdf" 
-                target="_blank" class="preview-btn" 
-                onclick="event.preventDefault(); window.open('preview.html?file=/作品集/Cadence Virtuoso(交大積體電路設計)/Current Source Design/AIC HW2_2024_成果報告_陳彥邦.pdf','_blank','width=1200,height=800');">
-                即時預覽報告
-              </a>
-              <a href="作品集/Cadence Virtuoso(交大積體電路設計)/Current Source Design/Current Source Design.7z" download>下載完整設計檔</a>
+                onclick="event.preventDefault(); window.open('preview.html?file=/'+this.getAttribute('href'),'_blank','width=1200,height=800');" 
+                class="preview-btn">預覽報告</a>
+              <a href="作品集/Cadence Virtuoso(交大積體電路設計)/Current Source Design/Current Source Design.7z" download>下載設計檔 (.7z)</a>
             </div>
           </div>
         </div>
 
-        <!-- 範例2：大學專題報告（PDF） -->
-        <div class="card unified-card" data-category="other">
-          <div class="card-img"><img src="images/smart_car.jpg" loading="lazy" alt="智慧導覽車"></div>
+        <div class="card unified-card" data-category="ic">
+          <div class="card-img"><img src="作品集/Cadence Virtuoso(交大積體電路設計)/Fully differential OP/電路圖.png" loading="lazy" alt="Fully Differential OP"></div>
           <div class="card-content">
-            <h3>指紋解鎖智慧導覽車（大學專題）</h3>
-            <p>銘傳大學・結合多感測器與自動控制</p>
-            <div class="tags">
-              <span>LabVIEW</span><span>Arduino</span><span>指紋辨識</span><span>語音導覽</span>
-            </div>
+            <h3>Fully Differential OP (HW3)</h3>
+            <p>全差動運算放大器設計，包含 Folded Cascode 架構與共模回授電路。</p>
+            <div class="tags"><span>Folded Cascode</span><span>CMFB</span><span>Analog IC</span></div>
             <div class="project-links">
-              <a href="https://github.com/qaz611440/smart-car-project" target="_blank">線上瀏覽原始碼</a>
-              <a href="作品集/大學專題_智能導覽車/報告檔案/電子系-11組-光電半導體類-智能導覽車.pdf" 
-                target="_blank" class="preview-btn"
-                onclick="event.preventDefault(); window.open('preview.html?file=/作品集/大學專題_智能導覽車/報告檔案/電子系-11組-光電半導體類-智能導覽車.pdf','_blank','width=1200,height=800');">
-                即時預覽完整報告
-              </a>
-              <a href="作品集/大學專題_智能導覽車/大學專題_智能導覽車.7z" download>下載完整專案</a>
+              <a href="作品集/Cadence Virtuoso(交大積體電路設計)/Fully differential OP/AIC HW3_2024_成果報告_陳彥邦.pdf" 
+                onclick="event.preventDefault(); window.open('preview.html?file=/'+this.getAttribute('href'),'_blank','width=1200,height=800');" 
+                class="preview-btn">預覽報告</a>
+              <a href="作品集/Cadence Virtuoso(交大積體電路設計)/Fully differential OP/Fully differential OP.7z" download>下載設計檔 (.7z)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card unified-card" data-category="ic">
+          <div class="card-img"><img src="作品集/Cadence Virtuoso(交大積體電路設計)/Single stage amplifier-CS stage & Differential amplifier/電路圖.png" loading="lazy" alt="Single Stage Amp"></div>
+          <div class="card-content">
+            <h3>Single Stage & Differential Amp (HW1)</h3>
+            <p>單級放大器與差動對的基本特性分析與模擬驗證。</p>
+            <div class="tags"><span>CS Stage</span><span>Differential Pair</span><span>Analog IC</span></div>
+            <div class="project-links">
+              <a href="作品集/Cadence Virtuoso(交大積體電路設計)/Single stage amplifier-CS stage & Differential amplifier/AIC HW1_2024_成果報告_陳彥邦.pdf" 
+                onclick="event.preventDefault(); window.open('preview.html?file=/'+this.getAttribute('href'),'_blank','width=1200,height=800');" 
+                class="preview-btn">預覽報告</a>
+              <a href="作品集/Cadence Virtuoso(交大積體電路設計)/Single stage amplifier-CS stage & Differential amplifier/Single stage amplifier-CS stage & Differential amplifier.7z" download>下載設計檔 (.7z)</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card unified-card" data-category="ai">
+          <div class="card-img"><img src="作品集/Python code/YT完全自動化經營/YT頻道_簡介圖.png" loading="lazy" alt="YT自動化"></div>
+          <div class="card-content">
+            <h3>YouTube 頻道全自動化經營</h3>
+            <p>使用 Python 串接 AI，自動生成小說文本、語音、剪輯影片並自動上傳。</p>
+            <div class="tags"><span>Python</span><span>OpenAI API</span><span>Video Editing</span><span>Automation</span></div>
+            
+            <div class="video-container" style="margin-top:10px;">
+              <video controls>
+                <source src="作品集/Python code/YT完全自動化經營/【短篇預告】【輕小說小說】 《平凡少年觸發書架魔法，戴上遊戲頭盔邂逅下凡仙女，移除抑制器展開奇幻凡間冒險之旅。》 #輕小說 #奇幻 #冒險 #浪漫 #Shorts 完整版連結下方.mp4" type="video/mp4">
+                您的瀏覽器不支援影片標籤。
+              </video>
+            </div>
+
+            <div class="project-links">
+              <a href="https://www.youtube.com/@YB%E5%8E%9F%E5%89%B5%E6%9C%89%E8%81%B2%E5%B0%8F%E8%AA%AA" target="_blank">前往 YouTube 頻道</a>
+              <a href="作品集/Python code/YT完全自動化經營/YT完全自動化經營.7z" download>下載完整程式碼 (.7z)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card unified-card" data-category="ai">
+          <div class="card-img">
+            <img src="作品集/Python code/_n_n文本換行/成果.png" loading="lazy" alt="文本換行" style="cursor:pointer"
+                onclick="openImage(this.src)">
+          </div>
+          <div class="card-content">
+            <h3>文本自動換行工具</h3>
+            <p>解決大量文本格式混亂問題，自動化排版與分段。</p>
+            <div class="tags"><span>Python</span><span>Text Processing</span></div>
+            <div class="project-links">
+              <a href="#" onclick="event.preventDefault(); openImage('作品集/Python code/_n_n文本換行/成果.png');" class="preview-btn">預覽成果圖</a>
+              <a href="作品集/Python code/_n_n文本換行/_n_n文本換行.7z" download>下載程式碼 (.7z)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card unified-card" data-category="ai">
+          <div class="card-img">
+            <img src="作品集/Python code/AI_AnythingLLM_AI_RAG轉訓練資料/成果.png" loading="lazy" alt="RAG轉訓練資料" style="cursor:pointer" onclick="openImage(this.src)">
+          </div>
+          <div class="card-content">
+            <h3>AnythingLLM RAG 資料轉換</h3>
+            <p>將各類文件自動轉換為 RAG 模型可用的訓練資料格式。</p>
+            <div class="tags"><span>Python</span><span>RAG</span><span>LLM</span></div>
+            <div class="project-links">
+              <a href="#" onclick="event.preventDefault(); openImage('作品集/Python code/AI_AnythingLLM_AI_RAG轉訓練資料/成果.png');" class="preview-btn">預覽成果圖</a>
+              <a href="作品集/Python code/AI_AnythingLLM_AI_RAG轉訓練資料/AI_AnythingLLM_AI_RAG轉訓練資料.7z" download>下載程式碼 (.7z)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card unified-card" data-category="ai">
+          <div class="card-img">
+            <img src="作品集/Python code/ATE生產部_維修紀錄excel轉成json格式/成果.png" loading="lazy" alt="Excel轉Json" style="cursor:pointer" onclick="openImage(this.src)">
+          </div>
+          <div class="card-content">
+            <h3>ATE 維修紀錄格式轉換</h3>
+            <p>自動化讀取 Excel 維修紀錄並轉換為標準 JSON 格式以利資料庫串接。</p>
+            <div class="tags"><span>Python</span><span>Pandas</span><span>Excel Automation</span></div>
+            <div class="project-links">
+              <a href="#" onclick="event.preventDefault(); openImage('作品集/Python code/ATE生產部_維修紀錄excel轉成json格式/成果.png');" class="preview-btn">預覽成果圖</a>
+              <a href="作品集/Python code/ATE生產部_維修紀錄excel轉成json格式/ATE生產部_維修紀錄excel轉成json格式.7z" download>下載程式碼 (.7z)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card unified-card" data-category="other">
+          <div class="card-img"><img src="作品集/大學專題_智能導覽車/作品圖.png" loading="lazy" alt="智能導覽車"></div>
+          <div class="card-content">
+            <h3>指紋解鎖智慧導覽車</h3>
+            <p>結合 LabVIEW 與 Arduino，實現指紋辨識啟動與語音導覽功能。</p>
+            <div class="tags"><span>LabVIEW</span><span>Arduino</span><span>Sensor Integration</span></div>
+            <div class="project-links">
+              <a href="作品集/大學專題_智能導覽車/報告檔案/電子系_第11組_報告檔.pdf" 
+                onclick="event.preventDefault(); window.open('preview.html?file=/'+this.getAttribute('href'),'_blank','width=1200,height=800');" 
+                class="preview-btn">預覽專題報告</a>
+              <a href="作品集/大學專題_智能導覽車/大學專題_智能導覽車.7z" download>下載完整專案 (.7z)</a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card unified-card" data-category="power">
+          <div class="card-img"><img src="作品集/銳發/C%23_操控_新唐微控制器_來送I2C訊號控制LED燈條/微控制器_1.jpg" loading="lazy" alt="新唐微控制器"></div>
+          <div class="card-content">
+            <h3>C# 控制新唐 MCU LED 燈條</h3>
+            <p>透過 C# 介面控制 MCU 發送 I2C 訊號，實現 LED 燈條自動化測試。</p>
+            <div class="tags"><span>C#</span><span>I2C</span><span>MCU</span><span>Firmware</span></div>
+            <div class="video-container" style="margin-top:10px;">
+              <video controls>
+                <source src="作品集/銳發/C%23_操控_新唐微控制器_來送I2C訊號控制LED燈條/成果影片.mp4" type="video/mp4">
+                您的瀏覽器不支援影片標籤。
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="card unified-card" data-category="power">
+          <div class="card-img"><img src="作品集/銳發/C%23_操控MAX10晶片_傳輸SPI訊號_來做自動化測試/自動化測試專板2.jpg" loading="lazy" alt="MAX10測試板"></div>
+          <div class="card-content">
+            <h3>MAX10 FPGA 自動化測試</h3>
+            <p>使用 C# 透過 SPI 協定與 MAX10 晶片通訊，進行硬體自動化檢測。</p>
+            <div class="tags"><span>C#</span><span>SPI</span><span>FPGA</span><span>PCB</span></div>
+            <div style="margin-top:1rem; display:flex; gap:10px;">
+              <button class="preview-btn" style="font-size:0.8rem" onclick="openImage('作品集/銳發/C%23_操控MAX10晶片_傳輸SPI訊號_來做自動化測試/自動化測試專板_1.jpg')">圖1</button>
+              <button class="preview-btn" style="font-size:0.8rem" onclick="openImage('作品集/銳發/C%23_操控MAX10晶片_傳輸SPI訊號_來做自動化測試/自動化測試專板_MAX10晶片.jpg')">圖2</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card unified-card" data-category="power">
+          <div class="card-img"><img src="作品集/銳發/Micro_LED點屏測試/Micro_LED顯示屏.jpg" loading="lazy" alt="Micro LED"></div>
+          <div class="card-content">
+            <h3>Micro LED 點屏測試</h3>
+            <p>針對 Micro LED 顯示屏進行溫箱環境下的長時間點亮與穩定性測試。</p>
+            <div class="tags"><span>Micro LED</span><span>Reliability Test</span><span>Hardware</span></div>
+            <div class="video-container" style="margin-top:10px;">
+              <video controls>
+                <source src="作品集/銳發/Micro_LED點屏測試/成果影片.mp4" type="video/mp4">
+                您的瀏覽器不支援影片標籤。
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <div class="card unified-card" data-category="ic">
+          <div class="card-img" style="display:flex; align-items:center; justify-content:center; background:#000;">
+            <span style="color:white;">(影片預覽)</span>
+          </div>
+          <div class="card-content">
+            <h3>Cadence Allegro PCB Layout</h3>
+            <p>使用 Allegro 繪製的簡易電路板 Layout 展示。</p>
+            <div class="tags"><span>OrCAD</span><span>Allegro</span><span>PCB Layout</span></div>
+            <div class="video-container" style="margin-top:10px;">
+              <video controls>
+                <source src="作品集/銳發/使用Cadence Allegro畫簡易layout/簡易Demo電路板實體.mp4" type="video/mp4">
+                您的瀏覽器不支援影片標籤。
+              </video>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="card unified-card" data-category="power">
+          <div class="card-img"><img src="作品集/鴻海/使用python code_控制量測儀器_做自動化DCDC測量/Setup.png" loading="lazy" alt="Setup"></div>
+          <div class="card-content">
+            <h3>DCDC 自動化量測系統</h3>
+            <p>開發 Python GUI 控制示波器與負載機，全自動量測 Efficiency, Ripple, Transient 等項目。</p>
+            <div class="tags"><span>Python</span><span>PyQt</span><span>Instrument Control</span><span>DCDC</span></div>
+            
+            <p style="margin-top:1rem; font-size:0.9rem; color:#88cfff;">點擊查看測試波形圖：</p>
+            <div class="file-scroll-box">
+              <a href="#" onclick="event.preventDefault(); openImage('作品集/鴻海/使用python code_控制量測儀器_做自動化DCDC測量/Jitter_T_Duty_Full_Load.png')">Jitter T Duty Full Load</a>
+              <a href="#" onclick="event.preventDefault(); openImage('作品集/鴻海/使用python code_控制量測儀器_做自動化DCDC測量/Ripple_Noise_Full_Load.PNG')">Ripple Noise Full Load</a>
+              <a href="#" onclick="event.preventDefault(); openImage('作品集/鴻海/使用python code_控制量測儀器_做自動化DCDC測量/Load_Transient_0-50.PNG')">Load Transient 0-50%</a>
+              <a href="#" onclick="event.preventDefault(); openImage('作品集/鴻海/使用python code_控制量測儀器_做自動化DCDC測量/Power_on_sequence__U547_3.3V_to_-0.8V_DCS_AVNN_REG_0.25_U547_3.3V_to_-0.8V_DCS_AVNN_REG_0.25.PNG')">Power On Sequence</a>
+              <a href="#" onclick="event.preventDefault(); openImage('作品集/鴻海/使用python code_控制量測儀器_做自動化DCDC測量/ShortCircuit__Full Load.PNG')">Short Circuit Test</a>
+              <a href="#" onclick="event.preventDefault(); openImage('作品集/鴻海/使用python code_控制量測儀器_做自動化DCDC測量/Efficiency_file.xlsx')">Efficiency Report (Excel)</a>
+              </div>
+
+            <div class="project-links">
+              <a href="作品集/鴻海/使用python code_控制量測儀器_做自動化DCDC測量/使用python code_控制量測儀器_做自動化DCDC測量.7z" download>下載自動化程式碼 (.7z)</a>
             </div>
           </div>
         </div>

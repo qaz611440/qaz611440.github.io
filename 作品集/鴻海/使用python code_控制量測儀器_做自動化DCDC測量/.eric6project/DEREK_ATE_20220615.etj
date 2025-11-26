@@ -1,0 +1,23 @@
+{
+  "header": {
+    "comment": "eric tasks file for project DEREK_ATE_20220615",
+    "warning": "This file was generated automatically, do not edit.",
+    "saved": "2023-03-21, 13:50:40"
+  },
+  "ProjectScanFilter": "",
+  "Tasks": [
+    {
+      "summary": "WARNING: Any manual changes made to this file will be lost when pyuic5 is",
+      "description": "",
+      "priority": 1,
+      "lineno": 7,
+      "completed": false,
+      "created": 1679377835.5911748,
+      "type": 2,
+      "uid": "{fa9bcefc-ac3e-415c-9dab-d05fcbd0af38}",
+      "parent_uid": "",
+      "expanded": false,
+      "filename": "C:\\00_DCDC\\02_ATE_DCDC_ATE_V9_1024_4000 _Sys\\Ui_MainUI.py"
+    }
+  ]
+}

@@ -325,3 +325,83 @@ h1, .tagline {
 .preview-btn::before {
   content: "預覽 ";
 }
+
+/* ==================== 新增功能樣式 ==================== */
+
+/* 1. 圖片燈箱 (Lightbox) - 點擊圖片放大用 */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.lightbox-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 1200px;
+  max-height: 90vh;
+  object-fit: contain;
+  animation: zoom 0.6s;
+}
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+.close-lightbox {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.close-lightbox:hover,
+.close-lightbox:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 2. 影片容器 RWD */
+.video-container video {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* 3. 鴻海專案用的 - 滾動式檔案列表 */
+.file-scroll-box {
+  max-height: 200px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+  margin: 1rem 0;
+}
+.file-scroll-box a {
+  display: block;
+  color: #88cfff;
+  text-decoration: none;
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.file-scroll-box a:hover {
+  background: rgba(0, 212, 255, 0.1);
+  color: #fff;
+}
+/* 自定義卷軸樣式 */
+.file-scroll-box::-webkit-scrollbar { width: 8px; }
+.file-scroll-box::-webkit-scrollbar-track { background: #0a1a2e; }
+.file-scroll-box::-webkit-scrollbar-thumb { background: #00d4ff; border-radius: 4px; }

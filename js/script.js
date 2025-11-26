@@ -53,6 +53,26 @@ function filterProjects() {
   });
 }
 
+
+const lightbox = document.getElementById('imageLightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+
+function openImage(src) {
+  lightbox.style.display = "block";
+  lightboxImg.src = src;
+}
+
+function closeLightbox() {
+  lightbox.style.display = "none";
+}
+
+// 點擊燈箱背景也可以關閉
+window.onclick = function(event) {
+  if (event.target == lightbox) {
+    lightbox.style.display = "none";
+  }
+}
+
 // 頁面載入完成後立即執行一次（確保一開始顯示「全部」）
 document.addEventListener('DOMContentLoaded', () => {
   // 預設顯示全部 + 讓「全部」按鈕有 active
