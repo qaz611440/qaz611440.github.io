@@ -77,7 +77,7 @@ h1 {
   opacity: 0.9;
 }
 
-/* 霓虹文字（你喜歡的） */
+/* 霓虹文字 */
 h1, .tagline {
   background: linear-gradient(90deg, #00d4ff, #00ff88);
   -webkit-background-clip: text;
@@ -189,36 +189,35 @@ h1, .tagline {
 }
 .card:hover::before { opacity: 1; }
 
-/* 1. 讓圖片完整顯示，不要裁切 */
+/* 圖片顯示設定 (包含不裁切與黑色背景) */
 .card-img {
-  height: 220px; /* 稍微加高一點 */
+  height: 220px;
   overflow: hidden;
-  background: #000; /* 黑色背景襯托 */
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
-
 .card-img img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* 關鍵：這會讓圖片保持原比例顯示完整 */
+  object-fit: contain;
   transition: transform 0.6s;
 }
 
-/* 2. 標題與內文對比度優化 */
+/* 標題與內文 */
+.card-content { padding: 1.6rem; }
 .card-content h3 {
   color: #fff;
   font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 0.8rem;
   line-height: 1.4;
-  /* 加一點陰影讓標題更跳出來 */
   text-shadow: 0 2px 4px rgba(0,0,0,0.5); 
 }
-
 .card-content p {
-  color: #aaccff; /* 改成較淡的藍色，與白色標題區分 */
+  color: #aaccff;
   font-size: 0.95rem;
   font-weight: 400;
   line-height: 1.6;
@@ -226,66 +225,6 @@ h1, .tagline {
 }
 
 /* 技術標籤 */
-.tags {
-  margin: 1rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-.tags span {
-  background: rgba(0,212,255,0.2);
-  color: #00d4ff;
-  padding: 6px 14px;
-  border-radius: 30px;
-  font-size: 0.85rem;
-  border: 1px solid rgba(0,212,255,0.4);
-}
-
-/* 作品連結按鈕 */
-.project-links {
-  margin-top: 1.2rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.9rem;
-}
-.project-links a {
-  background: rgba(0,212,255,0.15);
-  color: #00d4ff;
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-size: 0.95rem;
-  text-decoration: none;
-  border: 1px solid rgba(0,212,255,0.4);
-  transition: all 0.3s;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-.project-links a:hover {
-  background: #00d4ff;
-  color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0,212,255,0.4);
-}
-
-/* ==================== 時間軸 ==================== */
-.timeline { margin-top: 1rem; }
-.timeline-item { 
-  display: flex; 
-  gap: 1.5rem; 
-  margin: 2rem 0; 
-  align-items: flex-start; 
-}
-.year { 
-  min-width: 80px; 
-  font-weight: 700; 
-  color: #00d4ff; 
-  font-size: 1.1rem;
-}
-.highlight { color: #ff6b6b; font-weight: bold; }
-
-
-/* ===== 技術標籤全新超美風格（跟按鈕完全不衝突）===== */
 .tags {
   margin: 1rem 0 1.2rem 0;
   display: flex;
@@ -303,7 +242,13 @@ h1, .tagline {
   box-shadow: 0 2px 8px rgba(0, 255, 136, 0.2);
 }
 
-/* 連結按鈕保持藍色（更突出） */
+/* 專案連結 */
+.project-links {
+  margin-top: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
 .project-links a {
   background: rgba(0,212,255,0.2);
   color: #00d4ff;
@@ -314,6 +259,9 @@ h1, .tagline {
   border: 1px solid rgba(0,212,255,0.5);
   transition: all 0.3s;
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 .project-links a:hover {
   background: #00d4ff;
@@ -322,11 +270,10 @@ h1, .tagline {
   box-shadow: 0 10px 30px rgba(0,212,255,0.5);
 }
 
-/* 新增：用於隱藏卡片的 class（避免 JS 直接改 display 導致布局問題） */
-/* 在 style.css 最下面加入這一行 */
+/* 隱藏 class */
 .card.hidden { display: none !important; }
 
-/* 預覽按鈕（紅色風格，跟你的藍綠配色超搭） */
+/* 預覽按鈕樣式 */
 .preview-btn {
   background: rgba(255, 71, 87, 0.18) !important;
   color: #ff4757 !important;
@@ -337,17 +284,31 @@ h1, .tagline {
   color: white !important;
   box-shadow: 0 10px 30px rgba(255, 71, 87, 0.4);
 }
-.preview-btn::before {
-  content: "預覽 ";
+.preview-btn::before { content: "預覽 "; }
+
+/* ==================== 時間軸 ==================== */
+.timeline { margin-top: 1rem; }
+.timeline-item { 
+  display: flex; 
+  gap: 1.5rem; 
+  margin: 2rem 0; 
+  align-items: flex-start; 
 }
+.year { 
+  min-width: 80px; 
+  font-weight: 700; 
+  color: #00d4ff; 
+  font-size: 1.1rem;
+}
+.highlight { color: #ff6b6b; font-weight: bold; }
 
-/* ==================== 新增功能樣式 ==================== */
+/* ==================== 進階功能樣式 ==================== */
 
-/* 1. 圖片燈箱 (Lightbox) - 點擊圖片放大用 */
+/* 1. 圖片燈箱 */
 .lightbox {
   display: none;
   position: fixed;
-  z-index: 10000;
+  z-index: 99999;
   padding-top: 50px;
   left: 0;
   top: 0;
@@ -365,10 +326,7 @@ h1, .tagline {
   object-fit: contain;
   animation: zoom 0.6s;
 }
-@keyframes zoom {
-  from {transform:scale(0)} 
-  to {transform:scale(1)}
-}
+@keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
 .close-lightbox {
   position: absolute;
   top: 15px;
@@ -379,14 +337,9 @@ h1, .tagline {
   transition: 0.3s;
   cursor: pointer;
 }
-.close-lightbox:hover,
-.close-lightbox:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-}
+.close-lightbox:hover { color: #bbb; }
 
-/* 2. 影片容器 RWD */
+/* 2. 影片容器 */
 .video-container video {
   width: 100%;
   border-radius: 8px;
@@ -394,8 +347,7 @@ h1, .tagline {
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-/* 3. 鴻海專案用的 - 滾動式檔案列表 */
-/* 鴻海波形圖列表 (加強版) */
+/* 3. 滾動式檔案列表 (鴻海專用) */
 .file-scroll-box {
   max-height: 220px;
   overflow-y: auto;
@@ -421,12 +373,12 @@ h1, .tagline {
   padding-left: 12px;
 }
 .file-scroll-box a::before {
-  content: '📊'; /* 加個小圖示增加識別度 */
+  content: '📊';
   margin-right: 8px;
   font-size: 10px;
 }
 
-/* MAX10 多圖並排樣式 */
+/* 4. 多圖網格 (銳發專用) */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -446,6 +398,3 @@ h1, .tagline {
   border-color: #00d4ff;
   transform: scale(1.05);
 }
-
-/* 確保燈箱層級最高 */
-.lightbox { z-index: 99999; }

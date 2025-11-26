@@ -12,9 +12,7 @@ particlesJS('particles-js', {
   interactivity: { events: { onhover: { enable: true, mode: 'repulse' } } }
 });
 
-// ---------- 這裡開始是完全修正且保證可用的版本 ----------
 let currentFilter = 'all';
-
 const filters = document.querySelectorAll('.filters button');
 const searchInput = document.getElementById('search');
 const cards = document.querySelectorAll('.card');
@@ -34,7 +32,7 @@ searchInput.addEventListener('input', () => {
   filterProjects();
 });
 
-// 主過濾函數（篩選 + 搜尋完美結合）
+// 主過濾函數
 function filterProjects() {
   const query = searchInput.value.toLowerCase();
 
@@ -53,7 +51,7 @@ function filterProjects() {
   });
 }
 
-
+// 燈箱控制
 const lightbox = document.getElementById('imageLightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 
@@ -66,16 +64,14 @@ function closeLightbox() {
   lightbox.style.display = "none";
 }
 
-// 點擊燈箱背景也可以關閉
 window.onclick = function(event) {
   if (event.target == lightbox) {
     lightbox.style.display = "none";
   }
 }
 
-// 頁面載入完成後立即執行一次（確保一開始顯示「全部」）
+// 初始化
 document.addEventListener('DOMContentLoaded', () => {
-  // 預設顯示全部 + 讓「全部」按鈕有 active
   document.querySelector('.filters button[data-filter="all"]').classList.add('active');
   filterProjects();
 });

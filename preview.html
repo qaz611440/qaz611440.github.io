@@ -27,15 +27,11 @@
   <iframe id="viewer" src=""></iframe>
 
   <script>
-    // 從 URL 取得要預覽的檔案路徑
     const params = new URLSearchParams(location.search);
     const file = params.get('file');
     if (file) {
-      // 確保路徑有被正確解碼 (避免二次編碼導致錯誤)
       const decodedFile = decodeURIComponent(file);
-      // 再次編碼傳給 Google Viewer
       const encodedUrl = encodeURIComponent(location.origin + decodedFile);
-      
       document.getElementById('viewer').src = 
         `https://docs.google.com/viewer?url=${encodedUrl}&embedded=true`;
     }

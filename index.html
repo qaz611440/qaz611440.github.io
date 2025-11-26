@@ -10,6 +10,7 @@
 <body>
 
   <div id="particles-js"></div>
+  
   <div id="imageLightbox" class="lightbox">
     <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
     <img class="lightbox-content" id="lightboxImg">
@@ -17,7 +18,6 @@
 
   <div class="container">
 
-    <!-- Hero -->
     <header class="hero">
       <div class="avatar-container">
         <img src="images/photo.png" loading="lazy" width="160" height="160" alt="陳彥邦" class="avatar">
@@ -29,14 +29,12 @@
       <a href="resume.pdf" class="btn-primary" download>下載中文履歷 PDF</a>
     </header>
 
-    <!-- 自我介紹 -->
     <section class="section glass">
       <h2>自我介紹</h2>
       <p>熱愛將電路原理轉化為實體產品，擁有 3 年 Power IC 測試與類比IC驗證經驗。擅長 Verilog / C# / Python 開發自動化流程，近期用 AI 打造「從 0 到 YouTube 上架小說」的全自動系統。2024 年於交大夜間學分班修讀「類比積體電路」獲 <strong>A+</strong>，目標成為專業類比IC設計工程師。</p>
       <p style="margin-top:1rem;">個性主動、細心、有耐心、上進心強，享受解決困難問題帶來的成就感，喜歡與團隊溝通討論。未來目標：長期穩定發展專業領域、提升英文至 TOEIC 730+、具備主管級專業能力。</p>
     </section>
 
-    <!-- 技能 -->
     <section class="section glass">
       <h2>專業技能 <span class="skill-note">(90% = 獨立完成商業專案)</span></h2>
       <div class="skills-grid">
@@ -51,11 +49,9 @@
       </div>
     </section>
 
-    <!-- 作品集（重點補上篩選 + 搜尋） -->
     <section id="projects" class="section glass">
       <h2>作品集</h2>
 
-      <!-- 篩選按鈕（一定要有！） -->
       <div class="filters">
         <button data-filter="all" class="active">全部</button>
         <button data-filter="ic">IC設計</button>
@@ -64,13 +60,15 @@
         <button data-filter="other">其他</button>
       </div>
 
-      <!-- 搜尋欄（一定要有！） -->
       <input type="text" id="search" class="search-bar" placeholder="搜尋作品關鍵字...">
 
       <div class="grid">
 
         <div class="card unified-card" data-category="ic">
-          <div class="card-img"><img src="作品集/Cadence Virtuoso(交大積體電路設計)/Current Source Design/電路圖.png" loading="lazy" alt="Current Source"></div>
+          <div class="card-img">
+            <img src="作品集/Cadence Virtuoso(交大積體電路設計)/Current Source Design/電路圖.png" loading="lazy" alt="Current Source" 
+                 style="cursor:pointer" onclick="openImage(this.src)">
+          </div>
           <div class="card-content">
             <h3>Current Source Design (HW2)</h3>
             <p>設計高效能電流源，達成高輸出阻抗與精確電流複製。</p>
@@ -85,7 +83,10 @@
         </div>
 
         <div class="card unified-card" data-category="ic">
-          <div class="card-img"><img src="作品集/Cadence Virtuoso(交大積體電路設計)/Fully differential OP/電路圖.png" loading="lazy" alt="Fully Differential OP"></div>
+          <div class="card-img">
+            <img src="作品集/Cadence Virtuoso(交大積體電路設計)/Fully differential OP/電路圖.png" loading="lazy" alt="Fully Differential OP" 
+                 style="cursor:pointer" onclick="openImage(this.src)">
+          </div>
           <div class="card-content">
             <h3>Fully Differential OP (HW3)</h3>
             <p>全差動運算放大器設計，Folded Cascode 架構。</p>
@@ -100,7 +101,10 @@
         </div>
 
         <div class="card unified-card" data-category="ic">
-          <div class="card-img"><img src="作品集/Cadence Virtuoso(交大積體電路設計)/Single stage amplifier-CS stage & Differential amplifier/電路圖.png" loading="lazy" alt="Single Stage Amp"></div>
+          <div class="card-img">
+            <img src="作品集/Cadence Virtuoso(交大積體電路設計)/Single stage amplifier-CS stage & Differential amplifier/電路圖.png" loading="lazy" alt="Single Stage Amp" 
+                 style="cursor:pointer" onclick="openImage(this.src)">
+          </div>
           <div class="card-content">
             <h3>Single Stage & Diff Amp (HW1)</h3>
             <p>單級放大器與差動對的基本特性分析。</p>
@@ -134,7 +138,9 @@
 
 
         <div class="card unified-card" data-category="ai">
-          <div class="card-img"><img src="作品集/Python code/YT完全自動化經營/YT頻道_簡介圖.png" loading="lazy" alt="YT自動化"></div>
+          <div class="card-img">
+            <img src="作品集/Python code/YT完全自動化經營/YT頻道_簡介圖.png" loading="lazy" alt="YT自動化" style="cursor:pointer" onclick="openImage(this.src)">
+          </div>
           <div class="card-content">
             <h3>YouTube 頻道全自動化經營</h3>
             <p>Python 串接 AI，自動生成小說文本、語音、剪輯影片並自動上傳。</p>
@@ -181,6 +187,26 @@
             <div class="project-links"><a href="作品集/Python code/Anything快速上傳RAG資料/Anything快速上傳RAG資料.7z" download>下載程式碼</a></div>
           </div>
         </div>
+        
+        <div class="card unified-card" data-category="ai">
+          <div class="card-img"><img src="作品集/Python code/AnythinLLM_API_搜尋or更新_工作區/成果.png" loading="lazy" onclick="openImage(this.src)" style="cursor:pointer"></div>
+          <div class="card-content">
+            <h3>LLM API 搜尋與更新工作區</h3>
+            <p>透過 API 管理與更新 AnythingLLM 的工作區資料。</p>
+            <div class="tags"><span>Python</span><span>API</span></div>
+            <div class="project-links"><a href="作品集/Python code/AnythinLLM_API_搜尋or更新_工作區/AnythinLLM_API_搜尋or更新_工作區.7z" download>下載程式碼</a></div>
+          </div>
+        </div>
+
+        <div class="card unified-card" data-category="ai">
+          <div class="card-img"><img src="作品集/Python code/Anytihng_LLM_快速測試模型和紀錄/成果.png" loading="lazy" onclick="openImage(this.src)" style="cursor:pointer"></div>
+          <div class="card-content">
+            <h3>LLM 模型快速測試與紀錄</h3>
+            <p>自動化測試不同模型的回答品質並記錄結果。</p>
+            <div class="tags"><span>Python</span><span>Model Testing</span></div>
+            <div class="project-links"><a href="作品集/Python code/Anytihng_LLM_快速測試模型和紀錄/Anytihng_LLM_快速測試模型和紀錄.7z" download>下載程式碼</a></div>
+          </div>
+        </div>
 
         <div class="card unified-card" data-category="ai">
           <div class="card-img"><img src="作品集/Python code/ATE生產部_維修紀錄excel轉成json格式/成果.png" loading="lazy" onclick="openImage(this.src)" style="cursor:pointer"></div>
@@ -189,6 +215,26 @@
             <p>將 Excel 維修紀錄轉換為 JSON 標準格式。</p>
             <div class="tags"><span>Python</span><span>Pandas</span><span>Excel</span></div>
             <div class="project-links"><a href="作品集/Python code/ATE生產部_維修紀錄excel轉成json格式/ATE生產部_維修紀錄excel轉成json格式.7z" download>下載程式碼</a></div>
+          </div>
+        </div>
+        
+        <div class="card unified-card" data-category="ai">
+          <div class="card-img"><img src="作品集/Python code/ATE生產部_維修紀錄轉成檢索資料/成果.png" loading="lazy" onclick="openImage(this.src)" style="cursor:pointer"></div>
+          <div class="card-content">
+            <h3>ATE 維修紀錄轉檢索資料</h3>
+            <p>將維修數據轉換為可搜尋的檢索資料庫格式。</p>
+            <div class="tags"><span>Python</span><span>Data Processing</span></div>
+            <div class="project-links"><a href="作品集/Python code/ATE生產部_維修紀錄轉成檢索資料/ATE生產部_維修紀錄轉成檢索資料.7z" download>下載程式碼</a></div>
+          </div>
+        </div>
+
+        <div class="card unified-card" data-category="ai">
+          <div class="card-img"><img src="作品集/Python code/chm解壓縮(解析html)_轉md檔/成果.png" loading="lazy" onclick="openImage(this.src)" style="cursor:pointer"></div>
+          <div class="card-content">
+            <h3>CHM 解壓縮轉 Markdown</h3>
+            <p>解析 CHM 說明檔並批量轉換為 Markdown 格式。</p>
+            <div class="tags"><span>Python</span><span>File Conversion</span></div>
+            <div class="project-links"><a href="作品集/Python code/chm解壓縮(解析html)_轉md檔/chm解壓縮(解析html)_轉md檔.7z" download>下載程式碼</a></div>
           </div>
         </div>
 
@@ -211,14 +257,64 @@
             <div class="project-links"><a href="作品集/Python code/html_檔案合併/html_檔案合併.7z" download>下載程式碼</a></div>
           </div>
         </div>
+        
+        <div class="card unified-card" data-category="ai">
+          <div class="card-img"><img src="作品集/Python code/合併json資料/成果.png" loading="lazy" onclick="openImage(this.src)" style="cursor:pointer"></div>
+          <div class="card-content">
+            <h3>JSON 資料合併工具</h3>
+            <p>批次讀取並合併多個 JSON 數據檔案。</p>
+            <div class="tags"><span>Python</span><span>JSON</span></div>
+            <div class="project-links"><a href="作品集/Python code/合併json資料/合併json資料.7z" download>下載程式碼</a></div>
+          </div>
+        </div>
 
         <div class="card unified-card" data-category="ai">
-          <div class="card-img"><img src="作品集/Python code/_n_n文本換行/成果.png" loading="lazy" onclick="openImage(this.src)" style="cursor:pointer"></div>
+          <div class="card-img"><img src="作品集/Python code/文本換行/成果.png" loading="lazy" onclick="openImage(this.src)" style="cursor:pointer"></div>
           <div class="card-content">
             <h3>文本自動換行修正</h3>
             <p>處理文本中的換行符號問題，優化閱讀格式。</p>
             <div class="tags"><span>Python</span><span>Text Processing</span></div>
-            <div class="project-links"><a href="作品集/Python code/_n_n文本換行/_n_n文本換行.7z" download>下載程式碼</a></div>
+            <div class="project-links"><a href="作品集/Python code/文本換行/_n_n文本換行.7z" download>下載程式碼</a></div>
+          </div>
+        </div>
+        
+        <div class="card unified-card" data-category="ai">
+          <div class="card-img"><img src="作品集/Python code/ND_CW換成S100_IO_USER_RELAY/成果.png" loading="lazy" onclick="openImage(this.src)" style="cursor:pointer"></div>
+          <div class="card-content">
+            <h3>ND CW 轉 S100 Relay</h3>
+            <p>測試機台 Relay 設定檔格式轉換工具。</p>
+            <div class="tags"><span>Python</span><span>ATE</span></div>
+            <div class="project-links"><a href="作品集/Python code/ND_CW換成S100_IO_USER_RELAY/ND_CW換成S100_IO_USER_RELAY.7z" download>下載程式碼</a></div>
+          </div>
+        </div>
+        
+        <div class="card unified-card" data-category="ai">
+          <div class="card-img"><img src="作品集/Python code/ND_datalog_vs_Gen3_csv/成果.png" loading="lazy" onclick="openImage(this.src)" style="cursor:pointer"></div>
+          <div class="card-content">
+            <h3>ND vs Gen3 Datalog 比對</h3>
+            <p>自動化比對不同機台的 Datalog CSV 差異。</p>
+            <div class="tags"><span>Python</span><span>Data Analysis</span></div>
+            <div class="project-links"><a href="作品集/Python code/ND_datalog_vs_Gen3_csv/ND_datalog_vs_Gen3_csv.7z" download>下載程式碼</a></div>
+          </div>
+        </div>
+
+        <div class="card unified-card" data-category="ai">
+          <div class="card-img"><img src="作品集/Python code/ND_PINGROUP轉成GEN3_PINGROUP/成果.png" loading="lazy" onclick="openImage(this.src)" style="cursor:pointer"></div>
+          <div class="card-content">
+            <h3>PinGroup 格式轉換</h3>
+            <p>將 ND 機台 PinGroup 設定轉為 Gen3 格式。</p>
+            <div class="tags"><span>Python</span><span>ATE</span></div>
+            <div class="project-links"><a href="作品集/Python code/ND_PINGROUP轉成GEN3_PINGROUP/ND_PINGROUP轉成GEN3_PINGROUP.7z" download>下載程式碼</a></div>
+          </div>
+        </div>
+
+        <div class="card unified-card" data-category="ai">
+          <div class="card-img"><img src="作品集/Python code/Timing_NDtoGEN3/成果.png" loading="lazy" onclick="openImage(this.src)" style="cursor:pointer"></div>
+          <div class="card-content">
+            <h3>Timing 格式轉換 (ND to Gen3)</h3>
+            <p>自動轉換測試機台的 Timing 設定檔。</p>
+            <div class="tags"><span>Python</span><span>ATE</span></div>
+            <div class="project-links"><a href="作品集/Python code/Timing_NDtoGEN3/Timing_NDtoGEN3.7z" download>下載程式碼</a></div>
           </div>
         </div>
 
@@ -230,15 +326,15 @@
             <div class="tags"><span>C#</span><span>SPI</span><span>FPGA</span></div>
           </div>
           <div class="gallery-grid" style="padding: 0 1.6rem 1.6rem 1.6rem;">
-            <img src="作品集/銳發/C%23_操控MAX10晶片_傳輸SPI訊號_來做自動化測試/自動化測試專板2..jpg" onclick="openImage(this.src)">
-            <img src="作品集/銳發/C%23_操控MAX10晶片_傳輸SPI訊號_來做自動化測試/自動化測試專板_1.jpg" onclick="openImage(this.src)">
-            <img src="作品集/銳發/C%23_操控MAX10晶片_傳輸SPI訊號_來做自動化測試/自動化測試專板_MAX10晶片.jpg" onclick="openImage(this.src)">
+            <img src="作品集/銳發/操控MAX10晶片_傳輸SPI訊號_來做自動化測試/自動化測試專板2..jpg" onclick="openImage(this.src)">
+            <img src="作品集/銳發/操控MAX10晶片_傳輸SPI訊號_來做自動化測試/自動化測試專板_1.jpg" onclick="openImage(this.src)">
+            <img src="作品集/銳發/操控MAX10晶片_傳輸SPI訊號_來做自動化測試/自動化測試專板_MAX10晶片.jpg" onclick="openImage(this.src)">
           </div>
         </div>
 
         <div class="card unified-card" data-category="power">
           <div class="card-img">
-            <img src="作品集/銳發/C%23_操控_新唐微控制器_來送I2C訊號控制LED燈條/微控制器_1.jpg" loading="lazy" alt="新唐微控制器" onclick="openImage(this.src)" style="cursor:pointer">
+             <img src="作品集/銳發/操控新唐微控制器_來送I2C訊號控制LED燈條/微控制器_1.jpg" loading="lazy" alt="新唐微控制器" onclick="openImage(this.src)" style="cursor:pointer">
           </div>
           <div class="card-content">
             <h3>C# 控制新唐 MCU LED 燈條</h3>
@@ -246,7 +342,7 @@
             <div class="tags"><span>C#</span><span>I2C</span><span>MCU</span></div>
             <div class="video-container" style="margin-top:10px;">
               <video controls>
-                <source src="作品集/銳發/C%23_操控_新唐微控制器_來送I2C訊號控制LED燈條/成果影片.mp4" type="video/mp4">
+                <source src="作品集/銳發/操控新唐微控制器_來送I2C訊號控制LED燈條/成果影片.mp4" type="video/mp4">
                 您的瀏覽器不支援影片標籤。
               </video>
             </div>
@@ -254,7 +350,7 @@
         </div>
 
         <div class="card unified-card" data-category="power">
-          <div class="card-img"><img src="作品集/銳發/Micro_LED點屏測試/Micro_LED顯示屏.jpg" loading="lazy" alt="Micro LED"></div>
+          <div class="card-img"><img src="作品集/銳發/Micro_LED點屏測試/Micro_LED顯示屏.jpg" loading="lazy" alt="Micro LED" onclick="openImage(this.src)" style="cursor:pointer"></div>
           <div class="card-content">
             <h3>Micro LED 點屏測試</h3>
             <p>Micro LED 顯示屏溫箱環境測試。</p>
@@ -268,9 +364,8 @@
           </div>
         </div>
 
-
         <div class="card unified-card" data-category="power">
-          <div class="card-img"><img src="作品集/鴻海/使用python code_控制量測儀器_做自動化DCDC測量/Setup.png" loading="lazy" alt="Setup"></div>
+          <div class="card-img"><img src="作品集/鴻海/使用python code_控制量測儀器_做自動化DCDC測量/Setup.png" loading="lazy" alt="Setup" onclick="openImage(this.src)" style="cursor:pointer"></div>
           <div class="card-content">
             <h3>DCDC 自動化量測系統</h3>
             <p>Python GUI 控制示波器與負載機，全自動量測項目。</p>
@@ -306,9 +401,8 @@
           </div>
         </div>
 
-
         <div class="card unified-card" data-category="other">
-          <div class="card-img"><img src="作品集/大學專題_智能導覽車/作品圖.png" loading="lazy" alt="智能導覽車"></div>
+          <div class="card-img"><img src="作品集/大學專題_智能導覽車/作品圖.png" loading="lazy" alt="智能導覽車" onclick="openImage(this.src)" style="cursor:pointer"></div>
           <div class="card-content">
             <h3>指紋解鎖智慧導覽車</h3>
             <p>LabVIEW 與 Arduino 整合應用，指紋辨識與語音導覽。</p>
@@ -331,11 +425,20 @@
             <div class="project-links"><a href="作品集/Python code/簡易百萬小學堂app/簡易百萬小學堂app.7z" download>下載程式碼</a></div>
           </div>
         </div>
+        
+        <div class="card unified-card" data-category="other">
+          <div class="card-img"><img src="作品集/Python code/簡易惡搞app/成果.png" loading="lazy" onclick="openImage(this.src)" style="cursor:pointer"></div>
+          <div class="card-content">
+            <h3>簡易惡搞 App</h3>
+            <p>趣味性的小型應用程式開發。</p>
+            <div class="tags"><span>Python</span><span>App</span></div>
+            <div class="project-links"><a href="作品集/Python code/簡易惡搞app/簡易惡搞.7z" download>下載程式碼</a></div>
+          </div>
+        </div>
 
       </div>
     </section>
 
-    <!-- 學歷 -->
     <section class="section glass">
       <h2>學歷與進修</h2>
       <div class="timeline">
@@ -346,7 +449,6 @@
       </div>
     </section>
 
-    <!-- 工作經歷 -->
     <section class="section glass">
       <h2>工作經歷</h2>
       <div class="timeline">
@@ -358,7 +460,6 @@
       </div>
     </section>
 
-    <!-- 聯絡 -->
     <section class="section glass contact">
       <h2>聯絡我</h2>
       <p>qaz611440@gmail.com</p>
@@ -367,7 +468,7 @@
     </section>
 
     <footer style="text-align:center; padding:2rem; color:#88cfff; font-size:0.9rem;">
-      最後更新：2025/11/21
+      最後更新：2025/11/27
     </footer>
   </div>
 
