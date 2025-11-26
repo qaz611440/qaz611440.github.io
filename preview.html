@@ -31,9 +31,13 @@
     const params = new URLSearchParams(location.search);
     const file = params.get('file');
     if (file) {
-      // 使用 Google Docs Viewer（支援 PDF, Word, Excel, PPT... 超多格式）
+      // 確保路徑有被正確解碼 (避免二次編碼導致錯誤)
+      const decodedFile = decodeURIComponent(file);
+      // 再次編碼傳給 Google Viewer
+      const encodedUrl = encodeURIComponent(location.origin + decodedFile);
+      
       document.getElementById('viewer').src = 
-        `https://docs.google.com/viewer?url=${encodeURIComponent(location.origin + file)}&embedded=true`;
+        `https://docs.google.com/viewer?url=${encodedUrl}&embedded=true`;
     }
   </script>
 </body>
