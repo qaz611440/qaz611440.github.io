@@ -342,3 +342,81 @@ h1, .tagline {
   .filters button { font-size: 0.8rem; padding: 6px 10px; }
   .navbar { justify-content: flex-start; } /* 手機版靠左開始 */
 }
+
+/* ==================== 打字機特效 (Hero) ==================== */
+.typewriter-container {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  min-height: 1.8em; /* 預留高度防止跳動 */
+  background: linear-gradient(90deg, #00d4ff, #00ff88);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.cursor {
+  display: inline-block;
+  color: #00ff88;
+  margin-left: 2px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ==================== 自我介紹 (圖文/影片並排) ==================== */
+.about-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap; /* 手機版自動換行 */
+}
+
+.about-text {
+  flex: 1 1 500px; /* 文字區塊至少 500px 寬，否則換行 */
+}
+
+.about-video {
+  flex: 1 1 300px;
+  width: 100%;
+}
+
+.video-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+.video-wrapper video {
+  width: 100%;
+  display: block;
+  background: #000;
+}
+
+.video-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 212, 255, 0.9);
+  color: #0a1a2e;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  pointer-events: none; /* 讓點擊穿透到影片 */
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* 手機版調整 */
+@media (max-width: 768px) {
+  .typewriter-container { font-size: 1.2rem; }
+  .about-container { flex-direction: column-reverse; } /* 手機版影片放上面或下面皆可，這裡設反轉讓影片在文字下方 */
+}
