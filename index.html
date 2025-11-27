@@ -36,28 +36,34 @@
     </section>
 
     <section class="section glass">
-        <h2>榮譽與成就</h2>
-        <div class="honors-grid">
-            <div class="honor-item">
-                <i class="fas fa-medal"></i>
-                <p>國立交通大學 類比IC設計</p>
-                <span>學分班成績 A+</span>
+        <h2>榮譽與成就 <span class="skill-note">(可左右滑動查看)</span></h2>
+        
+        <div class="scroll-gallery">
+            
+            <div class="gallery-item" onclick="openImage('images/書卷獎.png')">
+                <img src="images/書卷獎.png" loading="lazy" alt="書卷獎 1">
+                <div class="gallery-caption">銘傳大學 109學年度 書卷獎</div>
             </div>
-            <div class="honor-item">
-                <i class="fas fa-book"></i>
-                <p>銘傳大學 109學年度</p>
-                <span>書卷獎 (系排第2)</span>
+
+            <div class="gallery-item" onclick="openImage('images/書卷獎.png')">
+                <img src="images/書卷獎.png" loading="lazy" alt="書卷獎 2">
+                <div class="gallery-caption">銘傳大學 108學年度 書卷獎</div>
             </div>
-            <div class="honor-item">
-                <i class="fas fa-book"></i>
-                <p>銘傳大學 108學年度</p>
-                <span>書卷獎 (系排第3)</span>
+
+            <div class="gallery-item" onclick="openImage('images/書卷獎.png')">
+                <img src="images/書卷獎.png" loading="lazy" alt="專題競賽">
+                <div class="gallery-caption">大學專題競賽 優選</div>
             </div>
-            <div class="honor-item">
-                <i class="fas fa-trophy"></i>
-                <p>大學專題競賽</p>
-                <span>光電半導體類-優選</span>
+
+            <div class="gallery-item" onclick="openImage('images/書卷獎.png')">
+                <img src="images/書卷獎.png" loading="lazy" alt="交大成績">
+                <div class="gallery-caption">交大類比IC學分班 A+</div>
             </div>
+            <div class="gallery-item" onclick="openImage('images/書卷獎.png')">
+                <img src="images/書卷獎.png" loading="lazy" alt="其他獎項">
+                <div class="gallery-caption">其他學術榮譽</div>
+            </div>
+
         </div>
     </section>
 
@@ -464,15 +470,25 @@
     </section>
 
     <section class="section glass">
-      <h2>大學成績單 (佐證學業表現)</h2>
-      <div class="transcript-container">
-        <img src="images/transcript.png" 
-             loading="lazy" 
-             alt="大學成績單" 
-             class="transcript-img"
-             onclick="openImage(this.src)">
-        <p class="transcript-note">點擊圖片可放大查看成績單內容。</p>
-        <p class="transcript-note-mobile">（請注意：請將你的成績單圖片命名為 `transcript.png` 並放在 `images/` 資料夾中）</p>
+      <h2>大學成績單 <span class="skill-note">(點擊放大)</span></h2>
+      
+      <div class="scroll-gallery">
+        
+        <div class="gallery-item" onclick="openImage('images/transcript.png')">
+             <img src="images/transcript.png" loading="lazy" alt="大一成績單">
+            <div class="gallery-caption">大一 ~ 大二 成績單</div>
+        </div>
+
+        <div class="gallery-item" onclick="openImage('images/transcript.png')">
+            <img src="images/transcript.png" loading="lazy" alt="大三成績單">
+            <div class="gallery-caption">大三 ~ 大四 成績單</div>
+        </div>
+
+         <div class="gallery-item" onclick="openImage('images/transcript.png')">
+            <img src="images/transcript.png" loading="lazy" alt="總成績單">
+            <div class="gallery-caption">歷年總成績單</div>
+        </div>
+
       </div>
     </section>
 
