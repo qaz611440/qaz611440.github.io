@@ -12,12 +12,12 @@ particlesJS('particles-js', {
   interactivity: { events: { onhover: { enable: true, mode: 'repulse' } } }
 });
 
+// --- 篩選與搜尋功能 ---
 let currentFilter = 'all';
 const filters = document.querySelectorAll('.filters button');
 const searchInput = document.getElementById('search');
 const cards = document.querySelectorAll('.card');
 
-// 篩選按鈕
 filters.forEach(btn => {
   btn.addEventListener('click', () => {
     filters.forEach(b => b.classList.remove('active'));
@@ -27,19 +27,15 @@ filters.forEach(btn => {
   });
 });
 
-// 搜尋欄
 searchInput.addEventListener('input', () => {
   filterProjects();
 });
 
-// 主過濾函數
 function filterProjects() {
   const query = searchInput.value.toLowerCase();
-
   cards.forEach(card => {
     const category = card.dataset.category;
     const text = card.textContent.toLowerCase();
-
     const matchCategory = (currentFilter === 'all' || category === currentFilter);
     const matchSearch = text.includes(query);
 
@@ -51,7 +47,7 @@ function filterProjects() {
   });
 }
 
-// 燈箱控制
+// --- 燈箱控制 ---
 const lightbox = document.getElementById('imageLightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 
@@ -70,7 +66,49 @@ window.onclick = function(event) {
   }
 }
 
-// 初始化
+// --- 回到頂部按鈕 ---
+const backToTopBtn = document.getElementById("backToTop");
+
+window.onscroll = function() {
+  // 顯示/隱藏回到頂部按鈕
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    backToTopBtn.classList.add("show");
+  } else {
+    backToTopBtn.classList.remove("show");
+  }
+  
+  // 導覽列 Active 狀態切換
+  highlightNav();
+};
+
+backToTopBtn.addEventListener("click", function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// --- 導覽列滾動監聽 ---
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-link");
+
+function highlightNav() {
+  let scrollY = window.scrollY;
+  
+  sections.forEach(current => {
+    const sectionHeight = current.offsetHeight;
+    const sectionTop = current.offsetTop - 100; // 減去 Navbar 高度誤差
+    const sectionId = current.getAttribute("id");
+    
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href").includes(sectionId)) {
+          link.classList.add("active");
+        }
+      });
+    }
+  });
+}
+
+// --- 初始化 ---
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.filters button[data-filter="all"]').classList.add('active');
   filterProjects();

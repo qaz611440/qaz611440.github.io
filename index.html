@@ -3,12 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
   <title>陳彥邦 | 類比IC × AI自動化工程師</title>
+  <meta name="description" content="陳彥邦的個人作品集。專長：類比IC設計、Power測試、Python自動化開發。銘傳電機系排第2、交大類比IC學分班A+。">
+  <meta name="author" content="陳彥邦">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://qaz611440.github.io/">
+  <meta property="og:title" content="陳彥邦 | 類比IC × AI自動化工程師">
+  <meta property="og:description" content="查看我的作品集：包含IC設計、自動化測試專案與AI應用開發成果。">
+  <meta property="og:image" content="images/thumbnail.png"> <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://qaz611440.github.io/">
+  <meta property="twitter:title" content="陳彥邦 | 類比IC × AI自動化工程師">
+  <meta property="twitter:description" content="查看我的作品集：包含IC設計、自動化測試專案與AI應用開發成果。">
+  <meta property="twitter:image" content="images/thumbnail.png">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body id="top">
 
   <div id="particles-js"></div>
   
@@ -16,6 +30,21 @@
     <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
     <img class="lightbox-content" id="lightboxImg">
   </div>
+
+  <nav class="navbar glass">
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">自我介紹</a></li>
+        <li><a href="#honors" class="nav-link">榮譽</a></li>
+        <li><a href="#skills" class="nav-link">技能</a></li>
+        <li><a href="#projects" class="nav-link">作品集</a></li>
+        <li><a href="#education" class="nav-link">學歷</a></li>
+        <li><a href="#transcript" class="nav-link">成績單</a></li>
+        <li><a href="#experience" class="nav-link">經歷</a></li>
+        <li><a href="#contact" class="nav-link">聯絡</a></li>
+      </ul>
+    </div>
+  </nav>
 
   <div class="container">
 
@@ -27,47 +56,37 @@
       <h1>陳彥邦</h1>
       <p class="tagline">類比IC設計 × Power測試 × AI自動化工程師</p>
       <p class="subtitle">銘傳大學電機系 系排第2・交大類比IC A+・現職久元電子硬體開發</p>
-      </header>
+    </header>
 
-    <section class="section glass">
+    <section id="about" class="section glass">
       <h2>自我介紹</h2>
       <p>熱愛將電路原理轉化為實體產品，擁有 3 年 Power IC 測試與類比IC驗證經驗。擅長 Verilog / C# / Python 開發自動化流程，近期用 AI 打造「從 0 到 YouTube 上架小說」的全自動系統。2024 年於交大夜間學分班修讀「類比積體電路」獲 <strong>A+</strong>，目標成為專業類比IC設計工程師。</p>
       <p style="margin-top:1rem;">個性主動、細心、有耐心、上進心強，享受解決困難問題帶來的成就感，喜歡與團隊溝通討論。未來目標：長期穩定發展專業領域、提升英文至 TOEIC 730+、具備主管級專業能力。</p>
     </section>
 
-    <section class="section glass">
+    <section id="honors" class="section glass">
         <h2>榮譽與成就 <span class="skill-note">(可左右滑動查看)</span></h2>
-        
         <div class="scroll-gallery">
-            
             <div class="gallery-item" onclick="openImage('images/書卷獎.png')">
                 <img src="images/書卷獎.png" loading="lazy" alt="書卷獎 1">
                 <div class="gallery-caption">銘傳大學 109學年度 書卷獎</div>
             </div>
-
             <div class="gallery-item" onclick="openImage('images/書卷獎.png')">
                 <img src="images/書卷獎.png" loading="lazy" alt="書卷獎 2">
                 <div class="gallery-caption">銘傳大學 108學年度 書卷獎</div>
             </div>
-
             <div class="gallery-item" onclick="openImage('images/書卷獎.png')">
                 <img src="images/書卷獎.png" loading="lazy" alt="專題競賽">
                 <div class="gallery-caption">大學專題競賽 優選</div>
             </div>
-
             <div class="gallery-item" onclick="openImage('images/書卷獎.png')">
                 <img src="images/書卷獎.png" loading="lazy" alt="交大成績">
                 <div class="gallery-caption">交大類比IC學分班 A+</div>
             </div>
-            <div class="gallery-item" onclick="openImage('images/書卷獎.png')">
-                <img src="images/書卷獎.png" loading="lazy" alt="其他獎項">
-                <div class="gallery-caption">其他學術榮譽</div>
-            </div>
-
         </div>
     </section>
 
-    <section class="section glass">
+    <section id="skills" class="section glass">
       <h2>專業技能 <span class="skill-note">(90% = 獨立完成商業專案)</span></h2>
       <div class="skills-grid">
         <div class="skill-item"><div class="skill-header"><span>Python</span><span>90%</span></div><div class="skill-bar"><div style="width:90%"></div></div></div>
@@ -231,7 +250,7 @@
               <a href="#" onclick="event.preventDefault(); openImage('作品集/鴻海/使用python code_控制量測儀器_做自動化DCDC測量/Overshoot__FullLoad.PNG')">Overshoot FullLoad</a>
               <a href="#" onclick="event.preventDefault(); openImage('作品集/鴻海/使用python code_控制量測儀器_做自動化DCDC測量/SwitchingFrequency_Full_Load.PNG')">Switching Frequency Full Load</a>
               <a href="#" onclick="event.preventDefault(); openImage('作品集/鴻海/使用python code_控制量測儀器_做自動化DCDC測量/Voltage_Measurement_Full_Load_.PNG')">Voltage Measurement</a>
-              </div>
+            </div>
 
             <div class="project-links">
               <a href="作品集/鴻海/使用python code_控制量測儀器_做自動化DCDC測量/使用python code_控制量測儀器_做自動化DCDC測量.7z" download>下載自動化程式碼</a>
@@ -313,7 +332,7 @@
         <div class="card unified-card" data-category="python-tool">
           <div class="card-img"><img src="作品集/Python code/ATE生產部_維修紀錄excel轉成json格式/成果.png" loading="lazy" onclick="openImage(this.src)" style="cursor:pointer"></div>
           <div class="card-content">
-            <h3>ATE 維修紀錄格式轉換 (Excel to JSON)</h3>
+            <h3>ATE 維修紀錄格式轉換</h3>
             <p>將 Excel 維修紀錄轉換為 JSON 標準格式。</p>
             <div class="tags"><span>Python</span><span>Pandas</span><span>Excel</span></div>
             <div class="project-links"><a href="作品集/Python code/ATE生產部_維修紀錄excel轉成json格式/ATE生產部_維修紀錄excel轉成json格式.7z" download>下載程式碼</a></div>
@@ -420,7 +439,6 @@
           </div>
         </div>
 
-
         <div class="card unified-card" data-category="university-proj">
           <div class="card-img"><img src="作品集/大學專題_智能導覽車/作品圖.png" loading="lazy" alt="智能導覽車" onclick="openImage(this.src)" style="cursor:pointer"></div>
           <div class="card-content">
@@ -459,7 +477,7 @@
       </div>
     </section>
 
-    <section class="section glass">
+    <section id="education" class="section glass">
       <h2>學歷與進修</h2>
       <div class="timeline">
         <div class="timeline-item"><div class="year">2024</div><div class="content"><h3>國立交通大學 夜間學分班</h3><p>類比積體電路設計 <span class="highlight">A+</span></p></div></div>
@@ -469,30 +487,25 @@
       </div>
     </section>
 
-    <section class="section glass">
+    <section id="transcript" class="section glass">
       <h2>大學成績單 <span class="skill-note">(點擊放大)</span></h2>
-      
       <div class="scroll-gallery">
-        
         <div class="gallery-item" onclick="openImage('images/transcript.png')">
-             <img src="images/transcript.png" loading="lazy" alt="大一成績單">
+            <img src="images/transcript.png" loading="lazy" alt="大一成績單">
             <div class="gallery-caption">大一 ~ 大二 成績單</div>
         </div>
-
         <div class="gallery-item" onclick="openImage('images/transcript.png')">
             <img src="images/transcript.png" loading="lazy" alt="大三成績單">
             <div class="gallery-caption">大三 ~ 大四 成績單</div>
         </div>
-
          <div class="gallery-item" onclick="openImage('images/transcript.png')">
             <img src="images/transcript.png" loading="lazy" alt="總成績單">
             <div class="gallery-caption">歷年總成績單</div>
         </div>
-
       </div>
     </section>
 
-    <section class="section glass">
+    <section id="experience" class="section glass">
       <h2>工作經歷</h2>
       <div class="timeline">
         <div class="timeline-item"><div class="year">2025/9～至今</div><div class="content"><h3>久元電子股份有限公司</h3><p>硬體開發工程師（ATE部門）</p></div></div>
@@ -503,16 +516,36 @@
       </div>
     </section>
 
-    <section class="section glass contact">
+    <section id="contact" class="section glass contact">
       <h2>聯絡我</h2>
-      <p>qaz611440@gmail.com</p>
-      <p>0910-817-152</p>
-      <p><a href="https://github.com/qaz611440" target="_blank">github.com/qaz611440</a></p>
+      
+      <div class="social-links">
+        <a href="https://line.me/ti/p/EvhrycMrHY" target="_blank" class="social-btn line-btn">
+          <i class="fab fa-line"></i> Line 加好友
+        </a>
+        <a href="https://www.instagram.com/bunbun_barry?igsh=MTYzaHBnYjhoNm1wcw%3D%3D&utm_source=qr" target="_blank" class="social-btn ig-btn">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.facebook.com/share/1D8aFbU9QJ/?mibextid=wwXIfr" target="_blank" class="social-btn fb-btn">
+          <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+        <a href="https://github.com/qaz611440" target="_blank" class="social-btn github-btn">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> qaz611440@gmail.com</p>
+        <p><i class="fas fa-phone"></i> 0910-817-152</p>
+      </div>
     </section>
 
     <footer style="text-align:center; padding:2rem; color:#88cfff; font-size:0.9rem;">
       最後更新：2025/11/27
     </footer>
+    
+    <button id="backToTop" title="回到頂部"><i class="fas fa-arrow-up"></i></button>
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>

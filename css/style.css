@@ -1,5 +1,6 @@
 /* ==================== 基礎 ==================== */
 * { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; } /* 平滑捲動 */
 body {
   font-family: 'Inter', 'Noto Sans TC', sans-serif;
   background: #0a1a2e;
@@ -12,7 +13,8 @@ body {
   margin: 0 auto; 
   padding: 2rem; 
   position: relative; 
-  z-index: 2; 
+  z-index: 2;
+  margin-top: 60px; /* 避免內容被 Navbar 擋住 */ 
 }
 
 /* 背景粒子 */
@@ -33,6 +35,60 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
+
+/* ==================== 導覽列 (Navbar) ==================== */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  height: 70px;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(10, 26, 46, 0.85); /* 深色半透明背景 */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin: 0; /* 覆蓋 .glass 的 margin */
+  border-radius: 0; /* 覆蓋 .glass 的圓角 */
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1200px;
+  overflow-x: auto; /* 手機版可橫向滑動 */
+  white-space: nowrap;
+  padding: 0 20px;
+  /* 隱藏捲軸 */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.nav-container::-webkit-scrollbar { display: none; }
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 0;
+  min-width: max-content;
+}
+
+.nav-link {
+  color: #e0f2ff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 12px;
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+  background: rgba(0, 212, 255, 0.2);
+  color: #00d4ff;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
 
 /* ==================== 頭貼/標題 ==================== */
 .avatar-container { 
@@ -75,8 +131,6 @@ h1 {
   font-size: 1.1rem; 
   opacity: 0.9;
 }
-
-/* 霓虹文字 */
 h1, .tagline {
   background: linear-gradient(90deg, #00d4ff, #00ff88);
   -webkit-background-clip: text;
@@ -84,79 +138,42 @@ h1, .tagline {
   color: transparent;
 }
 
-/* ==================== 榮譽與成就 (新區塊) ==================== */
-.honors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-    text-align: center;
-}
-.honor-item {
-    background: rgba(0, 212, 255, 0.1);
-    border: 1px solid rgba(0, 212, 255, 0.4);
-    padding: 20px 10px;
-    border-radius: 15px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-.honor-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 212, 255, 0.3);
-}
-.honor-item i {
-    font-size: 3rem;
-    color: #ffcc00; /* 金色 */
-    margin-bottom: 10px;
-    text-shadow: 0 0 15px rgba(255, 204, 0, 0.8);
-}
-.honor-item p {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 5px;
-}
-.honor-item span {
-    font-size: 0.9rem;
-    color: #00ff88;
-}
 
-/* ==================== 橫向滾動畫廊 (榮譽與成績單通用) ==================== */
+/* ==================== 橫向滾動畫廊 ==================== */
 .scroll-gallery {
   display: flex;
-  overflow-x: auto; /* 開啟橫向滾動 */
+  overflow-x: auto;
   gap: 1.5rem;
-  padding: 1rem 0 2rem 0; /* 底部留空間給卷軸 */
+  padding: 1rem 0 2rem 0;
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch; /* 手機滑動流暢 */
+  -webkit-overflow-scrolling: touch;
+}
+.scroll-gallery::-webkit-scrollbar { height: 8px; }
+.scroll-gallery::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 4px; }
+.scroll-gallery::-webkit-scrollbar-thumb { background: #00d4ff; border-radius: 4px; }
+.scroll-gallery::-webkit-scrollbar-thumb:hover { background: #00ff88; }
+
+/* Skeleton Loading 動畫效果 (Shimmer) */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
-/* 自定義美化卷軸 (Chrome, Safari, Edge) */
-.scroll-gallery::-webkit-scrollbar {
-  height: 8px;
-}
-.scroll-gallery::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 4px;
-}
-.scroll-gallery::-webkit-scrollbar-thumb {
-  background: #00d4ff;
-  border-radius: 4px;
-}
-.scroll-gallery::-webkit-scrollbar-thumb:hover {
-  background: #00ff88;
-}
-
-/* 畫廊內的圖片容器 */
 .gallery-item {
-  flex: 0 0 auto; /* 防止圖片被壓縮 */
-  width: 280px;   /* 設定統一寬度，可依需求調整 */
+  flex: 0 0 auto;
+  width: 280px;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(0, 0, 0, 0.3);
+  background: #0f2438; /* 底色 */
   transition: transform 0.3s;
   cursor: pointer;
   position: relative;
+  
+  /* Skeleton 背景動畫 */
+  background: linear-gradient(90deg, #0f2438 25%, #1a3a5a 50%, #0f2438 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
 }
 
 .gallery-item:hover {
@@ -167,9 +184,12 @@ h1, .tagline {
 
 .gallery-item img {
   width: 100%;
-  height: 200px; /* 固定高度，讓排列整齊 */
-  object-fit: cover; /* 保持比例填滿 */
+  height: 200px;
+  object-fit: cover;
   display: block;
+  position: relative; 
+  z-index: 2; /* 確保圖片蓋在 Skeleton 動畫上 */
+  background: #000; /* 圖片載入前顯示黑色 */
 }
 
 .gallery-caption {
@@ -178,38 +198,21 @@ h1, .tagline {
   font-size: 0.9rem;
   color: #fff;
   background: rgba(0, 0, 0, 0.6);
+  z-index: 3;
 }
 
-/* ==================== 專業技能 ==================== */
+
+/* ==================== 技能 ==================== */
 .skill-note { font-size: 0.9rem; color: #88cfff; float: right; }
 .skills-grid { 
-  display: grid; 
-  gap: 1rem; 
-  margin-top: 1.5rem; 
+  display: grid; gap: 1rem; margin-top: 1.5rem; 
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
 }
-.skill-item { 
-  background: rgba(0,0,0,0.2); 
-  padding: 1rem; 
-  border-radius: 12px; 
-}
-.skill-header { 
-  display: flex; 
-  justify-content: space-between; 
-  margin-bottom: 0.5rem; 
-  font-weight: 600; 
-}
-.skill-bar { 
-  height: 10px; 
-  background: #334; 
-  border-radius: 5px; 
-  overflow: hidden; 
-}
-.skill-bar > div { 
-  height: 100%; 
-  background: linear-gradient(90deg, #00d4ff, #00ff88); 
-  border-radius: 5px; 
-}
+.skill-item { background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 12px; }
+.skill-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-weight: 600; }
+.skill-bar { height: 10px; background: #334; border-radius: 5px; overflow: hidden; }
+.skill-bar > div { height: 100%; background: linear-gradient(90deg, #00d4ff, #00ff88); border-radius: 5px; }
+
 
 /* ==================== 作品集 ==================== */
 .search-bar {
@@ -221,274 +224,121 @@ h1, .tagline {
 .filters button {
   background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3);
   color: white; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 0.9rem;
-  white-space: nowrap; /* 防止按鈕文字換行 */
+  white-space: nowrap;
 }
-.filters button.active, .filters button:hover {
-  background: #00d4ff; border-color: #00d4ff;
-}
+.filters button.active, .filters button:hover { background: #00d4ff; border-color: #00d4ff; }
+
 .grid { 
-  display: grid; 
-  gap: 2rem; 
-  margin-top: 1.5rem; 
-  /* 修正重點：auto-fill 會保留欄位空間，不會讓單一卡片撐滿全螢幕 */
+  display: grid; gap: 2rem; margin-top: 1.5rem; 
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
 }
+
 .card { 
-  background: rgba(255,255,255,0.08); 
-  border-radius: 20px; 
-  overflow: hidden; 
-  transition: all 0.4s; 
-  position: relative;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  background: rgba(255,255,255,0.08); border-radius: 20px; overflow: hidden; 
+  transition: all 0.4s; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
-.card:hover { 
-  transform: translateY(-12px); 
-  box-shadow: 0 20px 40px rgba(0,212,255,0.25);
-}
+.card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0,212,255,0.25); }
 .card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
+  content: ''; position: absolute; inset: 0;
   background: linear-gradient(135deg, rgba(0,212,255,0.35), transparent 60%);
-  opacity: 0;
-  transition: opacity 0.4s;
-  pointer-events: none;
-  border-radius: 20px;
+  opacity: 0; transition: opacity 0.4s; pointer-events: none; border-radius: 20px;
 }
 .card:hover::before { opacity: 1; }
+
 .card-img {
-  height: 220px;
-  overflow: hidden;
-  background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+  height: 220px; overflow: hidden; background: #000;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  
+  /* Skeleton 背景動畫 */
+  background: linear-gradient(90deg, #000 25%, #1a1a1a 50%, #000 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
 }
-.card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transition: transform 0.6s;
-}
+.card-img img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.6s; z-index: 2;}
+
 .card-content { padding: 1.6rem; }
-.card-content h3 {
-  color: #fff;
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
-  line-height: 1.4;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5); 
-}
-.card-content p {
-  color: #aaccff;
-  font-size: 0.95rem;
-  font-weight: 400;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-.tags {
-  margin: 1rem 0 1.2rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-}
+.card-content h3 { color: #fff; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; line-height: 1.4; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+.card-content p { color: #aaccff; font-size: 0.95rem; font-weight: 400; line-height: 1.6; margin-bottom: 1rem; }
+
+.tags { margin: 1rem 0 1.2rem 0; display: flex; flex-wrap: wrap; gap: 0.8rem; }
 .tags span {
-  background: rgba(0, 255, 136, 0.18);
-  color: #00ff88;
-  padding: 7px 16px;
-  border-radius: 30px;
-  font-size: 0.88rem;
-  font-weight: 600;
-  border: 1px solid rgba(0, 255, 136, 0.5);
+  background: rgba(0, 255, 136, 0.18); color: #00ff88; padding: 7px 16px; border-radius: 30px; 
+  font-size: 0.88rem; font-weight: 600; border: 1px solid rgba(0, 255, 136, 0.5); 
   box-shadow: 0 2px 8px rgba(0, 255, 136, 0.2);
 }
-.project-links {
-  margin-top: 1.2rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.9rem;
-}
+
+.project-links { margin-top: 1.2rem; display: flex; flex-wrap: wrap; gap: 0.9rem; }
 .project-links a {
-  background: rgba(0,212,255,0.2);
-  color: #00d4ff;
-  padding: 11px 24px;
-  border-radius: 50px;
-  font-size: 0.95rem;
-  text-decoration: none;
-  border: 1px solid rgba(0,212,255,0.5);
-  transition: all 0.3s;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  background: rgba(0,212,255,0.2); color: #00d4ff; padding: 11px 24px; border-radius: 50px; 
+  font-size: 0.95rem; text-decoration: none; border: 1px solid rgba(0,212,255,0.5); 
+  transition: all 0.3s; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;
 }
-.project-links a:hover {
-  background: #00d4ff;
-  color: white;
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0,212,255,0.5);
-}
+.project-links a:hover { background: #00d4ff; color: white; transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,212,255,0.5); }
 .card.hidden { display: none !important; }
-.preview-btn {
-  background: rgba(255, 71, 87, 0.18) !important;
-  color: #ff4757 !important;
-  border: 1px solid rgba(255, 71, 87, 0.5) !important;
-}
-.preview-btn:hover {
-  background: #ff4757 !important;
-  color: white !important;
-  box-shadow: 0 10px 30px rgba(255, 71, 87, 0.4);
-}
+.preview-btn { background: rgba(255, 71, 87, 0.18) !important; color: #ff4757 !important; border: 1px solid rgba(255, 71, 87, 0.5) !important; }
+.preview-btn:hover { background: #ff4757 !important; color: white !important; box-shadow: 0 10px 30px rgba(255, 71, 87, 0.4); }
 .preview-btn::before { content: "預覽 "; }
 
-/* ==================== 時間軸 ==================== */
+
+/* ==================== 聯絡 & 社群按鈕 (New) ==================== */
+.contact-info { margin-top: 2rem; text-align: center; }
+.contact-info p { font-size: 1.1rem; margin: 0.5rem 0; color: #e0f2ff; }
+.contact-info i { color: #00d4ff; margin-right: 10px; width: 20px; text-align: center;}
+
+.social-links {
+  display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;
+}
+.social-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 24px; border-radius: 50px; text-decoration: none; font-weight: 600;
+  transition: transform 0.3s, box-shadow 0.3s; color: white;
+}
+.social-btn:hover { transform: translateY(-4px); filter: brightness(1.2); }
+.social-btn i { font-size: 1.2rem; }
+
+/* 各大平台顏色 */
+.line-btn { background: #06C755; box-shadow: 0 4px 15px rgba(6, 199, 85, 0.4); }
+.ig-btn   { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4); }
+.fb-btn   { background: #1877F2; box-shadow: 0 4px 15px rgba(24, 119, 242, 0.4); }
+.github-btn { background: #333; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+
+
+/* ==================== 回到頂部按鈕 (New) ==================== */
+#backToTop {
+  position: fixed; bottom: 30px; right: 30px;
+  background: #00d4ff; color: #0a1a2e;
+  border: none; width: 50px; height: 50px; border-radius: 50%;
+  font-size: 1.2rem; cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.5);
+  transition: all 0.3s; opacity: 0; visibility: hidden; z-index: 999;
+}
+#backToTop.show { opacity: 1; visibility: visible; }
+#backToTop:hover { transform: translateY(-5px); background: #fff; }
+
+
+/* ==================== 其他 (Timeline, Gallery, Lightbox) ==================== */
 .timeline { margin-top: 1rem; }
-.timeline-item { 
-  display: flex; 
-  gap: 1.5rem; 
-  margin: 2rem 0; 
-  align-items: flex-start; 
-}
-.year { 
-  min-width: 80px; 
-  font-weight: 700; 
-  color: #00d4ff; 
-  font-size: 1.1rem;
-}
+.timeline-item { display: flex; gap: 1.5rem; margin: 2rem 0; align-items: flex-start; }
+.year { min-width: 80px; font-weight: 700; color: #00d4ff; font-size: 1.1rem; }
 .highlight { color: #ff6b6b; font-weight: bold; }
 
-
-/* ==================== 成績單區塊 (新區塊) ==================== */
-.transcript-container {
-    text-align: center;
-    padding: 1rem;
-}
-.transcript-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    border: 3px solid #00d4ff;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    object-fit: contain;
-}
-.transcript-img:hover {
-    box-shadow: 0 0 30px rgba(0,212,255,0.8);
-    transform: scale(1.01);
-}
-.transcript-note {
-    margin-top: 1rem;
-    color: #88cfff;
-    font-size: 0.95rem;
-}
-.transcript-note-mobile {
-  font-size: 0.8rem;
-  color: #ff4757;
-  margin-top: 0.5rem;
-}
-
-/* ==================== 進階功能樣式 ==================== */
-
-/* 1. 圖片燈箱 */
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 99999;
-  padding-top: 50px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.9);
-}
-.lightbox-content {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 1200px;
-  max-height: 90vh;
-  object-fit: contain;
-  animation: zoom 0.6s;
-}
+.lightbox { display: none; position: fixed; z-index: 99999; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.9); }
+.lightbox-content { margin: auto; display: block; width: 80%; max-width: 1200px; max-height: 90vh; object-fit: contain; animation: zoom 0.6s; }
 @keyframes zoom { from {transform:scale(0)} to {transform:scale(1)} }
-.close-lightbox {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-  cursor: pointer;
-}
-.close-lightbox:hover { color: #bbb; }
+.close-lightbox { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; transition: 0.3s; cursor: pointer; }
 
-/* 2. 影片容器 */
-.video-container video {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
+.video-container video { width: 100%; border-radius: 8px; margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
 
-/* 3. 滾動式檔案列表 (鴻海專用) */
-.file-scroll-box {
-  max-height: 220px;
-  overflow-y: auto;
-  background: rgba(0, 10, 20, 0.6);
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  border-radius: 8px;
-  padding: 8px;
-  margin: 1rem 0;
-}
-.file-scroll-box a {
-  display: flex;
-  align-items: center;
-  color: #88cfff;
-  text-decoration: none;
-  padding: 8px;
-  font-size: 0.85rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  transition: 0.2s;
-}
-.file-scroll-box a:hover {
-  background: rgba(0, 212, 255, 0.15);
-  color: #fff;
-  padding-left: 12px;
-}
-.file-scroll-box a::before {
-  content: '📊';
-  margin-right: 8px;
-  font-size: 10px;
-}
+.file-scroll-box { max-height: 220px; overflow-y: auto; background: rgba(0, 10, 20, 0.6); border: 1px solid rgba(0, 212, 255, 0.2); border-radius: 8px; padding: 8px; margin: 1rem 0; }
+.file-scroll-box a { display: flex; align-items: center; color: #88cfff; text-decoration: none; padding: 8px; font-size: 0.85rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); transition: 0.2s; }
+.file-scroll-box a:hover { background: rgba(0, 212, 255, 0.15); color: #fff; padding-left: 12px; }
+.file-scroll-box a::before { content: '📊'; margin-right: 8px; font-size: 10px; }
 
-/* 4. 多圖網格 (銳發專用) */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin: 1rem 0;
-}
-.gallery-grid img {
-  width: 100%;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 6px;
-  cursor: pointer;
-  border: 1px solid rgba(255,255,255,0.2);
-  transition: 0.3s;
-}
-.gallery-grid img:hover {
-  border-color: #00d4ff;
-  transform: scale(1.05);
-}
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 1rem 0; }
+.gallery-grid img { width: 100%; height: 80px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); transition: 0.3s; }
+.gallery-grid img:hover { border-color: #00d4ff; transform: scale(1.05); }
 
-/* 媒體查詢：手機版調整 */
 @media (max-width: 768px) {
-  .filters button {
-    font-size: 0.8rem;
-    padding: 6px 10px;
-  }
+  .filters button { font-size: 0.8rem; padding: 6px 10px; }
+  .navbar { justify-content: flex-start; } /* 手機版靠左開始 */
 }
