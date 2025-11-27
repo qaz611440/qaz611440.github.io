@@ -34,7 +34,7 @@ body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-/* ==================== 頭貼 ==================== */
+/* ==================== 頭貼/標題 ==================== */
 .avatar-container { 
   position: relative; 
   width: 160px; height: 160px; 
@@ -57,7 +57,6 @@ body {
 }
 @keyframes pulse { 0%,100% { opacity: 0.5; } 50% { opacity: 1; } }
 
-/* ==================== 標題 ==================== */
 h1 { 
   font-size: 3rem; 
   font-weight: 700; 
@@ -85,26 +84,43 @@ h1, .tagline {
   color: transparent;
 }
 
-/* ==================== 按鈕 ==================== */
-.btn-primary {
-  display: block; 
-  width: fit-content; 
-  margin: 1.5rem auto;
-  background: linear-gradient(45deg, #00d4ff, #0077cc);
-  color: white; 
-  padding: 14px 36px; 
-  border-radius: 50px;
-  text-decoration: none; 
-  font-weight: 600; 
-  box-shadow: 0 4px 15px rgba(0,212,255,0.4);
-  transition: all 0.3s;
+/* ==================== 榮譽與成就 (新區塊) ==================== */
+.honors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    text-align: center;
 }
-.btn-primary:hover { 
-  transform: translateY(-4px); 
-  box-shadow: 0 10px 30px rgba(0,212,255,0.6); 
+.honor-item {
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    padding: 20px 10px;
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.honor-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 212, 255, 0.3);
+}
+.honor-item i {
+    font-size: 3rem;
+    color: #ffcc00; /* 金色 */
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px rgba(255, 204, 0, 0.8);
+}
+.honor-item p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 5px;
+}
+.honor-item span {
+    font-size: 0.9rem;
+    color: #00ff88;
 }
 
-/* ==================== 技能 ==================== */
+/* ==================== 專業技能 ==================== */
 .skill-note { font-size: 0.9rem; color: #88cfff; float: right; }
 .skills-grid { 
   display: grid; 
@@ -136,33 +152,26 @@ h1, .tagline {
 }
 
 /* ==================== 作品集 ==================== */
-
-/* 搜尋欄 */
 .search-bar {
   width: 100%; padding: 12px; margin: 1rem 0;
   background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3);
   border-radius: 12px; color: white; font-size: 1rem;
 }
-
-/* 篩選按鈕 */
 .filters { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
 .filters button {
   background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3);
   color: white; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 0.9rem;
+  white-space: nowrap; /* 防止按鈕文字換行 */
 }
 .filters button.active, .filters button:hover {
   background: #00d4ff; border-color: #00d4ff;
 }
-
-/* 作品卡片網格 */
 .grid { 
   display: grid; 
   gap: 2rem; 
   margin-top: 1.5rem; 
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
 }
-
-/* 單張卡片 */
 .card { 
   background: rgba(255,255,255,0.08); 
   border-radius: 20px; 
@@ -175,8 +184,6 @@ h1, .tagline {
   transform: translateY(-12px); 
   box-shadow: 0 20px 40px rgba(0,212,255,0.25);
 }
-
-/* 懸浮光效 */
 .card::before {
   content: '';
   position: absolute;
@@ -188,8 +195,6 @@ h1, .tagline {
   border-radius: 20px;
 }
 .card:hover::before { opacity: 1; }
-
-/* 圖片顯示設定 (包含不裁切與黑色背景) */
 .card-img {
   height: 220px;
   overflow: hidden;
@@ -205,8 +210,6 @@ h1, .tagline {
   object-fit: contain;
   transition: transform 0.6s;
 }
-
-/* 標題與內文 */
 .card-content { padding: 1.6rem; }
 .card-content h3 {
   color: #fff;
@@ -223,8 +226,6 @@ h1, .tagline {
   line-height: 1.6;
   margin-bottom: 1rem;
 }
-
-/* 技術標籤 */
 .tags {
   margin: 1rem 0 1.2rem 0;
   display: flex;
@@ -241,8 +242,6 @@ h1, .tagline {
   border: 1px solid rgba(0, 255, 136, 0.5);
   box-shadow: 0 2px 8px rgba(0, 255, 136, 0.2);
 }
-
-/* 專案連結 */
 .project-links {
   margin-top: 1.2rem;
   display: flex;
@@ -269,11 +268,7 @@ h1, .tagline {
   transform: translateY(-4px);
   box-shadow: 0 10px 30px rgba(0,212,255,0.5);
 }
-
-/* 隱藏 class */
 .card.hidden { display: none !important; }
-
-/* 預覽按鈕樣式 */
 .preview-btn {
   background: rgba(255, 71, 87, 0.18) !important;
   color: #ff4757 !important;
@@ -301,6 +296,36 @@ h1, .tagline {
   font-size: 1.1rem;
 }
 .highlight { color: #ff6b6b; font-weight: bold; }
+
+
+/* ==================== 成績單區塊 (新區塊) ==================== */
+.transcript-container {
+    text-align: center;
+    padding: 1rem;
+}
+.transcript-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 3px solid #00d4ff;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    object-fit: contain;
+}
+.transcript-img:hover {
+    box-shadow: 0 0 30px rgba(0,212,255,0.8);
+    transform: scale(1.01);
+}
+.transcript-note {
+    margin-top: 1rem;
+    color: #88cfff;
+    font-size: 0.95rem;
+}
+.transcript-note-mobile {
+  font-size: 0.8rem;
+  color: #ff4757;
+  margin-top: 0.5rem;
+}
 
 /* ==================== 進階功能樣式 ==================== */
 
@@ -397,4 +422,12 @@ h1, .tagline {
 .gallery-grid img:hover {
   border-color: #00d4ff;
   transform: scale(1.05);
+}
+
+/* 媒體查詢：手機版調整 */
+@media (max-width: 768px) {
+  .filters button {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
 }
