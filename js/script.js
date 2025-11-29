@@ -70,11 +70,14 @@ window.onclick = function(event) {
 const backToTopBtn = document.getElementById("backToTop");
 
 window.onscroll = function() {
+  // 顯示/隱藏回到頂部按鈕
   if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
     backToTopBtn.classList.add("show");
   } else {
     backToTopBtn.classList.remove("show");
   }
+  
+  // 導覽列 Active 狀態切換
   highlightNav();
 };
 
@@ -91,7 +94,7 @@ function highlightNav() {
   
   sections.forEach(current => {
     const sectionHeight = current.offsetHeight;
-    const sectionTop = current.offsetTop - 100; 
+    const sectionTop = current.offsetTop - 100; // 減去 Navbar 高度誤差
     const sectionId = current.getAttribute("id");
     
     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
