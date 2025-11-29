@@ -70,14 +70,11 @@ window.onclick = function(event) {
 const backToTopBtn = document.getElementById("backToTop");
 
 window.onscroll = function() {
-  // 顯示/隱藏回到頂部按鈕
   if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
     backToTopBtn.classList.add("show");
   } else {
     backToTopBtn.classList.remove("show");
   }
-  
-  // 導覽列 Active 狀態切換
   highlightNav();
 };
 
@@ -94,7 +91,7 @@ function highlightNav() {
   
   sections.forEach(current => {
     const sectionHeight = current.offsetHeight;
-    const sectionTop = current.offsetTop - 100; // 減去 Navbar 高度誤差
+    const sectionTop = current.offsetTop - 100; 
     const sectionId = current.getAttribute("id");
     
     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
@@ -112,60 +109,4 @@ function highlightNav() {
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.filters button[data-filter="all"]').classList.add('active');
   filterProjects();
-});
-
-// ... (保留原本的代碼) ...
-
-// ==================== 打字機特效邏輯 ====================
-const textsToType = [
-  "類比IC設計工程師",
-  "Power 測試工程師",
-  "AI 自動化工程師",
-  "熱愛挑戰與解決問題"
-];
-const typeWriterElement = document.querySelector('.typewriter-text');
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let typeSpeed = 100;
-
-function typeWriter() {
-  const currentText = textsToType[textIndex];
-  
-  if (isDeleting) {
-    // 刪除文字中
-    typeWriterElement.textContent = currentText.substring(0, charIndex - 1);
-    charIndex--;
-    typeSpeed = 50; // 刪除速度較快
-  } else {
-    // 輸入文字中
-    typeWriterElement.textContent = currentText.substring(0, charIndex + 1);
-    charIndex++;
-    typeSpeed = 100; // 輸入速度正常
-  }
-
-  if (!isDeleting && charIndex === currentText.length) {
-    // 打完一句，暫停一下
-    isDeleting = true;
-    typeSpeed = 2000; 
-  } else if (isDeleting && charIndex === 0) {
-    // 刪完一句，切換下一句
-    isDeleting = false;
-    textIndex = (textIndex + 1) % textsToType.length;
-    typeSpeed = 500;
-  }
-
-  setTimeout(typeWriter, typeSpeed);
-}
-
-// 啟動打字機
-document.addEventListener('DOMContentLoaded', () => {
-  // 原本的初始化
-  document.querySelector('.filters button[data-filter="all"]').classList.add('active');
-  filterProjects();
-  
-  // 啟動打字機
-  if(document.querySelector('.typewriter-text')) {
-    typeWriter();
-  }
 });
