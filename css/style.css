@@ -25,15 +25,19 @@ body {
   z-index: 1; 
 }
 
-/* 玻璃卡片 */
+/* 玻璃卡片 (升級版) */
 .glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.08); /* 稍微降低透明度，提升質感 */
+  backdrop-filter: blur(16px); /* 增加模糊度 */
   border-radius: 20px;
   padding: 2rem;
   margin: 2rem 0;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.3s;
+}
+.glass:hover {
+  border-color: rgba(255, 255, 255, 0.3); /* 懸浮時邊框變亮 */
 }
 
 /* ==================== 導覽列 (Navbar) ==================== */
@@ -45,11 +49,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(10, 26, 46, 0.85); /* 深色半透明背景 */
-  backdrop-filter: blur(10px);
+  background: rgba(10, 26, 46, 0.9); /* 深色半透明背景 */
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255,255,255,0.1);
-  margin: 0; /* 覆蓋 .glass 的 margin */
-  border-radius: 0; /* 覆蓋 .glass 的圓角 */
 }
 
 .nav-container {
@@ -80,12 +82,13 @@ body {
   padding: 8px 12px;
   border-radius: 20px;
   transition: all 0.3s;
+  position: relative;
 }
 
 .nav-link:hover, .nav-link.active {
-  background: rgba(0, 212, 255, 0.2);
   color: #00d4ff;
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+  background: rgba(0, 212, 255, 0.1);
+  text-shadow: 0 0 8px rgba(0,212,255,0.5);
 }
 
 /* 特別強調的連結 (AI 專區) */
@@ -127,6 +130,7 @@ h1 {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  filter: drop-shadow(0 0 10px rgba(0,212,255,0.3));
 }
 
 /* 垂直輪播特效 */
@@ -155,10 +159,10 @@ h1 {
 }
 
 @keyframes slideRole {
-  0%, 30% { transform: translateY(0); }
-  33%, 63% { transform: translateY(-40px); }
-  66%, 96% { transform: translateY(-80px); }
-  100% { transform: translateY(0); }
+  0%, 25% { transform: translateY(0); }
+  30%, 55% { transform: translateY(-40px); }
+  60%, 85% { transform: translateY(-80px); }
+  90%, 100% { transform: translateY(-120px); } /* 對應第四個重複項目 */
 }
 
 .subtitle { 
@@ -189,10 +193,17 @@ h1 {
 }
 
 
-/* ==================== AI 特展專區 (New) ==================== */
+/* ==================== AI 特展專區 (Cyberpunk 風格) ==================== */
 .ai-feature-section {
-  background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(0, 212, 255, 0.05));
-  border: 1px solid rgba(0, 255, 136, 0.3);
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.08), rgba(0, 212, 255, 0.05));
+  border: 1px solid rgba(0, 255, 136, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.ai-bg-glow {
+  position: absolute; top: -50px; right: -50px; width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(0, 255, 136, 0.15), transparent 70%);
+  z-index: -1;
 }
 .ai-feature-content {
   display: flex; gap: 3rem; align-items: center; flex-wrap: wrap;
@@ -203,13 +214,13 @@ h1 {
 .feature-tag {
   display: inline-block; background: rgba(0,255,136,0.2); color: #00ff88;
   padding: 5px 12px; border-radius: 4px; font-size: 0.85rem; font-weight: bold;
-  margin-bottom: 1rem; letter-spacing: 1px;
+  margin-bottom: 1rem; letter-spacing: 1px; border: 1px solid rgba(0,255,136,0.3);
 }
 .ai-list { list-style: none; margin: 1.5rem 0; }
 .ai-list li { margin-bottom: 0.8rem; font-size: 1rem; }
 .ai-list i { color: #00d4ff; width: 25px; text-align: center; margin-right: 10px; }
-.ai-btn { background: #ff0000; background: linear-gradient(45deg, #ff0000, #cc0000); box-shadow: 0 4px 15px rgba(255,0,0,0.4); }
-.ai-btn:hover { box-shadow: 0 10px 30px rgba(255,0,0,0.6); }
+.ai-btn { background: #ff0000; background: linear-gradient(45deg, #ff4757, #ff6b81); box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4); border: none;}
+.ai-btn:hover { box-shadow: 0 10px 30px rgba(255, 71, 87, 0.6); transform: translateY(-4px); }
 
 
 /* ==================== 橫向滾動畫廊 ==================== */
@@ -271,7 +282,7 @@ h1 {
 .skill-bar > div { height: 100%; background: linear-gradient(90deg, #00d4ff, #00ff88); border-radius: 5px; }
 
 
-/* ==================== 作品集 ==================== */
+/* ==================== 作品集 (Grid 修正版) ==================== */
 .search-bar {
   width: 100%; padding: 12px; margin: 1rem 0;
   background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3);
@@ -282,24 +293,37 @@ h1 {
   background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3);
   color: white; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 0.9rem; white-space: nowrap;
 }
-.filters button.active, .filters button:hover { background: #00d4ff; border-color: #00d4ff; }
+.filters button.active, .filters button:hover { background: #00d4ff; border-color: #00d4ff; box-shadow: 0 0 15px rgba(0,212,255,0.3); }
 
+/* 關鍵修正：使用 auto-fill 避免少數項目時卡片被拉伸
+   justify-content: center 讓卡片在數量少時置中
+*/
 .grid { 
   display: grid; gap: 2rem; margin-top: 1.5rem; 
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  justify-content: center; /* 讓單一卡片置中 */
 }
 
 .card { 
   background: rgba(255,255,255,0.08); border-radius: 20px; overflow: hidden; 
   transition: all 0.4s; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
-.card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0,212,255,0.25); }
-.card::before {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(0,212,255,0.35), transparent 60%);
-  opacity: 0; transition: opacity 0.4s; pointer-events: none; border-radius: 20px;
+.card:hover { 
+  transform: translateY(-12px); 
+  box-shadow: 0 20px 40px rgba(0,212,255,0.25); 
+  z-index: 10;
 }
-.card:hover::before { opacity: 1; }
+/* 卡片懸浮光效邊框 */
+.card::after {
+  content: ''; position: absolute; inset: 0; border-radius: 20px;
+  border: 1px solid transparent; 
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  pointer-events: none;
+}
 
 .card-img {
   height: 220px; overflow: hidden; background: #000;
@@ -315,20 +339,20 @@ h1 {
 
 .tags { margin: 1rem 0 1.2rem 0; display: flex; flex-wrap: wrap; gap: 0.8rem; }
 .tags span {
-  background: rgba(0, 255, 136, 0.18); color: #00ff88; padding: 7px 16px; border-radius: 30px; 
-  font-size: 0.88rem; font-weight: 600; border: 1px solid rgba(0, 255, 136, 0.5); 
-  box-shadow: 0 2px 8px rgba(0, 255, 136, 0.2);
+  background: rgba(0, 255, 136, 0.1); color: #00ff88; padding: 7px 16px; border-radius: 30px; 
+  font-size: 0.88rem; font-weight: 600; border: 1px solid rgba(0, 255, 136, 0.3); 
+  box-shadow: 0 0 5px rgba(0, 255, 136, 0.1);
 }
 
 .project-links { margin-top: 1.2rem; display: flex; flex-wrap: wrap; gap: 0.9rem; }
 .project-links a {
-  background: rgba(0,212,255,0.2); color: #00d4ff; padding: 11px 24px; border-radius: 50px; 
-  font-size: 0.95rem; text-decoration: none; border: 1px solid rgba(0,212,255,0.5); 
+  background: rgba(0,212,255,0.1); color: #00d4ff; padding: 11px 24px; border-radius: 50px; 
+  font-size: 0.95rem; text-decoration: none; border: 1px solid rgba(0,212,255,0.3); 
   transition: all 0.3s; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;
 }
 .project-links a:hover { background: #00d4ff; color: white; transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,212,255,0.5); }
 .card.hidden { display: none !important; }
-.preview-btn { background: rgba(255, 71, 87, 0.18) !important; color: #ff4757 !important; border: 1px solid rgba(255, 71, 87, 0.5) !important; }
+.preview-btn { background: rgba(255, 71, 87, 0.1) !important; color: #ff4757 !important; border: 1px solid rgba(255, 71, 87, 0.3) !important; }
 .preview-btn:hover { background: #ff4757 !important; color: white !important; box-shadow: 0 10px 30px rgba(255, 71, 87, 0.4); }
 .preview-btn::before { content: "預覽 "; }
 
@@ -373,7 +397,7 @@ h1 {
 #backToTop:hover { transform: translateY(-5px); background: #fff; }
 
 
-/* ==================== 其他 ==================== */
+/* ==================== 其他 (Timeline, Gallery, Lightbox) ==================== */
 .timeline { margin-top: 1rem; }
 .timeline-item { display: flex; gap: 1.5rem; margin: 2rem 0; align-items: flex-start; }
 .year { min-width: 80px; font-weight: 700; color: #00d4ff; font-size: 1.1rem; }
