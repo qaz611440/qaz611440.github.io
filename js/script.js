@@ -12,31 +12,36 @@ particlesJS('particles-js', {
   interactivity: { events: { onhover: { enable: true, mode: 'repulse' } } }
 });
 
-// --- 篩選與搜尋功能 ---
-let currentFilter = 'all';
-const filters = document.querySelectorAll('.filters button');
+// --- 篩選與搜尋功能 (作品集 Projects) ---
+let currentProjectFilter = 'all';
+// 注意：這裡改成選取 .project-filters 裡面的按鈕
+const projectFilters = document.querySelectorAll('.project-filters button');
 const searchInput = document.getElementById('search');
 const cards = document.querySelectorAll('.card');
 
-filters.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filters.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentFilter = btn.dataset.filter;
+if(projectFilters.length > 0) {
+  projectFilters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      projectFilters.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentProjectFilter = btn.dataset.filter;
+      filterProjects();
+    });
+  });
+}
+
+if(searchInput) {
+  searchInput.addEventListener('input', () => {
     filterProjects();
   });
-});
-
-searchInput.addEventListener('input', () => {
-  filterProjects();
-});
+}
 
 function filterProjects() {
   const query = searchInput.value.toLowerCase();
   cards.forEach(card => {
     const category = card.dataset.category;
     const text = card.textContent.toLowerCase();
-    const matchCategory = (currentFilter === 'all' || category === currentFilter);
+    const matchCategory = (currentProjectFilter === 'all' || category === currentProjectFilter);
     const matchSearch = text.includes(query);
 
     if (matchCategory && matchSearch) {
@@ -44,6 +49,32 @@ function filterProjects() {
     } else {
       card.classList.add('hidden');
     }
+  });
+}
+
+// --- 篩選功能 (技能 Skills) ---
+// 新增：專門處理技能的篩選邏輯
+const skillFilters = document.querySelectorAll('.skill-filters button');
+const skillItems = document.querySelectorAll('.skill-item');
+
+if(skillFilters.length > 0) {
+  skillFilters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // 移除其他按鈕 active 狀態
+      skillFilters.forEach(b => b.classList.remove('active'));
+      // 啟用當前按鈕
+      btn.classList.add('active');
+      
+      const filterValue = btn.dataset.filter;
+      
+      skillItems.forEach(item => {
+        if (filterValue === 'all' || item.dataset.category === filterValue) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
   });
 }
 
@@ -110,6 +141,12 @@ function highlightNav() {
 
 // --- 初始化 ---
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('.filters button[data-filter="all"]').classList.add('active');
+  // 初始化作品集篩選
+  const allProjectBtn = document.querySelector('.project-filters button[data-filter="all"]');
+  if(allProjectBtn) allProjectBtn.classList.add('active');
   filterProjects();
+
+  // 初始化技能篩選
+  const allSkillBtn = document.querySelector('.skill-filters button[data-filter="all"]');
+  if(allSkillBtn) allSkillBtn.classList.add('active');
 });
