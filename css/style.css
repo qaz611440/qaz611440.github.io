@@ -412,40 +412,28 @@ h1 {
 .welcome-marquee {
   font-size: 1.55rem;
   font-weight: 600;
-  height: 50px;
-  line-height: 50px;
+  height: 56px;
+  line-height: 56px;
   overflow: hidden;
   margin: 1.2rem 0;
   color: #aaccff;
   text-align: center;
-  position: relative;
 }
-
 .marquee-track {
   display: inline-block;
   white-space: nowrap;
-  animation: marquee 28s linear infinite;
+  animation: marquee 15s linear infinite;
 }
-
 .marquee-track span {
   color: #00ff88;
   font-weight: bold;
-  margin-right: 3rem;
+  letter-spacing: 1px;
 }
-
-.marquee-track span:nth-child(4n+1) { color: #00d4ff; } /* 讓「歡迎來到...」保持藍色主色 */
-
 @keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0%   { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
-
-/* 手機版加速 + 字小一點 */
 @media (max-width: 768px) {
-  .welcome-marquee { font-size: 1.25rem; height: 44px; line-height: 44px; }
-  @keyframes marquee {
-    0%   { transform: translateX(20%); }
-    100% { transform: translateX(-60%); }
-  }
-  .marquee-track { animation: marquee 20s linear infinite; }
+  .welcome-marquee { font-size: 1.32rem; height: 48px; line-height: 48px; }
+  .marquee-track { animation-duration: 12s; }
 }

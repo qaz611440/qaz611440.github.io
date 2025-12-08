@@ -55,71 +55,65 @@
     </div>
     <h1>陳彥邦</h1>
     
-    <!-- 改成「歡迎」跑馬燈 -->
-  <div class="welcome-marquee">
-    <div class="marquee-track">
-      <span>歡迎來到陳彥邦的自傳 · </span>
-
-      <span>歡迎來到陳彥邦的自傳 · </span>
-      <!-- 重複一次讓動畫無縫 -->
-    </div>
+<!-- 最終版跑馬燈：只留一句，乾淨又大氣 -->
+<div class="welcome-marquee">
+  <div class="marquee-track">
+    <span>歡迎來到陳彥邦的自傳　·　一位把實作當信仰的硬體工程師</span>
+    <span>歡迎來到陳彥邦的自傳　·　一位把實作當信仰的硬體工程師</span>
+    <!-- 重複一次確保無縫 -->
   </div>
+</div>
     
     <p class="subtitle">
       銘傳電子系累計排第 2（連續 5 學期系第一） ｜ 交大類比積體電路設計學分班 A+ ｜ 現職久元電子 ATE 硬體開發工程師
     </p>
   </header>
 
-  <!-- ===== About 區塊：純文字單欄大氣版（無任何圖片）===== -->
-  <section id="about" class="section glass">
-    <h2>自我介紹</h2>
-    
-    <div style="max-width: 860px; margin: 0 auto; text-align: center;">
-      <p style="font-size:1.15rem; line-height:2;">我是一個「做中學、學中做」到骨子裡的人。</p>
-      
-      <p style="margin:2rem 0; line-height:2;">
-        大學時代別人還在模擬，我已經把整台測試機搬回宿舍熬夜除錯；<br>
-        別人覺得「演講好丟臉」，我可以為了爭取一個能進鴻海實習的機會，<br>
-        硬著頭皮在 400 人的禮堂講專題——最後真的進去了。
-      </p>
+  <!-- ===== About 區塊：純文字單欄大氣版（無任何圖片）===== --><section id="about" class="section glass">
+  <h2>自我介紹</h2>
+  
+  <div style="max-width: 900px; margin: 0 auto;">
+    <p style="text-align:center; line-height:2; font-size:1.12rem; margin-bottom:2rem;">
+      我是一個徹底「實作導向」的人。<br>
+      對我來說，再好的理論，如果不能親手焊在板子上、燒進 FPGA、用示波器量出來，就不算真的學會。
+    </p>
 
-      <p style="line-height:2;">
-        給我一個機會，我就敢把不可能變成可能。<br>
-        因為我知道，別人願意把機會給我，就是相信我做得到。
-      </p>
+    <p style="line-height:2; margin:2rem 0;">
+      大學時，我可以為了爭取鴻海實習機會，硬著頭皮在四百人面前講專題；<br>
+      工作後，我可以為了把漣波從 80mV 壓到 12mV，連續三天盯著示波器找噪聲源。<br>
+      這些都不是因為我特別勇敢，而是因為——<strong>只要有人相信我能做到，我就一定會做到</strong>。
+    </p>
 
-      <p style="margin:2rem 0; line-height:2;">
-        我喜歡親手把東西做出來的那種爽感——<br>
-        改一行 Verilog 立刻看到時序收斂、<br>
-        調一顆 OP 的 bias 當下看到漣波從 80mV 掉到 12mV、<br>
-        燒錄完 FPGA 那一秒電路就活了。
-      </p>
+    <p style="line-height:2; margin:2rem 0;">
+      我習慣把每一次挑戰都當成最後一次機會：<br>
+      別人下班，我在自學 Sedra/Smith；<br>
+      別人休息，我在寫自動化工具、優化這份作品集網站。<br>
+      不是因為我很閒，而是因為我知道，今天多做一點，明天就不會在實驗室說「我不會」。
+    </p>
 
-      <p style="line-height:2;">
-        為了目標，我可以很瘋：<br>
-        下班後自學 Sedra/Smith 到凌晨三點、<br>
-        一個人把全自動 YouTube 頻道從無到有寫完、<br>
-        甚至把這份作品集網站做到讓教授滑手機也看得舒服。
-      </p>
-
-      <div style="margin:3rem 0; padding:2rem; background:rgba(0,255,136,0.1); border-radius:16px; border:1px solid rgba(0,255,136,0.3);">
-        <h3 style="color:#00ff88; margin-bottom:1.2rem;">五句話，講清楚我是誰</h3>
-        <p style="font-size:1.12rem; line-height:2.2; color:#e0f2ff;">
-          ◎ 給我一台示波器跟 Quartus，我可以三天三夜不睡覺也甘願<br>
-          ◎ 再硬的挑戰我都敢接，因為從來沒有人後悔相信過我<br>
-          ◎ 我不怕丟臉，我只怕錯過可以變強的機會<br>
-          ◎ 今天不做的實驗，明天就不會出現在我的論文裡<br>
-          ◎ 我來交大，不是為了拿一張文憑，而是為了把腦袋裡的電路真正做出來
-        </p>
+    <!-- 三欄人格特質卡片（手機自動變單欄） -->
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:1.5rem; margin:3rem 0;">
+      <div class="glass" style="padding:2rem 1.5rem; text-align:center;">
+        <h3 style="color:#00ff88; margin-bottom:1rem;">執行力</h3>
+        <p>接到任務就不放手，一定做到最好才肯罷休</p>
       </div>
-
-      <p style="font-size:1.2rem; margin-top:3rem; color:#00ff88; font-weight:700;">
-        如果要用一句話形容我：<br>
-        我是一個為了做出世界上最有效率、最穩定的電源控制系統，<br>
-        可以把命都拼上的人。
-      </p>
+      <div class="glass" style="padding:2rem 1.5rem; text-align:center;">
+        <h3 style="color:#00ff88; margin-bottom:1rem;">抗壓與耐磨</h3>
+        <p>Deadline 前三天不睡，也要把時序收斂、漣波達標</p>
+      </div>
+      <div class="glass" style="padding:2rem 1.5rem; text-align:center;">
+        <h3 style="color:#00ff88; margin-bottom:1rem;">自我驅動</h3>
+        <p>沒人要求我也會持續進步，因為停下來就等於退步</p>
+      </div>
     </div>
-  </section>
+
+    <p style="text-align:center; font-size:1.18rem; color:#00ff88; font-weight:600; margin-top:3rem; line-height:2;">
+      我來交大，不是為了補一張學歷，<br>
+      而是想把這幾年在產業裡卡住的理論瓶頸，<br>
+      用最紮實的實驗、最嚴謹的推導，一次解決乾淨。
+    </p>
+  </div>
+</section>
 
     <section id="honors" class="section glass">
         <h2>榮譽與成就 <span class="skill-note">(可左右滑動查看)</span></h2>
