@@ -34,7 +34,7 @@
       <ul class="nav-links">
         <li><a href="#about" class="nav-link">自我介紹</a></li>
         <li><a href="#honors" class="nav-link">獎狀/成就</a></li>
-        <li><a href="#ai-feature" class="nav-link highlight-link">YT頻道</a></li> 
+        <li><a href="#ai-feature" class="nav-link highlight-link">AI Automation 實踐</a></li>
         <li><a href="#skills" class="nav-link">技能</a></li>
         <li><a href="#projects" class="nav-link">作品集</a></li>
         <li><a href="#education" class="nav-link">學歷</a></li>
@@ -47,48 +47,63 @@
 
   <div class="container">
 
-    <header class="hero">
-      <div class="avatar-container">
-        <img src="images/photo.png" loading="lazy" width="160" height="160" alt="陳彥邦" class="avatar">
-        <div class="glow"></div>
-      </div>
-      <h1>陳彥邦</h1>
-      
-      <div class="role-wrapper">
-        我是
-        <div class="role-slider">
-          <div class="role-item">久元硬體開發工程師</div>
-          <div class="role-item">PPGA開發工程師(AHDL、HDL、Verilog)</div>
-          <div class="role-item">DCDC、ATE、IC測試工程師</div>
-          <div class="role-item">類比IC設計工程師</div>
-          <div class="role-item">C#、C、Python工程師</div>
-          <div class="role-item">AI應用專家</div>
-        </div>
-      </div>
-      
-      <p class="subtitle">銘傳大學電子系 系排第2(連續5學期系第一)・交大類比IC學分班 A+・現職久元電子硬體開發</p>
-    </header>
+  <!-- ===== 新的 Hero 區塊 ===== -->
+  <header class="hero">
+    <div class="avatar-container">
+      <img src="images/photo.png" loading="lazy" width="160" height="160" alt="陳彥邦" class="avatar">
+      <div class="glow"></div>
+    </div>
+    <h1>陳彥邦</h1>
+    
+    <!-- 改成「歡迎」跑馬燈 -->
+  <div class="welcome-marquee">
+    <div class="marquee-track">
+      <span>歡迎來到陳彥邦的自傳 · </span>
+      <span>一位把 FPGA 當畫布、用 Verilog 寫控制交響樂的硬體工程師 · </span>
+      <span>一位相信「最好的電源控制，來自最深的理論與最硬的實作」的人 · </span>
+      <span>一位準備好在交大夜間把低功耗 PMIC 與數位控制推向極限的你 · </span>
+      <span>歡迎來到陳彥邦的自傳 · </span>
+      <!-- 重複一次讓動畫無縫 -->
+    </div>
+  </div>
+    
+    <p class="subtitle">
+      銘傳電子系累計排第 2（連續 5 學期系第一） ｜ 交大類比積體電路設計學分班 A+ ｜ 現職久元電子 ATE 硬體開發工程師
+    </p>
+  </header>
 
-    <section id="about" class="section glass">
-      <h2>自我介紹</h2>
-      
-      <div class="about-container">
-        <div class="about-text">
-          <p>在半導體產業中連滾帶爬，理解到了各類工程師可能都是在做甚麼，讓自己非常確定自己興趣是甚麼，我能很大聲的說，我熱愛硬體的開發!像是在交大類比電路學分班中使用Virtuoso設計電路跑模擬，或是在現職久元硬體開發設計電路、寫FPGA Code都讓我無比的開心及投入，我喜歡那種完成設計或優化設計的成就感。</p>
-          <p style="margin-top:1rem;">個性主動、細心、有耐心，享受解決困難問題帶來的成就感，喜歡與團隊溝通討論。目前我也理解了把握任何機會的道理。</p>
-        </div>
+  <!-- ===== 完全重新寫過的 About 區塊 ===== -->
+  <section id="about" class="section glass">
+    <h2>自我介紹</h2>
+    
+    <div class="about-container">
+      <!-- 左邊文字區（完全移除影片） -->
+      <div class="about-text">
+        <p>在半導體測試與電源領域耕耘近四年，從鴻海 Power 測試、銳發 Micro LED Driver 到現在久元電子 ATE 硬體開發，我逐漸看清自己的熱情所在——<strong>低功耗電源管理 IC 與 FPGA 數位控制的交叉領域</strong>。</p>
+        
+        <p>我喜歡那一刻：當我改完一行 Verilog，或調好一顆 OP Gain 的偏置電流，示波器立刻跳出更漂亮的漣波、更精準的電流回讀、更高效率的轉換曲線。那種「理論立即轉化為可量測成果」的即時回饋，是我持續前進的最大動力。</p>
 
-        <div class="about-video">
-          <div class="video-wrapper">
-            <video controls poster="images/photo.png">
-              <source src="images/intro.mp4" type="video/mp4">
-              您的瀏覽器不支援影片標籤。
-            </video>
-            <div class="video-badge"><i class="fas fa-play-circle"></i> 觀看影音自介</div>
-          </div>
-        </div>
+        <p>現階段我負責高精度 Tester Function Board 設計，涵蓋 SerDes、DC/DC、ADC/DAC、運算放大器增益級與多階層 FPGA 控制邏輯。實務上雖能實現功能，卻屢屢在環路穩定性、最佳效率點、數位控制補償器設計上遇到理論極限——這也成為我報考交大在職碩士最強烈的動機：我想系統性地補足電力電子理論與先進控制知識，將產業經驗提升到能發表 IEEE 論文的層次。</p>
+
+        <h3 style="margin-top:1.8rem; color:#00ff88;">人格特質與興趣</h3>
+        <ul style="margin:1rem 0; line-height:1.9; color:#e0f2ff;">
+          <li>◎ <strong>極度主動</strong>：從不滿足於「做到就好」，習慣主動追問「為什麼可以更好」</li>
+          <li>◎ <strong>細心 × 有耐心</strong>：調一顆 LDO 穩定性可以連續三天盯著示波器找噪聲來源</li>
+          <li>◎ <strong>享受高難度挑戰</strong>：越複雜的時序、越嚴苛的功耗要求，越能讓我進入心流狀態</li>
+          <li>◎ <strong>喜歡教學與分享</strong>：曾擔任公司內部 Verilog 講師、代表公司參加 SEMI 展與 AI 研討會</li>
+          <li>◎ <strong>持續學習成癮</strong>：下班後自修 Sedra/Smith、寫全自動 YouTube 頻道、部署個人作品集網站</li>
+        </ul>
+
+        <p>如果要用一句話總結：我是一個把「做出世界上最有效率、最穩定的電源控制系統」當作人生目標的工程師。而交大在職專班，正是我下一步的必然選擇。</p>
       </div>
-    </section>
+
+      <!-- 右邊可以放一個更技術感的圖片（建議換成你正在看示波器、畫 Layout、寫 code 的照片） -->
+      <div class="about-video" style="text-align:center;">
+        <img src="images/work_photo.jpg" alt="陳彥邦工作照" style="width:100%; max-width:420px; border-radius:16px; border:3px solid #00d4ff; box-shadow:0 0 30px rgba(0,212,255,0.4);">
+        <p style="margin-top:0.8rem; font-size:0.9rem; opacity:0.8;">日常：盯著示波器調環路穩定性</p>
+      </div>
+    </div>
+  </section>
 
     <section id="honors" class="section glass">
         <h2>榮譽與成就 <span class="skill-note">(可左右滑動查看)</span></h2>
@@ -116,7 +131,7 @@
       <div class="ai-feature-content">
         <div class="ai-text">
           <div class="feature-tag"><i class="fas fa-bolt"></i> AI Automation</div>
-          <h2>從 0 到上架：全自動 YT 有聲書頻道經營</h2>
+          <h2>AI Automation 實踐：從 0 到 1 的全自動內容生成系統</h2>
           <p>這不只是一個 YouTube 頻道，而是我對 <strong>AI</strong> 的技術實踐展示。我構建了一套全自動工作流，實現了24小時無人值守的內容生產。</p>
           <ul class="ai-list">
             <li><i class="fas fa-robot"></i> <strong>文本生成</strong>：串接 OpenAI API 自動撰寫輕小說劇本。</li>
@@ -640,7 +655,7 @@
     </section>
 
     <footer style="text-align:center; padding:2rem; color:#88cfff; font-size:0.9rem;">
-      <p>最後更新：2025/11/27</p>
+      <p>最後更新：2025/12/03</p>
       <p style="margin-top:0.5rem; font-size:0.8rem; opacity:0.8;">
         <span id="busuanzi_container_site_pv">本站總瀏覽量 <span id="busuanzi_value_site_pv" style="color:#00ff88;"></span> 次</span> |
         <span id="busuanzi_container_site_uv">訪客人數 <span id="busuanzi_value_site_uv" style="color:#00d4ff;"></span> 人</span>

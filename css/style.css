@@ -407,3 +407,45 @@ h1 {
   .navbar { justify-content: flex-start; } 
   .about-container, .ai-feature-content { flex-direction: column-reverse; }
 }
+
+/* 橫向歡迎跑馬燈 */
+.welcome-marquee {
+  font-size: 1.55rem;
+  font-weight: 600;
+  height: 50px;
+  line-height: 50px;
+  overflow: hidden;
+  margin: 1.2rem 0;
+  color: #aaccff;
+  text-align: center;
+  position: relative;
+}
+
+.marquee-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-track span {
+  color: #00ff88;
+  font-weight: bold;
+  margin-right: 3rem;
+}
+
+.marquee-track span:nth-child(4n+1) { color: #00d4ff; } /* 讓「歡迎來到...」保持藍色主色 */
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* 手機版加速 + 字小一點 */
+@media (max-width: 768px) {
+  .welcome-marquee { font-size: 1.25rem; height: 44px; line-height: 44px; }
+  @keyframes marquee {
+    0%   { transform: translateX(20%); }
+    100% { transform: translateX(-60%); }
+  }
+  .marquee-track { animation: marquee 20s linear infinite; }
+}
