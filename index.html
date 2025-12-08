@@ -59,9 +59,7 @@
   <div class="welcome-marquee">
     <div class="marquee-track">
       <span>歡迎來到陳彥邦的自傳 · </span>
-      <span>一位把 FPGA 當畫布、用 Verilog 寫控制交響樂的硬體工程師 · </span>
-      <span>一位相信「最好的電源控制，來自最深的理論與最硬的實作」的人 · </span>
-      <span>一位準備好在交大夜間把低功耗 PMIC 與數位控制推向極限的你 · </span>
+
       <span>歡迎來到陳彥邦的自傳 · </span>
       <!-- 重複一次讓動畫無縫 -->
     </div>
@@ -72,36 +70,54 @@
     </p>
   </header>
 
-  <!-- ===== 完全重新寫過的 About 區塊 ===== -->
+  <!-- ===== About 區塊：純文字單欄大氣版（無任何圖片）===== -->
   <section id="about" class="section glass">
     <h2>自我介紹</h2>
     
-    <div class="about-container">
-      <!-- 左邊文字區（完全移除影片） -->
-      <div class="about-text">
-        <p>在半導體測試與電源領域耕耘近四年，從鴻海 Power 測試、銳發 Micro LED Driver 到現在久元電子 ATE 硬體開發，我逐漸看清自己的熱情所在——<strong>低功耗電源管理 IC 與 FPGA 數位控制的交叉領域</strong>。</p>
-        
-        <p>我喜歡那一刻：當我改完一行 Verilog，或調好一顆 OP Gain 的偏置電流，示波器立刻跳出更漂亮的漣波、更精準的電流回讀、更高效率的轉換曲線。那種「理論立即轉化為可量測成果」的即時回饋，是我持續前進的最大動力。</p>
+    <div style="max-width: 860px; margin: 0 auto; text-align: center;">
+      <p style="font-size:1.15rem; line-height:2;">我是一個「做中學、學中做」到骨子裡的人。</p>
+      
+      <p style="margin:2rem 0; line-height:2;">
+        大學時代別人還在模擬，我已經把整台測試機搬回宿舍熬夜除錯；<br>
+        別人覺得「演講好丟臉」，我可以為了爭取一個能進鴻海實習的機會，<br>
+        硬著頭皮在 400 人的禮堂講專題——最後真的進去了。
+      </p>
 
-        <p>現階段我負責高精度 Tester Function Board 設計，涵蓋 SerDes、DC/DC、ADC/DAC、運算放大器增益級與多階層 FPGA 控制邏輯。實務上雖能實現功能，卻屢屢在環路穩定性、最佳效率點、數位控制補償器設計上遇到理論極限——這也成為我報考交大在職碩士最強烈的動機：我想系統性地補足電力電子理論與先進控制知識，將產業經驗提升到能發表 IEEE 論文的層次。</p>
+      <p style="line-height:2;">
+        給我一個機會，我就敢把不可能變成可能。<br>
+        因為我知道，別人願意把機會給我，就是相信我做得到。
+      </p>
 
-        <h3 style="margin-top:1.8rem; color:#00ff88;">人格特質與興趣</h3>
-        <ul style="margin:1rem 0; line-height:1.9; color:#e0f2ff;">
-          <li>◎ <strong>極度主動</strong>：從不滿足於「做到就好」，習慣主動追問「為什麼可以更好」</li>
-          <li>◎ <strong>細心 × 有耐心</strong>：調一顆 LDO 穩定性可以連續三天盯著示波器找噪聲來源</li>
-          <li>◎ <strong>享受高難度挑戰</strong>：越複雜的時序、越嚴苛的功耗要求，越能讓我進入心流狀態</li>
-          <li>◎ <strong>喜歡教學與分享</strong>：曾擔任公司內部 Verilog 講師、代表公司參加 SEMI 展與 AI 研討會</li>
-          <li>◎ <strong>持續學習成癮</strong>：下班後自修 Sedra/Smith、寫全自動 YouTube 頻道、部署個人作品集網站</li>
-        </ul>
+      <p style="margin:2rem 0; line-height:2;">
+        我喜歡親手把東西做出來的那種爽感——<br>
+        改一行 Verilog 立刻看到時序收斂、<br>
+        調一顆 OP 的 bias 當下看到漣波從 80mV 掉到 12mV、<br>
+        燒錄完 FPGA 那一秒電路就活了。
+      </p>
 
-        <p>如果要用一句話總結：我是一個把「做出世界上最有效率、最穩定的電源控制系統」當作人生目標的工程師。而交大在職專班，正是我下一步的必然選擇。</p>
+      <p style="line-height:2;">
+        為了目標，我可以很瘋：<br>
+        下班後自學 Sedra/Smith 到凌晨三點、<br>
+        一個人把全自動 YouTube 頻道從無到有寫完、<br>
+        甚至把這份作品集網站做到讓教授滑手機也看得舒服。
+      </p>
+
+      <div style="margin:3rem 0; padding:2rem; background:rgba(0,255,136,0.1); border-radius:16px; border:1px solid rgba(0,255,136,0.3);">
+        <h3 style="color:#00ff88; margin-bottom:1.2rem;">五句話，講清楚我是誰</h3>
+        <p style="font-size:1.12rem; line-height:2.2; color:#e0f2ff;">
+          ◎ 給我一台示波器跟 Quartus，我可以三天三夜不睡覺也甘願<br>
+          ◎ 再硬的挑戰我都敢接，因為從來沒有人後悔相信過我<br>
+          ◎ 我不怕丟臉，我只怕錯過可以變強的機會<br>
+          ◎ 今天不做的實驗，明天就不會出現在我的論文裡<br>
+          ◎ 我來交大，不是為了拿一張文憑，而是為了把腦袋裡的電路真正做出來
+        </p>
       </div>
 
-      <!-- 右邊可以放一個更技術感的圖片（建議換成你正在看示波器、畫 Layout、寫 code 的照片） -->
-      <div class="about-video" style="text-align:center;">
-        <img src="images/work_photo.jpg" alt="陳彥邦工作照" style="width:100%; max-width:420px; border-radius:16px; border:3px solid #00d4ff; box-shadow:0 0 30px rgba(0,212,255,0.4);">
-        <p style="margin-top:0.8rem; font-size:0.9rem; opacity:0.8;">日常：盯著示波器調環路穩定性</p>
-      </div>
+      <p style="font-size:1.2rem; margin-top:3rem; color:#00ff88; font-weight:700;">
+        如果要用一句話形容我：<br>
+        我是一個為了做出世界上最有效率、最穩定的電源控制系統，<br>
+        可以把命都拼上的人。
+      </p>
     </div>
   </section>
 
