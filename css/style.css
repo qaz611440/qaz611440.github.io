@@ -382,7 +382,57 @@ h1 {
 
 /* ==================== 其他 ==================== */
 .timeline { margin-top: 1rem; }
-.timeline-item { display: flex; gap: 1.5rem; margin: 2rem 0; align-items: flex-start; }
+/* 修改原本的 timeline-item 讓它垂直置中對齊 */
+.timeline-item {
+  display: flex;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  align-items: center; /* 改為 center 讓圖片與文字垂直置中 */
+}
+
+/* Logo 外框容器設計 */
+.timeline-logo {
+  width: 60px;       /* 固定寬度 */
+  height: 60px;      /* 固定高度 */
+  flex-shrink: 0;    /* 防止被壓縮 */
+  background: #ffffff; /* 白色背景，確保 Logo 清晰 */
+  border-radius: 50%; /* 圓形 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;      /* 內距，讓 Logo 不要貼邊 */
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3); /* 發光效果 */
+  border: 2px solid #00d4ff; /* 藍色邊框呼應主題 */
+  transition: transform 0.3s ease;
+}
+
+/* 滑鼠移過去稍微放大 */
+.timeline-item:hover .timeline-logo {
+  transform: scale(1.1);
+}
+
+/* 圖片本身的設定 */
+.timeline-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 保持圖片比例，顯示完整 Logo */
+}
+
+/* 手機版響應式調整 */
+@media (max-width: 600px) {
+  .timeline-item {
+    flex-wrap: wrap; /* 空間不夠時換行 */
+  }
+  .year {
+    width: 100%; /* 年份獨佔一行 */
+    margin-bottom: 5px;
+  }
+  .timeline-logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+}
 .year { min-width: 80px; font-weight: 700; color: #00d4ff; font-size: 1.1rem; }
 .highlight { color: #ff6b6b; font-weight: bold; }
 
