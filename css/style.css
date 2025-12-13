@@ -263,17 +263,6 @@ h1 {
 }
 
 
-.skill-item.hidden {
-  display: none !important;
-}
-
-/* ==================== 技能 ==================== */
-.skill-note { font-size: 0.9rem; color: #88cfff; float: right; }
-.skills-grid { display: grid; gap: 1rem; margin-top: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-.skill-item { background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 12px; }
-.skill-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-weight: 600; }
-.skill-bar { height: 10px; background: #334; border-radius: 5px; overflow: hidden; }
-.skill-bar > div { height: 100%; background: linear-gradient(90deg, #00d4ff, #00ff88); border-radius: 5px; }
 
 
 /* ==================== 作品集 ==================== */
@@ -498,25 +487,6 @@ h1 {
   .marquee-track { animation-duration: 12s; }
 }
 
-/* 專業技能 - 進度條樣式 */
-.skill-item { margin-bottom: 1.2rem; }
-.skill-item:last-child { margin-bottom: 0; }
-
-.progress-bar {
-  height: 10px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 5px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.15);
-}
-
-.progress-bar > div {
-  height: 100%;
-  background: linear-gradient(90deg, #00d4ff, #00ff88);
-  border-radius: 4px;
-  transition: width 1.2s cubic-bezier(0.65, 0, 0.35, 1);
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
-}
 
 /* 技能區 - 緊湊網格版 */
 .skills-main-card { padding: 2.5rem; }
