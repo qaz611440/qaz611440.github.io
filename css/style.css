@@ -263,7 +263,124 @@ h1 {
 }
 
 
+/* ==================== 技能 (儀表板佈局) ==================== */
+.section-subtitle {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #aaccff;
+  font-size: 1rem;
+}
 
+/* 網格容器：核心佈局 */
+.skills-dashboard {
+  display: grid;
+  /* 電腦版強制 3 欄，這樣 6 個類別剛好 2 列，一屏可視 */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+/* 單個類別卡片 */
+.skill-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-box:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: #00d4ff;
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+}
+
+/* 標題樣式 */
+.skill-box h3 {
+  color: #00ff88;
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.8rem;
+}
+.skill-box h3 i { color: #00d4ff; }
+
+/* 技能列表微調 */
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem; /* 項目間距 */
+  flex-grow: 1;
+}
+
+/* 單一技能行 */
+.skill-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #e0f2ff;
+}
+
+.skill-row .percent {
+  font-size: 0.8rem;
+  color: #00d4ff;
+  font-weight: bold;
+}
+
+/* 進度條容器 */
+.skill-row .bar {
+  width: 100%;
+  height: 6px; /* 變細，更精緻 */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+/* 進度條動畫 */
+.skill-row .bar > div {
+  height: 100%;
+  background: linear-gradient(90deg, #00d4ff, #00ff88);
+  border-radius: 3px;
+  width: 0;
+  animation: fillSkill 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+}
+
+@keyframes fillSkill {
+  to { width: var(--w, inherit); } /* 吃 inline style 的 width */
+}
+
+/* AI 特別強調框 (可選) */
+.highlight-box {
+  background: linear-gradient(145deg, rgba(0, 255, 136, 0.05), rgba(0, 0, 0, 0.2));
+  border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+/* RWD 響應式調整 */
+@media (max-width: 992px) {
+  .skills-dashboard {
+    grid-template-columns: repeat(2, 1fr); /* 平板變 2 欄 */
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-dashboard {
+    grid-template-columns: 1fr; /* 手機變 1 欄 */
+    padding: 0;
+  }
+  .skill-box { padding: 1.2rem; }
+}
 
 /* ==================== 作品集 ==================== */
 .search-bar {
@@ -487,54 +604,6 @@ h1 {
   .marquee-track { animation-duration: 12s; }
 }
 
-
-/* 技能區 - 緊湊網格版 */
-.skills-main-card { padding: 2.5rem; }
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-.skill-category {
-  background: rgba(255,255,255,0.05);
-  padding: 1.5rem;
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-.skill-category h3 {
-  color: #00ff88;
-  text-align: center;
-  margin-bottom: 1.2rem;
-  font-size: 1.1rem;
-}
-.skill-item {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-}
-.skill-item:last-child { margin-bottom: 0; }
-.skill-item > span:first-child { margin-bottom: 0.3rem; }
-.skill-item > span:last-child {
-  align-self: flex-end;
-  color: #00d4ff;
-  font-weight: bold;
-}
-.progress {
-  height: 12px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 6px;
-  overflow: hidden;
-  border: 1px solid rgba(0,212,255,0.2);
-}
-.progress > div {
-  height: 100%;
-  background: linear-gradient(90deg, #00d4ff, #00ff88);
-  border-radius: 5px;
-  width: 0; /* 起始0，載入動畫 */
-  animation: fillProgress 1.5s ease-out forwards;
-  box-shadow: 0 0 12px rgba(0,212,255,0.5);
-}
 @keyframes fillProgress {
   to { width: inherit; } /* inherit 會取 inline width 值 */
 }

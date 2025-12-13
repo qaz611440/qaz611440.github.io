@@ -186,73 +186,75 @@
       </div>
     </section>
 
-<section id="skills" class="section glass">
+<section id="skills" class="section glass-container">
   <h2>專業技能</h2>
-  <p style="text-align:center; margin-bottom:2.5rem; opacity:0.9;">
-    所有技能及其熟練度詳細列表，便於快速查閱與評估。
+  <p class="section-subtitle">
+    跨領域整合能力：從 IC 設計、硬體實作到 AI 自動化開發
   </p>
 
-  <!-- 單一大卡片包住所有類別 -->
-  <div class="glass skills-main-card" style="padding:2.5rem;">
-    <div class="skills-grid">
-
-      <!-- 程式語言 -->
-      <div class="skill-category">
-        <h3>程式語言</h3>
-        <div class="skill-item"><span>Python</span><span>90%</span><div class="progress"><div style="width:90%"></div></div></div>
-        <div class="skill-item"><span>Visual Studio (C#)</span><span>90%</span><div class="progress"><div style="width:90%"></div></div></div>
-        <div class="skill-item"><span>C語言</span><span>80%</span><div class="progress"><div style="width:80%"></div></div></div>
-        <div class="skill-item"><span>Verilog</span><span>80%</span><div class="progress"><div style="width:80%"></div></div></div>
-        <div class="skill-item"><span>AHDL</span><span>80%</span><div class="progress"><div style="width:80%"></div></div></div>
-        <div class="skill-item"><span>C++</span><span>75%</span><div class="progress"><div style="width:75%"></div></div></div>
-        <div class="skill-item"><span>C#語言</span><span>70%</span><div class="progress"><div style="width:70%"></div></div></div>
+  <div class="skills-dashboard">
+    
+    <div class="skill-box">
+      <h3><i class="fas fa-code"></i> 程式語言</h3>
+      <div class="skill-list">
+        <div class="skill-row"><span>Python</span><span class="percent">90%</span><div class="bar"><div style="width:90%"></div></div></div>
+        <div class="skill-row"><span>C#</span><span class="percent">90%</span><div class="bar"><div style="width:90%"></div></div></div>
+        <div class="skill-row"><span>C語言</span><span class="percent">80%</span><div class="bar"><div style="width:80%"></div></div></div>
+        <div class="skill-row"><span>C++</span><span class="percent">75%</span><div class="bar"><div style="width:75%"></div></div></div>
       </div>
-
-      <!-- 硬體描述語言（可與程式語言合併或獨立，這裡獨立以匹配你的6類） -->
-      <div class="skill-category">
-        <h3>硬體描述語言</h3>
-        <div class="skill-item"><span>Verilog</span><span>80%</span><div class="progress"><div style="width:80%"></div></div></div>
-        <div class="skill-item"><span>AHDL</span><span>80%</span><div class="progress"><div style="width:80%"></div></div></div>
-      </div>
-
-      <!-- 電路與系統設計 -->
-      <div class="skill-category">
-        <h3>電路與系統設計</h3>
-        <div class="skill-item"><span>Arduino</span><span>85%</span><div class="progress"><div style="width:85%"></div></div></div>
-        <div class="skill-item"><span>DCDC 電路設計</span><span>70%</span><div class="progress"><div style="width:70%"></div></div></div>
-        <div class="skill-item"><span>系統電路設計</span><span>60%</span><div class="progress"><div style="width:60%"></div></div></div>
-        <div class="skill-item"><span>類比IC設計</span><span>50%</span><div class="progress"><div style="width:50%"></div></div></div>
-      </div>
-
-      <!-- EDA與開發工具 -->
-      <div class="skill-category">
-        <h3>EDA與開發工具</h3>
-        <div class="skill-item"><span>Quartus</span><span>90%</span><div class="progress"><div style="width:90%"></div></div></div>
-        <div class="skill-item"><span>Cadence Virtuoso</span><span>85%</span><div class="progress"><div style="width:85%"></div></div></div>
-        <div class="skill-item"><span>OrCAD</span><span>75%</span><div class="progress"><div style="width:75%"></div></div></div>
-        <div class="skill-item"><span>Allegro PCB</span><span>75%</span><div class="progress"><div style="width:75%"></div></div></div>
-        <div class="skill-item"><span>Pads</span><span>65%</span><div class="progress"><div style="width:65%"></div></div></div>
-        <div class="skill-item"><span>LabVIEW</span><span>80%</span><div class="progress"><div style="width:80%"></div></div></div>
-      </div>
-
-      <!-- 測試與儀器 -->
-      <div class="skill-category">
-        <h3>測試與儀器</h3>
-        <div class="skill-item"><span>焊接技術 (SMD/DIP)</span><span>95%</span><div class="progress"><div style="width:95%"></div></div></div>
-        <div class="skill-item"><span>DCDC測試</span><span>95%</span><div class="progress"><div style="width:95%"></div></div></div>
-        <div class="skill-item"><span>測試儀器操作</span><span>90%</span><div class="progress"><div style="width:90%"></div></div></div>
-        <div class="skill-item"><span>ATE(CP/FT)測試</span><span>90%</span><div class="progress"><div style="width:90%"></div></div></div>
-        <div class="skill-item"><span>ATE設備</span><span>80%</span><div class="progress"><div style="width:80%"></div></div></div>
-        <div class="skill-item"><span>電子儀器程式控制</span><span>80%</span><div class="progress"><div style="width:80%"></div></div></div>
-      </div>
-
-      <!-- AI 技術 -->
-      <div class="skill-category">
-        <h3>AI 技術</h3>
-        <div class="skill-item"><span>開源AI應用開發 (Fine-tune、RAG...)</span><span>85%</span><div class="progress"><div style="width:85%"></div></div></div>
-      </div>
-
     </div>
+
+    <div class="skill-box">
+      <h3><i class="fas fa-wave-square"></i> 硬體描述語言</h3>
+      <div class="skill-list">
+        <div class="skill-row"><span>Verilog</span><span class="percent">80%</span><div class="bar"><div style="width:80%"></div></div></div>
+        <div class="skill-row"><span>AHDL</span><span class="percent">80%</span><div class="bar"><div style="width:80%"></div></div></div>
+      </div>
+      <div class="skill-empty-space" style="height: 40px;"></div>
+    </div>
+
+    <div class="skill-box">
+      <h3><i class="fas fa-laptop-code"></i> EDA 與開發工具</h3>
+      <div class="skill-list">
+        <div class="skill-row"><span>Quartus</span><span class="percent">90%</span><div class="bar"><div style="width:90%"></div></div></div>
+        <div class="skill-row"><span>Cadence Virtuoso</span><span class="percent">85%</span><div class="bar"><div style="width:85%"></div></div></div>
+        <div class="skill-row"><span>LabVIEW</span><span class="percent">80%</span><div class="bar"><div style="width:80%"></div></div></div>
+        <div class="skill-row"><span>OrCAD / Allegro</span><span class="percent">75%</span><div class="bar"><div style="width:75%"></div></div></div>
+        <div class="skill-row"><span>Pads</span><span>65%</span><div class="progress"><div style="width:65%"></div></div></div>
+        <div class="skill-row"><span>Visual Studio</span><span>90%</span><div class="progress"><div style="width:90%"></div></div></div>
+      </div>
+    </div>
+
+    <div class="skill-box">
+      <h3><i class="fas fa-microchip"></i> 電路與系統設計</h3>
+      <div class="skill-list">
+        <div class="skill-row"><span>Arduino 應用</span><span class="percent">85%</span><div class="bar"><div style="width:85%"></div></div></div>
+        <div class="skill-row"><span>DCDC 電路設計</span><span class="percent">70%</span><div class="bar"><div style="width:70%"></div></div></div>
+        <div class="skill-row"><span>系統電路設計</span><span class="percent">60%</span><div class="bar"><div style="width:60%"></div></div></div>
+        <div class="skill-row"><span>類比 IC 設計</span><span class="percent">50%</span><div class="bar"><div style="width:50%"></div></div></div>
+      </div>
+    </div>
+
+    <div class="skill-box">
+      <h3><i class="fas fa-microscope"></i> 測試與儀器</h3>
+      <div class="skill-list">
+        <div class="skill-row"><span>DCDC / Power 測試</span><span class="percent">95%</span><div class="bar"><div style="width:95%"></div></div></div>
+        <div class="skill-row"><span>焊接技術 (SMD)</span><span class="percent">95%</span><div class="bar"><div style="width:95%"></div></div></div>
+        <div class="skill-row"><span>ATE (CP/FT) 測試</span><span class="percent">90%</span><div class="bar"><div style="width:90%"></div></div></div>
+        <div class="skill-row"><span>儀器程式控制</span><span class="percent">80%</span><div class="bar"><div style="width:80%"></div></div></div>
+      </div>
+    </div>
+
+
+    <div class="skill-box highlight-box">
+      <h3><i class="fas fa-brain"></i> AI 技術應用</h3>
+      <div class="skill-list">
+        <div class="skill-row"><span>OpenAI API 開發</span><span class="percent">90%</span><div class="bar"><div style="width:90%"></div></div></div>
+        <div class="skill-row"><span>RAG 資料庫建置</span><span class="percent">85%</span><div class="bar"><div style="width:85%"></div></div></div>
+        <div class="skill-row"><span>LLM Fine-tuning</span><span class="percent">70%</span><div class="bar"><div style="width:70%"></div></div></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
