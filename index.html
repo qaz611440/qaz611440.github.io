@@ -192,177 +192,67 @@
     所有技能及其熟練度詳細列表，便於快速查閱與評估。
   </p>
 
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2rem; margin-top: 1rem;">
+  <!-- 單一大卡片包住所有類別 -->
+  <div class="glass skills-main-card" style="padding:2.5rem;">
+    <div class="skills-grid">
 
-    <!-- 程式語言 -->
-    <div class="glass" style="padding:1.8rem;">
-      <h3 style="color:#00ff88; margin-bottom:1.2rem; text-align:center;">程式語言</h3>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>Python</span><span>90%</span>
-        </div>
-        <div class="progress-bar"><div style="width:90%;"></div></div>
+      <!-- 程式語言 -->
+      <div class="skill-category">
+        <h3>程式語言</h3>
+        <div class="skill-item"><span>Python</span><span>90%</span><div class="progress"><div style="width:90%"></div></div></div>
+        <div class="skill-item"><span>Visual Studio (C#)</span><span>90%</span><div class="progress"><div style="width:90%"></div></div></div>
+        <div class="skill-item"><span>C語言</span><span>80%</span><div class="progress"><div style="width:80%"></div></div></div>
+        <div class="skill-item"><span>Verilog</span><span>80%</span><div class="progress"><div style="width:80%"></div></div></div>
+        <div class="skill-item"><span>AHDL</span><span>80%</span><div class="progress"><div style="width:80%"></div></div></div>
+        <div class="skill-item"><span>C++</span><span>75%</span><div class="progress"><div style="width:75%"></div></div></div>
+        <div class="skill-item"><span>C#語言</span><span>70%</span><div class="progress"><div style="width:70%"></div></div></div>
       </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>Visual Studio (C#)</span><span>90%</span>
-        </div>
-        <div class="progress-bar"><div style="width:90%;"></div></div>
+
+      <!-- 硬體描述語言（可與程式語言合併或獨立，這裡獨立以匹配你的6類） -->
+      <div class="skill-category">
+        <h3>硬體描述語言</h3>
+        <div class="skill-item"><span>Verilog</span><span>80%</span><div class="progress"><div style="width:80%"></div></div></div>
+        <div class="skill-item"><span>AHDL</span><span>80%</span><div class="progress"><div style="width:80%"></div></div></div>
       </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>C語言</span><span>80%</span>
-        </div>
-        <div class="progress-bar"><div style="width:80%;"></div></div>
+
+      <!-- 電路與系統設計 -->
+      <div class="skill-category">
+        <h3>電路與系統設計</h3>
+        <div class="skill-item"><span>Arduino</span><span>85%</span><div class="progress"><div style="width:85%"></div></div></div>
+        <div class="skill-item"><span>DCDC 電路設計</span><span>70%</span><div class="progress"><div style="width:70%"></div></div></div>
+        <div class="skill-item"><span>系統電路設計</span><span>60%</span><div class="progress"><div style="width:60%"></div></div></div>
+        <div class="skill-item"><span>類比IC設計</span><span>50%</span><div class="progress"><div style="width:50%"></div></div></div>
       </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>Verilog</span><span>80%</span>
-        </div>
-        <div class="progress-bar"><div style="width:80%;"></div></div>
+
+      <!-- EDA與開發工具 -->
+      <div class="skill-category">
+        <h3>EDA與開發工具</h3>
+        <div class="skill-item"><span>Quartus</span><span>90%</span><div class="progress"><div style="width:90%"></div></div></div>
+        <div class="skill-item"><span>Cadence Virtuoso</span><span>85%</span><div class="progress"><div style="width:85%"></div></div></div>
+        <div class="skill-item"><span>OrCAD</span><span>75%</span><div class="progress"><div style="width:75%"></div></div></div>
+        <div class="skill-item"><span>Allegro PCB</span><span>75%</span><div class="progress"><div style="width:75%"></div></div></div>
+        <div class="skill-item"><span>Pads</span><span>65%</span><div class="progress"><div style="width:65%"></div></div></div>
+        <div class="skill-item"><span>LabVIEW</span><span>80%</span><div class="progress"><div style="width:80%"></div></div></div>
       </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>AHDL</span><span>80%</span>
-        </div>
-        <div class="progress-bar"><div style="width:80%;"></div></div>
+
+      <!-- 測試與儀器 -->
+      <div class="skill-category">
+        <h3>測試與儀器</h3>
+        <div class="skill-item"><span>焊接技術 (SMD/DIP)</span><span>95%</span><div class="progress"><div style="width:95%"></div></div></div>
+        <div class="skill-item"><span>DCDC測試</span><span>95%</span><div class="progress"><div style="width:95%"></div></div></div>
+        <div class="skill-item"><span>測試儀器操作</span><span>90%</span><div class="progress"><div style="width:90%"></div></div></div>
+        <div class="skill-item"><span>ATE(CP/FT)測試</span><span>90%</span><div class="progress"><div style="width:90%"></div></div></div>
+        <div class="skill-item"><span>ATE設備</span><span>80%</span><div class="progress"><div style="width:80%"></div></div></div>
+        <div class="skill-item"><span>電子儀器程式控制</span><span>80%</span><div class="progress"><div style="width:80%"></div></div></div>
       </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>C++</span><span>75%</span>
-        </div>
-        <div class="progress-bar"><div style="width:75%;"></div></div>
+
+      <!-- AI 技術 -->
+      <div class="skill-category">
+        <h3>AI 技術</h3>
+        <div class="skill-item"><span>開源AI應用開發 (Fine-tune、RAG...)</span><span>85%</span><div class="progress"><div style="width:85%"></div></div></div>
       </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>C#語言</span><span>70%</span>
-        </div>
-        <div class="progress-bar"><div style="width:70%;"></div></div>
-      </div>
+
     </div>
-
-    <!-- 電路與系統設計 -->
-    <div class="glass" style="padding:1.8rem;">
-      <h3 style="color:#00ff88; margin-bottom:1.2rem; text-align:center;">電路與系統設計</h3>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>Arduino</span><span>85%</span>
-        </div>
-        <div class="progress-bar"><div style="width:85%;"></div></div>
-      </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>DCDC 電路設計</span><span>70%</span>
-        </div>
-        <div class="progress-bar"><div style="width:70%;"></div></div>
-      </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>系統電路設計</span><span>60%</span>
-        </div>
-        <div class="progress-bar"><div style="width:60%;"></div></div>
-      </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>類比IC設計</span><span>50%</span>
-        </div>
-        <div class="progress-bar"><div style="width:50%;"></div></div>
-      </div>
-    </div>
-
-    <!-- EDA與開發工具 -->
-    <div class="glass" style="padding:1.8rem;">
-      <h3 style="color:#00ff88; margin-bottom:1.2rem; text-align:center;">EDA與開發工具</h3>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>Quartus</span><span>90%</span>
-        </div>
-        <div class="progress-bar"><div style="width:90%;"></div></div>
-      </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>Cadence Virtuoso</span><span>85%</span>
-        </div>
-        <div class="progress-bar"><div style="width:85%;"></div></div>
-      </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>OrCAD</span><span>75%</span>
-        </div>
-        <div class="progress-bar"><div style="width:75%;"></div></div>
-      </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>Allegro PCB</span><span>75%</span>
-        </div>
-        <div class="progress-bar"><div style="width:75%;"></div></div>
-      </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>Pads</span><span>65%</span>
-        </div>
-        <div class="progress-bar"><div style="width:65%;"></div></div>
-      </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>LabVIEW</span><span>80%</span>
-        </div>
-        <div class="progress-bar"><div style="width:80%;"></div></div>
-      </div>
-    </div>
-
-    <!-- 測試與儀器 -->
-    <div class="glass" style="padding:1.8rem;">
-      <h3 style="color:#00ff88; margin-bottom:1.2rem; text-align:center;">測試與儀器</h3>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>焊接技術 (SMD/DIP)</span><span>95%</span>
-        </div>
-        <div class="progress-bar"><div style="width:95%;"></div></div>
-      </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>DCDC測試</span><span>95%</span>
-        </div>
-        <div class="progress-bar"><div style="width:95%;"></div></div>
-      </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>測試儀器操作</span><span>90%</span>
-        </div>
-        <div class="progress-bar"><div style="width:90%;"></div></div>
-      </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>ATE(CP/FT)測試</span><span>90%</span>
-        </div>
-        <div class="progress-bar"><div style="width:90%;"></div></div>
-      </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>ATE設備</span><span>80%</span>
-        </div>
-        <div class="progress-bar"><div style="width:80%;"></div></div>
-      </div>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>電子儀器程式控制</span><span>80%</span>
-        </div>
-        <div class="progress-bar"><div style="width:80%;"></div></div>
-      </div>
-    </div>
-
-    <!-- AI 技術 -->
-    <div class="glass" style="padding:1.8rem;">
-      <h3 style="color:#00ff88; margin-bottom:1.2rem; text-align:center;">AI 技術</h3>
-      <div class="skill-item">
-        <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
-          <span>開源AI應用開發<br>(Fine-tune、RAG...)</span><span>85%</span>
-        </div>
-        <div class="progress-bar"><div style="width:85%;"></div></div>
-      </div>
-    </div>
-
   </div>
 </section>
 

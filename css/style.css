@@ -517,3 +517,60 @@ h1 {
   transition: width 1.2s cubic-bezier(0.65, 0, 0.35, 1);
   box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
 }
+
+/* 技能區 - 緊湊網格版 */
+.skills-main-card { padding: 2.5rem; }
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.skill-category {
+  background: rgba(255,255,255,0.05);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.skill-category h3 {
+  color: #00ff88;
+  text-align: center;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+}
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+.skill-item:last-child { margin-bottom: 0; }
+.skill-item > span:first-child { margin-bottom: 0.3rem; }
+.skill-item > span:last-child {
+  align-self: flex-end;
+  color: #00d4ff;
+  font-weight: bold;
+}
+.progress {
+  height: 12px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(0,212,255,0.2);
+}
+.progress > div {
+  height: 100%;
+  background: linear-gradient(90deg, #00d4ff, #00ff88);
+  border-radius: 5px;
+  width: 0; /* 起始0，載入動畫 */
+  animation: fillProgress 1.5s ease-out forwards;
+  box-shadow: 0 0 12px rgba(0,212,255,0.5);
+}
+@keyframes fillProgress {
+  to { width: inherit; } /* inherit 會取 inline width 值 */
+}
+
+/* 手機微調 */
+@media (max-width: 768px) {
+  .skills-grid { gap: 1.5rem; }
+  .skill-category { padding: 1.2rem; }
+}
