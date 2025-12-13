@@ -497,3 +497,23 @@ h1 {
   .welcome-marquee { font-size: 1.32rem; height: 48px; line-height: 48px; }
   .marquee-track { animation-duration: 12s; }
 }
+
+/* 專業技能 - 進度條樣式 */
+.skill-item { margin-bottom: 1.2rem; }
+.skill-item:last-child { margin-bottom: 0; }
+
+.progress-bar {
+  height: 10px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.progress-bar > div {
+  height: 100%;
+  background: linear-gradient(90deg, #00d4ff, #00ff88);
+  border-radius: 4px;
+  transition: width 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+}
