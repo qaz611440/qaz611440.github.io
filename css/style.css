@@ -263,27 +263,63 @@ h1 {
 }
 
 
-/* ==================== 技能 (儀表板佈局) ==================== */
+/* ==================== 專業技能 (儀表板佈局與邊框) ==================== */
+
+/* 1. 整體外框設計 (應用在 #skills) */
+.skill-outer-frame {
+  /* 基礎設定繼承自 .glass，這裡主要加入額外效果 */
+  position: relative;
+  /* 增加內邊距，讓內容與外框有足夠間距 */
+  padding: 3rem; 
+  /* 增加圓角，讓外框更圓潤 */
+  border-radius: 30px; 
+  /* 基礎藍色陰影，營造漂浮感 */
+  box-shadow: 0 10px 50px rgba(0, 212, 255, 0.2); 
+  border: none !important; /* 移除原本的 .glass 邊框 */
+  background: rgba(10, 26, 46, 0.7); /* 略深背景，凸顯內層卡片 */
+  overflow: hidden; /* 確保邊框不會外溢 */
+}
+
+/* 2. 外框光暈邊框效果 (使用偽元素) */
+.skill-outer-frame::before {
+  content: '';
+  position: absolute;
+  top: -2px; right: -2px; bottom: -2px; left: -2px;
+  /* 藍色和綠色漸變邊框 */
+  background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%); 
+  z-index: -1;
+  border-radius: 32px; /* 略大於容器圓角 */
+  /* 動態光暈邊框 */
+  filter: blur(8px); 
+  opacity: 0.6;
+}
+.skill-outer-frame:hover::before {
+  opacity: 1;
+  filter: blur(5px);
+  transition: all 0.5s ease;
+}
+
+/* 技能區副標題 */
 .section-subtitle {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   color: #aaccff;
   font-size: 1rem;
 }
 
-/* 網格容器：核心佈局 */
+/* 3. 網格容器：核心佈局 */
 .skills-dashboard {
   display: grid;
   /* 電腦版強制 3 欄，這樣 6 個類別剛好 2 列，一屏可視 */
   grid-template-columns: repeat(3, 1fr); 
-  gap: 1.5rem;
-  padding: 0 1rem;
+  gap: 2rem;
+  padding: 0;
 }
 
-/* 單個類別卡片 */
+/* 4. 單個類別卡片 (內層玻璃卡片) */
 .skill-box {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05); /* 略為半透明 */
+  border: 1px solid rgba(0, 212, 255, 0.2); /* 淡藍色邊框 */
   border-radius: 16px;
   padding: 1.5rem;
   transition: all 0.3s ease;
@@ -293,17 +329,18 @@ h1 {
   flex-direction: column;
 }
 
+/* 滑鼠移過單一卡片的光暈效果 */
 .skill-box:hover {
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.06);
-  border-color: #00d4ff;
-  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #00ff88;
+  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.15); /* 輕微綠色光暈 */
 }
 
 /* 標題樣式 */
 .skill-box h3 {
   color: #00ff88;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   margin-bottom: 1.2rem;
   display: flex;
   align-items: center;
@@ -317,7 +354,7 @@ h1 {
 .skill-list {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem; /* 項目間距 */
+  gap: 1rem; /* 增加項目間距 */
   flex-grow: 1;
 }
 
@@ -327,22 +364,22 @@ h1 {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #e0f2ff;
 }
 
 .skill-row .percent {
-  font-size: 0.8rem;
-  color: #00d4ff;
+  font-size: 0.85rem;
+  color: #00ff88; /* 改變顏色，與進度條漸變一致 */
   font-weight: bold;
 }
 
 /* 進度條容器 */
 .skill-row .bar {
   width: 100%;
-  height: 6px; /* 變細，更精緻 */
+  height: 8px; /* 稍微變粗一點 */
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
+  border-radius: 4px;
   margin-top: 6px;
   overflow: hidden;
 }
@@ -351,20 +388,20 @@ h1 {
 .skill-row .bar > div {
   height: 100%;
   background: linear-gradient(90deg, #00d4ff, #00ff88);
-  border-radius: 3px;
+  border-radius: 4px;
   width: 0;
   animation: fillSkill 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
 }
 
 @keyframes fillSkill {
-  to { width: var(--w, inherit); } /* 吃 inline style 的 width */
+  to { width: var(--w, inherit); } /* 取得 HTML 中的 inline style width */
 }
 
-/* AI 特別強調框 (可選) */
+/* AI 特別強調框 */
 .highlight-box {
-  background: linear-gradient(145deg, rgba(0, 255, 136, 0.05), rgba(0, 0, 0, 0.2));
-  border: 1px solid rgba(0, 255, 136, 0.3);
+  background: linear-gradient(145deg, rgba(0, 255, 136, 0.1), rgba(0, 0, 0, 0.2));
+  border: 1px solid rgba(0, 255, 136, 0.5);
 }
 
 /* RWD 響應式調整 */
@@ -375,13 +412,13 @@ h1 {
 }
 
 @media (max-width: 600px) {
+  .skill-outer-frame { padding: 2rem 1rem; }
   .skills-dashboard {
     grid-template-columns: 1fr; /* 手機變 1 欄 */
-    padding: 0;
+    gap: 1.5rem;
   }
   .skill-box { padding: 1.2rem; }
 }
-
 /* ==================== 作品集 ==================== */
 .search-bar {
   width: 100%; padding: 12px; margin: 1rem 0;
