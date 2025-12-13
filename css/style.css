@@ -645,3 +645,16 @@ h1 {
   .skills-grid { gap: 1.5rem; }
   .skill-category { padding: 1.2rem; }
 }
+
+/* style.css 新增的樣式 */
+.img-container {
+    text-align: center;
+    margin: 2rem 0;
+}
+.img-container img {
+    max-width: 100%; /* 確保圖片響應式 */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
