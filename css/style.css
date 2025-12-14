@@ -658,3 +658,123 @@ h1 {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+/* ==================== 手機版專用優化 (Mobile Optimization) ==================== */
+@media (max-width: 768px) {
+
+  /* --- A. 全局容器調整 --- */
+  .container {
+    padding: 1rem;       /* 減少左右留白，爭取手機顯示空間 */
+    margin-top: 65px;    /* 配合導覽列高度 */
+    overflow-x: hidden;  /* 防止任何水平溢出 */
+  }
+  
+  /* --- B. Hero 區塊 (大頭貼與標題) --- */
+  h1 {
+    font-size: 2rem;     /* 縮小標題字體 */
+  }
+  .welcome-marquee {
+    font-size: 1rem;     /* 跑馬燈字體縮小 */
+    height: 36px;
+    line-height: 36px;
+  }
+  .role-wrapper {
+    font-size: 1.1rem;   /* 職稱輪播縮小 */
+  }
+  .avatar-container {
+    width: 120px;        /* 大頭貼縮小 */
+    height: 120px;
+  }
+
+  /* --- C. 導覽列 (Navbar) 優化 --- */
+  /* 讓導覽列在手機上更好滑動，隱藏醜醜的捲軸 */
+  .nav-container {
+    padding: 0 10px;
+    -webkit-overflow-scrolling: touch; /* iOS 平滑捲動 */
+  }
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 0.9rem; /* 字體稍微縮小 */
+  }
+
+  /* --- D. 作品集卡片 (關鍵修正) --- */
+  .grid {
+    /* 強制單欄顯示，並移除 minmax(320px)，改為自動適應 */
+    grid-template-columns: 1fr; 
+    gap: 1.5rem;
+  }
+  .card-img {
+    height: 180px; /* 手機版圖片高度縮減，避免佔據太多垂直空間 */
+  }
+  /* 篩選按鈕改為橫向滑動，避免佔據多行 */
+  .filters {
+    display: flex;
+    flex-wrap: nowrap; /* 不換行 */
+    overflow-x: auto;  /* 可橫向滑動 */
+    padding-bottom: 10px; /* 預留捲軸空間或觸控緩衝 */
+    gap: 10px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .filters::-webkit-scrollbar { display: none; } /* 隱藏捲軸 */
+  .filters button {
+    flex: 0 0 auto; /* 防止按鈕被壓縮 */
+    padding: 8px 20px; /* 加大觸控範圍 */
+  }
+
+  /* --- E. 技能儀表板 (Skills) --- */
+  .skill-outer-frame {
+    padding: 1.5rem 1rem; /* 減少外框內距 */
+  }
+  .skills-dashboard {
+    grid-template-columns: 1fr; /* 強制單欄 */
+    gap: 1.2rem;
+  }
+
+  /* --- F. 燈箱 (Lightbox) --- */
+  .lightbox-content {
+    width: 95%; /* 手機版圖片放寬到 95% */
+    margin-top: 20vh; /* 垂直置中調整 */
+  }
+  .close-lightbox {
+    top: 10px;
+    right: 20px;
+    font-size: 3rem; /* 加大關閉按鈕，方便手指點擊 */
+    background: rgba(0,0,0,0.5); /* 增加背景色防止與圖片重疊看不見 */
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 50%;
+  }
+
+  /* --- G. 其他細節 --- */
+  /* 隱藏桌機版的 Hover 特效 (手機沒有 hover) */
+  .card:hover { transform: none; }
+  .social-links { gap: 0.8rem; }
+  .social-btn { padding: 10px 16px; font-size: 0.9rem; }
+  
+  /* Timeline 調整 */
+  .timeline-item {
+    flex-direction: column; /* 垂直排列 */
+    align-items: flex-start;
+    gap: 0.5rem;
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid rgba(0, 212, 255, 0.3); /* 增加左側線條指引 */
+  }
+  .timeline-logo {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: -30px; /* 讓 Logo 浮在線條上 */
+    top: 0;
+    background: #0a1a2e; /* 避免線條穿過 Logo */
+  }
+  .timeline-item .content {
+    margin-left: 20px; /* 避開 Logo */
+  }
+  .timeline-item .year {
+    margin-left: 20px;
+    margin-bottom: 5px;
+  }
+}

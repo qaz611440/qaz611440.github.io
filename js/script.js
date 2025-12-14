@@ -91,6 +91,7 @@ function closeLightbox() {
   lightbox.style.display = "none";
 }
 
+// 原本的代碼已經很好，確認這一塊邏輯運作正常即可
 window.onclick = function(event) {
   if (event.target == lightbox) {
     lightbox.style.display = "none";
@@ -138,6 +139,22 @@ function highlightNav() {
     }
   });
 }
+
+// --- 手機版導覽列優化：點擊後自動捲動按鈕到中間 ---
+const navContainer = document.querySelector('.nav-container');
+
+navLinks.forEach(link => {
+  link.addEventListener('click', function() {
+    // 取得被點擊按鈕的位置
+    const scrollLeft = this.offsetLeft - (window.innerWidth / 2) + (this.offsetWidth / 2);
+    
+    // 平滑捲動導覽列
+    navContainer.scrollTo({
+      left: scrollLeft,
+      behavior: 'smooth'
+    });
+  });
+});
 
 // --- 初始化 ---
 document.addEventListener('DOMContentLoaded', () => {
